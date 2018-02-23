@@ -12,7 +12,7 @@
         "id": "post",
         "type": "ContentType",
         "createdAt": "2018-02-22T18:43:22.578Z",
-        "updatedAt": "2018-02-22T20:45:20.976Z",
+        "updatedAt": "2018-02-23T20:35:26.662Z",
         "createdBy": {
           "sys": {
             "type": "Link",
@@ -27,8 +27,8 @@
             "id": "6bursH6S5NNRZVuRrO7oVO"
           }
         },
-        "publishedCounter": 7,
-        "version": 14,
+        "publishedCounter": 12,
+        "version": 24,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -36,9 +36,9 @@
             "id": "6bursH6S5NNRZVuRrO7oVO"
           }
         },
-        "publishedVersion": 13,
+        "publishedVersion": 23,
         "firstPublishedAt": "2018-02-22T18:43:22.925Z",
-        "publishedAt": "2018-02-22T20:45:20.976Z"
+        "publishedAt": "2018-02-23T20:35:26.662Z"
       },
       "displayField": "title",
       "name": "Post",
@@ -78,8 +78,8 @@
           "omitted": false
         },
         {
-          "id": "tag",
-          "name": "Tag",
+          "id": "tags",
+          "name": "Tags",
           "type": "Array",
           "localized": false,
           "required": false,
@@ -210,7 +210,7 @@
             "linkType": "Space"
           }
         },
-        "version": 14,
+        "version": 24,
         "createdAt": "2018-02-22T18:43:23.063Z",
         "createdBy": {
           "sys": {
@@ -219,7 +219,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2018-02-22T20:45:21.494Z",
+        "updatedAt": "2018-02-23T20:35:27.069Z",
         "updatedBy": {
           "sys": {
             "id": "6bursH6S5NNRZVuRrO7oVO",
@@ -253,7 +253,7 @@
           "widgetId": "datePicker"
         },
         {
-          "fieldId": "tag",
+          "fieldId": "tags",
           "widgetId": "tagEditor"
         },
         {
@@ -390,7 +390,7 @@
         "id": "46W6F2LB9KK48AoKWGKQWy",
         "type": "Entry",
         "createdAt": "2018-02-22T19:11:35.867Z",
-        "updatedAt": "2018-02-22T23:03:49.165Z",
+        "updatedAt": "2018-02-23T22:37:17.584Z",
         "createdBy": {
           "sys": {
             "type": "Link",
@@ -405,8 +405,8 @@
             "id": "6bursH6S5NNRZVuRrO7oVO"
           }
         },
-        "publishedCounter": 2,
-        "version": 19,
+        "publishedCounter": 4,
+        "version": 31,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -414,9 +414,9 @@
             "id": "6bursH6S5NNRZVuRrO7oVO"
           }
         },
-        "publishedVersion": 18,
+        "publishedVersion": 30,
         "firstPublishedAt": "2018-02-22T19:12:24.664Z",
-        "publishedAt": "2018-02-22T23:03:49.165Z",
+        "publishedAt": "2018-02-23T22:37:17.584Z",
         "contentType": {
           "sys": {
             "type": "Link",
@@ -435,10 +435,10 @@
         "publishDate": {
           "en-US": "2018-02-15T17:00"
         },
-        "tag": {
+        "tags": {
           "en-US": [
-            "General",
-            "Web Development"
+            "Web Development",
+            "General"
           ]
         },
         "heroImage": {
@@ -451,7 +451,7 @@
           }
         },
         "body": {
-          "en-US": "# Lorem Ipsum\n\nQuisque dignissim ligula id nunc malesuada, id ultricies velit accumsan. Cras pharetra justo vel tempus dapibus. Etiam volutpat, ante sed aliquet interdum, augue odio ullamcorper eros, sed auctor orci lacus a libero. Morbi aliquet libero eu ipsum rhoncus, sit amet tristique.\n\n## Dolor Set\n\n![test-image](//images.contentful.com/6ep0f1noyoye/39Fdzox3JueSW8eeckOmKc/28c351b72ea9d604552dea2e63f7d01e/test-image.jpg)\n\nvelit varius. Nulla nec tellus mattis, suscipit libero nec, gravida sapien. Aliquam erat volutpat. Vivamus porttitor, est id pulvinar elementum, mi diam tincidunt leo, ut bibendum velit dolor at eros. Vivamus sed ipsum quis dolor posuere auctor. Nulla facilisi. Suspendisse quis nisl dictum, cursus libero at, sollicitudin magna. Nunc porta nisi eu tempus dictum. Ut sem tortor, aliquam sit amet rhoncus id, pellentesque dignissim augue. Donec neque nibh, ultricies nec elit non, ornare hendrerit arcu.\n\n### Amet Sed Tellus\n\n__Nullam__ auctor at velit non *consectetur*. Quisque auctor nisi vel euismod commodo. In [at nisi](https://www.google.com) nec sem feugiat ~~porta~~ id pretium nibh. Vivamus sed lectus tempus, consectetur odio at, consequat est. Ut vehicula nisl magna, vel malesuada arcu fringilla in. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut ut sodales lectus, scelerisque semper erat.\n\n- Lorem\n- ipsum \n- dolor\n- set\n\n---\n\n1. Step 1\n2. Step 2\n3. Step 3\n\n> Consequat est. Ut vehicula nisl magna, vel malesuada arcu fringilla in. Interdum.\n\n    <span class=\"code\">code</span>\n    <span class=\"more\">more code</span>\n"
+          "en-US": "Donec et suscipit turpis. Praesent eu metus sit amet velit suscipit aliquet. Maecenas eleifend interdum elementum. Nam convallis ut enim nec tempor. Mauris accumsan sed nibh vel maximus. Sed sed suscipit lacus. Aliquam vel porttitor risus, vitae pharetra ex. Morbi arcu turpis, ullamcorper ut enim quis, maximus dapibus eros.\n\nDonec venenatis odio neque, et faucibus mi vestibulum in. Nullam erat elit, suscipit et pellentesque quis, lacinia sed nulla. Morbi quis magna at dui placerat ultrices vitae malesuada libero. In sed libero quis arcu finibus condimentum. Cras et rutrum mi, id sodales urna. Proin hendrerit bibendum mollis. Nullam gravida quis nunc vitae fermentum. Integer dictum fermentum consectetur.\n\nVivamus mattis nisl ut lacus facilisis sagittis. In lobortis mauris id ipsum sagittis vehicula. Pellentesque rhoncus laoreet semper. Cras lacinia malesuada vehicula. Sed eu rhoncus nisl. Aenean in enim ac nunc convallis rutrum ut maximus tortor. Sed vehicula condimentum sagittis. Donec interdum orci id arcu tincidunt, vel sagittis orci maximus. Praesent et massa tincidunt, efficitur sapien sit amet, pellentesque augue. Duis id turpis in purus sagittis varius. Duis at auctor tortor, et aliquam augue.\n\nNulla sapien leo, congue quis dolor eget, accumsan pharetra nisi. In vel porttitor urna. Aliquam sed felis turpis. Morbi in hendrerit dui, quis fringilla lacus. Phasellus mollis magna sit amet sapien malesuada elementum ac vitae nunc. Quisque dictum dignissim augue. Quisque quis ligula velit. Cras ultricies quam metus, in pulvinar est sodales ut. Phasellus a ante purus. Donec a ex euismod, consequat ante non, accumsan leo. Sed consectetur facilisis varius. Pellentesque non quam fermentum, consectetur orci vel, viverra lectus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac tellus nec augue commodo tempor. Phasellus non placerat lacus."
         }
       }
     },
@@ -467,7 +467,7 @@
         "id": "3wnBmHFsMg8KAOq2kagiks",
         "type": "Entry",
         "createdAt": "2018-02-22T19:26:56.757Z",
-        "updatedAt": "2018-02-22T23:04:12.409Z",
+        "updatedAt": "2018-02-23T22:37:36.520Z",
         "createdBy": {
           "sys": {
             "type": "Link",
@@ -482,8 +482,8 @@
             "id": "6bursH6S5NNRZVuRrO7oVO"
           }
         },
-        "publishedCounter": 2,
-        "version": 19,
+        "publishedCounter": 4,
+        "version": 29,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -491,9 +491,9 @@
             "id": "6bursH6S5NNRZVuRrO7oVO"
           }
         },
-        "publishedVersion": 18,
+        "publishedVersion": 28,
         "firstPublishedAt": "2018-02-22T19:29:14.755Z",
-        "publishedAt": "2018-02-22T23:04:12.409Z",
+        "publishedAt": "2018-02-23T22:37:36.520Z",
         "contentType": {
           "sys": {
             "type": "Link",
@@ -512,7 +512,7 @@
         "publishDate": {
           "en-US": "2018-02-16T09:00"
         },
-        "tag": {
+        "tags": {
           "en-US": [
             "General"
           ]
@@ -527,7 +527,7 @@
           }
         },
         "body": {
-          "en-US": "# Lorem Ipsum\n\nQuisque dignissim ligula id nunc malesuada, id ultricies velit accumsan. Cras pharetra justo vel tempus dapibus. Etiam volutpat, ante sed aliquet interdum, augue odio ullamcorper eros, sed auctor orci lacus a libero. Morbi aliquet libero eu ipsum rhoncus, sit amet tristique.\n\n## Dolor Set\n\n![test-image](//images.contentful.com/6ep0f1noyoye/39Fdzox3JueSW8eeckOmKc/28c351b72ea9d604552dea2e63f7d01e/test-image.jpg)\n\nvelit varius. Nulla nec tellus mattis, suscipit libero nec, gravida sapien. Aliquam erat volutpat. Vivamus porttitor, est id pulvinar elementum, mi diam tincidunt leo, ut bibendum velit dolor at eros. Vivamus sed ipsum quis dolor posuere auctor. Nulla facilisi. Suspendisse quis nisl dictum, cursus libero at, sollicitudin magna. Nunc porta nisi eu tempus dictum. Ut sem tortor, aliquam sit amet rhoncus id, pellentesque dignissim augue. Donec neque nibh, ultricies nec elit non, ornare hendrerit arcu.\n\n### Amet Sed Tellus\n\n__Nullam__ auctor at velit non *consectetur*. Quisque auctor nisi vel euismod commodo. In [at nisi](https://www.google.com) nec sem feugiat ~~porta~~ id pretium nibh. Vivamus sed lectus tempus, consectetur odio at, consequat est. Ut vehicula nisl magna, vel malesuada arcu fringilla in. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut ut sodales lectus, scelerisque semper erat.\n\n- Lorem\n- ipsum \n- dolor\n- set\n\n---\n\n1. Step 1\n2. Step 2\n3. Step 3\n\n> Consequat est. Ut vehicula nisl magna, vel malesuada arcu fringilla in. Interdum.\n\n    <span class=\"code\">code</span>\n    <span class=\"more\">more code</span>\n"
+          "en-US": "Aenean rutrum tellus in nisi tempus, vitae suscipit purus euismod. Cras convallis vehicula maximus. Cras id ligula erat. Sed et lorem arcu. Donec consequat, odio laoreet elementum elementum, lorem dolor imperdiet arcu, sed feugiat dolor nulla in magna. Sed vel nulla fermentum turpis mollis tempus sed quis nibh. Aenean vitae semper justo.\n\nAenean consequat, mauris quis fermentum ultrices, nibh mi scelerisque mi, vitae feugiat nunc tortor nec ex. Etiam venenatis feugiat ante, a elementum urna imperdiet rhoncus. Aliquam sollicitudin ex pretium aliquam commodo. Aliquam vel orci tempor leo ullamcorper vehicula ac ac nisi. Curabitur tincidunt velit odio, id aliquet lacus vehicula in. Quisque tristique iaculis sollicitudin. Duis venenatis vehicula fermentum. Mauris ut justo ullamcorper neque tempus venenatis. Etiam augue neque, posuere eu elit eget, porttitor tempor est. Quisque luctus diam ac ex elementum, eget porttitor odio pretium. Maecenas massa ex, efficitur a sagittis hendrerit, fringilla vel metus."
         }
       }
     },
@@ -543,7 +543,7 @@
         "id": "2H1mrgshZeQki8UQ2yGq0s",
         "type": "Entry",
         "createdAt": "2018-02-22T20:25:05.828Z",
-        "updatedAt": "2018-02-22T23:04:02.333Z",
+        "updatedAt": "2018-02-23T22:38:15.812Z",
         "createdBy": {
           "sys": {
             "type": "Link",
@@ -558,8 +558,8 @@
             "id": "6bursH6S5NNRZVuRrO7oVO"
           }
         },
-        "publishedCounter": 4,
-        "version": 24,
+        "publishedCounter": 5,
+        "version": 31,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -567,9 +567,9 @@
             "id": "6bursH6S5NNRZVuRrO7oVO"
           }
         },
-        "publishedVersion": 23,
+        "publishedVersion": 30,
         "firstPublishedAt": "2018-02-22T20:26:39.085Z",
-        "publishedAt": "2018-02-22T23:04:02.333Z",
+        "publishedAt": "2018-02-23T22:38:15.812Z",
         "contentType": {
           "sys": {
             "type": "Link",
@@ -588,11 +588,6 @@
         "publishDate": {
           "en-US": "2018-02-09T05:00"
         },
-        "tag": {
-          "en-US": [
-            "General"
-          ]
-        },
         "heroImage": {
           "en-US": {
             "sys": {
@@ -603,7 +598,7 @@
           }
         },
         "body": {
-          "en-US": "# Lorem Ipsum\n\nQuisque dignissim ligula id nunc malesuada, id ultricies velit accumsan. Cras pharetra justo vel tempus dapibus. Etiam volutpat, ante sed aliquet interdum, augue odio ullamcorper eros, sed auctor orci lacus a libero. Morbi aliquet libero eu ipsum rhoncus, sit amet tristique.\n\n## Dolor Set\n\n![test-image](//images.contentful.com/6ep0f1noyoye/39Fdzox3JueSW8eeckOmKc/28c351b72ea9d604552dea2e63f7d01e/test-image.jpg)\n\nvelit varius. Nulla nec tellus mattis, suscipit libero nec, gravida sapien. Aliquam erat volutpat. Vivamus porttitor, est id pulvinar elementum, mi diam tincidunt leo, ut bibendum velit dolor at eros. Vivamus sed ipsum quis dolor posuere auctor. Nulla facilisi. Suspendisse quis nisl dictum, cursus libero at, sollicitudin magna. Nunc porta nisi eu tempus dictum. Ut sem tortor, aliquam sit amet rhoncus id, pellentesque dignissim augue. Donec neque nibh, ultricies nec elit non, ornare hendrerit arcu.\n\n### Amet Sed Tellus\n\n__Nullam__ auctor at velit non *consectetur*. Quisque auctor nisi vel euismod commodo. In [at nisi](https://www.google.com) nec sem feugiat ~~porta~~ id pretium nibh. Vivamus sed lectus tempus, consectetur odio at, consequat est. Ut vehicula nisl magna, vel malesuada arcu fringilla in. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut ut sodales lectus, scelerisque semper erat.\n\n- Lorem\n- ipsum \n- dolor\n- set\n\n---\n\n1. Step 1\n2. Step 2\n3. Step 3\n\n> Consequat est. Ut vehicula nisl magna, vel malesuada arcu fringilla in. Interdum.\n\n    <span class=\"code\">code</span>\n    <span class=\"more\">more code</span>\n"
+          "en-US": "Curabitur nibh massa, semper vel odio eu, interdum accumsan sapien. Cras rutrum augue aliquam, mollis nisl ac, vestibulum urna. Morbi sem est, tristique et erat nec, aliquet consectetur nulla. Sed non ante urna. Nulla commodo pellentesque risus, eget malesuada nulla fringilla sed. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum sem augue, lobortis a urna condimentum, porta finibus neque. In id scelerisque dolor. Phasellus non enim id lorem varius hendrerit. Nullam hendrerit velit a ante vehicula, eu consectetur nibh feugiat. Integer non tristique sapien.\n\nUt nec imperdiet sem. In hac habitasse platea dictumst. Fusce augue mi, maximus quis purus ut, accumsan interdum leo. Suspendisse sed ante felis. Integer id fringilla magna, sit amet gravida augue. Mauris venenatis turpis quam, a dignissim odio mollis quis. Nullam felis ex, semper sed sodales quis, scelerisque nec lacus. Nunc fermentum magna diam, sed dapibus elit venenatis vel.\n\nFusce et tempor ipsum, id mattis mi. Nullam mollis libero non lorem aliquet, iaculis fringilla dui gravida. Ut quam velit, bibendum et arcu laoreet, feugiat ultrices turpis. Vestibulum vel leo blandit, elementum elit a, vehicula mauris. Ut sit amet sem quis nunc tincidunt aliquam. Cras vestibulum neque at massa mollis rhoncus. Suspendisse maximus sem in diam mollis fringilla. Ut laoreet, libero vel pulvinar mollis, massa sem finibus neque, ut efficitur sem massa at tellus. Ut sodales cursus metus a maximus. Mauris at porta mi, vel faucibus metus. Aenean fermentum odio neque, a congue ipsum congue quis."
         }
       }
     },
@@ -619,7 +614,7 @@
         "id": "gaDq907enKa8UeKuAWOQG",
         "type": "Entry",
         "createdAt": "2018-02-22T23:08:24.755Z",
-        "updatedAt": "2018-02-22T23:34:41.268Z",
+        "updatedAt": "2018-02-23T20:35:47.633Z",
         "createdBy": {
           "sys": {
             "type": "Link",
@@ -634,8 +629,8 @@
             "id": "6bursH6S5NNRZVuRrO7oVO"
           }
         },
-        "publishedCounter": 3,
-        "version": 20,
+        "publishedCounter": 4,
+        "version": 22,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -643,9 +638,9 @@
             "id": "6bursH6S5NNRZVuRrO7oVO"
           }
         },
-        "publishedVersion": 19,
+        "publishedVersion": 21,
         "firstPublishedAt": "2018-02-22T23:09:43.944Z",
-        "publishedAt": "2018-02-22T23:34:41.268Z",
+        "publishedAt": "2018-02-23T20:35:47.633Z",
         "contentType": {
           "sys": {
             "type": "Link",
@@ -664,7 +659,7 @@
         "publishDate": {
           "en-US": "2018-02-17T00:00"
         },
-        "tag": {
+        "tags": {
           "en-US": [
             "General"
           ]

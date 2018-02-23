@@ -11,7 +11,7 @@ A starter template to build amazing static websites with Gatsby, Contentful and 
 
 ### Clone and Install
 ```
-git clone git@github.com:ryanwiemer/gatsby-starter-gcn.git
+git clone https://github.com/ryanwiemer/gatsby-starter-gcn.git
 npm i
 ```
 

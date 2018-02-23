@@ -126,9 +126,9 @@ class ContactForm extends React.Component {
 
     return (
 
-      <Form className="form" name="netlify-form" onSubmit={this.handleSubmit} data-netlify="true" data-netlify-honeypot="bot">
+      <Form className="form" name="contact" onSubmit={this.handleSubmit} data-netlify="true" data-netlify-honeypot="bot">
 
-        <input type="hidden" name="form-name" value="netlify-form" />
+        <input type="hidden" name="form-name" value="contact" />
         <input type="hidden" name="bot"/>
 
         <Name name="name" type="text" placeholder="Full Name" value={this.state.name} onChange={this.handleInputChange} required/>

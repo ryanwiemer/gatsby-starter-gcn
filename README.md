@@ -101,9 +101,9 @@ Create a new build hook.
 
 * Currently this template assumes you have at least one page and one post in Contentful. If you do not the website will fail to build.
 
-* Don't forget to remove `/static/robots.txt` if you want your website to be crawled by search engines.
+* Remove `/static/robots.txt` if you want your website to be crawled by search engines.
 
-* Don't store your Contentful access tokens or space ids anywhere in GitHub. Treat them like passwords.
+* **DO NOT** store your Contentful access tokens or space ids anywhere in GitHub. Treat them like passwords.
 
 ## Todo
 - [x] Add specific steps for Netlify deployment to the README

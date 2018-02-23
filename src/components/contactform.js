@@ -7,7 +7,6 @@ if (typeof window !== `undefined`) {if (!window.Promise) {window.Promise = Promi
 
 const Form = styled.form`
   margin: 0 auto;
-  max-width: 650px;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -65,6 +64,7 @@ const Email = styled.input`
 const Message = styled.textarea`
   width: 100%;
   margin: 0 0 1em 0;
+  line-height: 1.6;
   min-height: 225px;
   resize: vertical;
 `

@@ -5,14 +5,14 @@ import styled from 'styled-components'
 const Header = styled.header`
   background: ${props => props.theme.colors.base};
   width: 100%;
-  z-index: 999;
   padding: 1.5em 0;
 `
 const Nav = styled.nav`
   width: 100%;
-  max-width: 1200px;
+  max-width: ${props => props.theme.sizes.maxWidth};
   margin: 0 auto;
   padding: 0 1.5em;
+  
   ul {
     display: flex;
     justify-content: space-between;

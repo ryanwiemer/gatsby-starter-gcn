@@ -6,6 +6,7 @@ import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import config from '../utils/siteConfig'
 import Hero from '../components/hero'
+import Tags from '../components/tags'
 import Body from '../components/body'
 
 const PostTemplate = ({data}) => {
@@ -19,6 +20,7 @@ const PostTemplate = ({data}) => {
     body,
     author,
     publishDate,
+    tags,
   } = data.contentfulPost;
 
   const postIndex = find(
@@ -28,7 +30,7 @@ const PostTemplate = ({data}) => {
 
   const Post = styled.section`
     margin: 0 auto;
-    max-width: 650px;
+    max-width: ${props => props.theme.sizes.maxWidthCentered};
     padding: 3em 1.5em;
   `;
 
@@ -36,7 +38,7 @@ const PostTemplate = ({data}) => {
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
-    max-width: 650px;
+
     a {
       background: ${props => props.theme.colors.base};
       color: white;
@@ -74,6 +76,8 @@ const PostTemplate = ({data}) => {
 
     <Post>
 
+      {tags && (<Tags items={tags} />)}
+
       <Body dangerouslySetInnerHTML={{ __html: body.childMarkdownRemark.html }} />
 
       <PostNavigation >
@@ -105,6 +109,7 @@ export const query = graphql`
         }
       }
       publishDate
+      tags
     }
     allContentfulPost(limit: 1000, sort: { fields: [publishDate], order: DESC })  {
       edges {

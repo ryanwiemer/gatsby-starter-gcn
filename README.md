@@ -48,7 +48,8 @@ const theme = {
     highlight: '#5b8bf7'
   },
   sizes: {
-    maxWidth: '1200px'
+    maxWidth: '1200px',
+    maxWidthCentered: '650px'
   },
   responsive: {
     small: '35em',

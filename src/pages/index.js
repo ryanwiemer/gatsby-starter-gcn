@@ -8,7 +8,7 @@ import config from '../utils/siteConfig'
 
 const Index = ({data}) =>  {
 
-  const Wrapper = styled.div`
+  const Wrapper = styled.section`
     padding: 2em 1.5em;
     margin: 0 auto;
     max-width: ${props => props.theme.sizes.maxWidth};

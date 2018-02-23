@@ -1,26 +1,26 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import Img from 'gatsby-image'
 import config from '../utils/siteConfig'
 import ContactForm from '../components/contactform'
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   padding: 3em 1.5em;
+  margin: 0 auto;
+  max-width: ${props => props.theme.sizes.maxWidthCentered};
 `;
 
-const Title = styled.h2`
+const Title = styled.h1`
   font-size: 3em;
   font-weight: 600;
   text-align: center;
   margin: 0 0 1em 0;
 `;
 
-const Preface = styled.p`
+const Text = styled.p`
   margin: 0 auto 2em;
   line-height: 1.6;
-  max-width: 650px;
   a  {
     transition: all .2s;
     color: ${props => props.theme.colors.base};
@@ -43,7 +43,7 @@ const Contact = ({data}) => {
 
       <Wrapper>
         <Title>Contact</Title>
-        <Preface>⚠️ This is a very basic example of a stateful form powered with Netlify form hanlding. Be sure to read the <a href="https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/" target="_blank"> related post</a> on Netlify's blog.</Preface>
+        <Text>⚠️ This is a very basic example of a stateful form powered with Netlify form hanlding. Be sure to read the <a href="https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/" target="_blank"> related post</a> on Netlify's blog.</Text>
         <ContactForm/>
       </Wrapper>
 

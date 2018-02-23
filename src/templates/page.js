@@ -15,7 +15,7 @@ const PageTemplate = ({data}) => {
     body,
   } = data.contentfulPage;
 
-  const Title = styled.h2`
+  const Title = styled.h1`
     font-size: 3em;
     font-weight: 600;
     text-align: center;
@@ -24,7 +24,7 @@ const PageTemplate = ({data}) => {
 
   const Page = styled.section`
     margin: 0 auto;
-    max-width: 650px;
+    max-width: ${props => props.theme.sizes.maxWidthCentered};
     padding: 3em 1.5em 2em;
   `;
 

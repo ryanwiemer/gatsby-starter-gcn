@@ -5,36 +5,28 @@ const Wrapper = styled.ul`
   margin: 0 0 2em 0;
 `
 
-const Label = styled.p`
+const Label = styled.span`
   font-weight: 600;
   margin: 0 .5em 0 0;
   display: inline-block;
-  padding: .5em;
-  border-radius: 2px;
-  background: ${props => props.theme.colors.secondary};
 `
 
 const Item = styled.li`
   display: inline-block;
+  background: ${props => props.theme.colors.secondary};
+  padding: .5em;
+  border-radius: 2px;
   text-transform: capitalize;
-  margin: 0 .25em 0 0;
-  &:after {
-    content: ',';
-  }
-  &:last-child {
-    &:after {
-      content: '';
-    }
+  margin: 0 .5em 0 0;
   }
 `
 
 const Tags = (props) => {
   return (
     <Wrapper>
-      <Label>Tags:</Label>
-      {props.items.map((tag, index ) => (
+      {props.items.map((tags, index ) => (
         <Item key={index}>
-          {tag}
+          {tags}
         </Item>
       ))}
     </Wrapper>

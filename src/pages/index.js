@@ -101,7 +101,7 @@ const Index = ({data}) =>  {
       <Wrapper>
 
         <Header>
-          <h1>A blog made with <a href="#">Gatsby</a>, <a href="#">Contentful</a> and <a href="#">Netlify</a>  <span>🎉</span></h1>
+          <h1>A blog made with <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a>, <a href="https://www.contentful.com/" target="_blank">Contentful</a> and <a href="https://www.netlify.com/" target="_blank">Netlify</a> <span>🎉</span></h1>
         </Header>
 
         {posts && (

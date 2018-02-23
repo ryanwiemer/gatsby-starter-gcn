@@ -1,19 +1,17 @@
 require('dotenv').config();
 const config = require('./src/utils/siteConfig');
-
-
-// Temporary solution. To be cleaned up later
-try {
-    const contentfulConfig = require('./.contentful');
-}
-catch (e) {
-  if (e instanceof Error && e.code === "MODULE_NOT_FOUND")
-      console.log("Can't load .contentful.json");
-  else
-      throw e;
-}
-
 const realPrefix = config.pathPrefix === "/" ? "" : config.pathPrefix;
+
+// If the contentfulConfig can't be found assume the site is being built via Netlify with production environment variables
+try { var contentfulConfig = require('./.contentful');}
+catch (e) {
+  var contentfulConfig = {
+    "production": {
+      "spaceId": process.env.SPACE_ID,
+      "accessToken": process.env.ACCESS_TOKEN
+    }
+  }
+}
 
 module.exports = {
   siteMetadata: {
@@ -33,10 +31,9 @@ module.exports = {
     'gatsby-transformer-remark',
     {
     resolve: 'gatsby-source-contentful',
-      options: {
-        spaceId: process.env.SPACE_ID || contentfulConfig.production.spaceId,
-        accessToken: process.env.ACCESS_TOKEN || contentfulConfig.production.accessToken,
-        },
+      options: process.env.NODE_ENV === 'development' ?
+        contentfulConfig.development :
+        contentfulConfig.production
       },
     'gatsby-plugin-netlify'
   ],

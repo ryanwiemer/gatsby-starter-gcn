@@ -5,6 +5,7 @@ A starter template to build amazing static websites with Gatsby, Contentful and 
 * Contentful integration with ready to go placeholder content
 * Netlify integration including a pre-built contact form ✌️
 * Minimal responsive design - made to customize or tear apart
+* Styled components
 * SEO friendly
 
 ## Getting Started

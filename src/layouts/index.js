@@ -2,7 +2,6 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import styled, {ThemeProvider} from "styled-components"
 import config from '../utils/siteConfig'
-import 'reset-css/reset.css'
 import globals from '../styles/global'
 import theme from '../styles/theme'
 import Menu from '../components/menu'

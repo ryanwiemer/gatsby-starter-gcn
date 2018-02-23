@@ -23,7 +23,6 @@
     "path": "^0.12.7",
     "promise-polyfill": "^7.1.0",
     "react-helmet": "^5.2.0",
-    "reset-css": "^2.2.1",
     "styled-components": "^3.1.6",
     "whatwg-fetch": "^2.0.3"
   },

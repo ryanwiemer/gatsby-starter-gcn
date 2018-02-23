@@ -1,6 +1,17 @@
 require('dotenv').config();
 const config = require('./src/utils/siteConfig');
-const contentfulConfig = require('./.contentful');
+
+
+// Temporary solution. To be cleaned up later
+try {
+    const contentfulConfig = require('./.contentful');
+}
+catch (e) {
+  if (e instanceof Error && e.code === "MODULE_NOT_FOUND")
+      console.log("Can't load .contentful.json");
+  else
+      throw e;
+}
 
 const realPrefix = config.pathPrefix === "/" ? "" : config.pathPrefix;
 

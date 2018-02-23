@@ -15,11 +15,9 @@ npm i
 ```
 
 ## Setup
-`npm run setup`
+1. `npm run setup`
 
-Enter in the requested info for your space found here:
-
- **app.contentful.com** -> **Space Settings** -> **API keys**  
+2. Enter in the requested info for your Contentful space found here: **app.contentful.com** -> **Space Settings** -> **API keys**  
 
 [More detailed setup](https://github.com/contentful-userland/gatsby-contentful-starter/blob/master/README.md#set-up-of-the-needed-content-model-and-create-a-configuration-file)
 
@@ -73,7 +71,7 @@ const theme = {
 
 ### Netlify Deployment From Git (Recommended)
 
-1. [New Netlify site from Git](https://app.netlify.com/start)
+1. [New Netlify website from Git](https://app.netlify.com/start)
 
 2. Connect with GitHub and select your repo
 
@@ -93,21 +91,17 @@ ACCESS_TOKEN
 Create a new build hook.
 
 2. Navigate to Contentful:
- **app.contentful.com** -> **Space Settings** -> **Webhooks**.
-
- Create a webhook using the Netlify build URL that you just created
- and configure which events should trigger the build on production.
-
- For example the following will rebuild the production site every time a post or page is published, unpublished or deleted:
+ **app.contentful.com** -> **Space Settings** -> **Webhooks**. Create a webhook using the Netlify build URL that you just created
+ and configure which events should trigger the build on production. For example the following will rebuild the production website every time a post or page is published, unpublished or deleted:
 
 ![](contentful-webhook-selected-events.png)
 
 ## Tips
-* If you make edits to your Contentful space while running `gatsby build` you will need to stop it and rerun the command to see the changes reflected. For example a new post or page will not automatically show up until the site has been rebuilt.
+* If you make edits to your Contentful space while running `gatsby build` you will need to stop it and rerun the command to see the changes reflected. For example a new post or page will not automatically show up until the website has been rebuilt.
 
-* Currently this template assumes you have at least one page and one post in Contentful. If you do not the site will fail to build.
+* Currently this template assumes you have at least one page and one post in Contentful. If you do not the website will fail to build.
 
-* Don't forget to remove `/static/robots.txt` if you want the site to be crawled by search engines.
+* Don't forget to remove `/static/robots.txt` if you want your website to be crawled by search engines.
 
 * Don't store your Contentful access tokens or space ids anywhere in GitHub. Treat them like passwords.
 

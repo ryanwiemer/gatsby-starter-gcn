@@ -8,7 +8,7 @@
     "chalk": "^2.3.1",
     "contentful-import": "^6.2.0",
     "dotenv": "^5.0.0",
-    "gatsby": "^1.9.210",
+    "gatsby": "^1.9.212",
     "gatsby-image": "^1.0.39",
     "gatsby-link": "^1.6.37",
     "gatsby-plugin-canonical-urls": "^1.0.13",

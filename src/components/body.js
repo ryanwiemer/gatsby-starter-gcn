@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+require('prismjs/themes/prism.css')
 
 const Wrapper = styled.div`
 
@@ -84,12 +85,12 @@ const Wrapper = styled.div`
   }
 
   pre {
-    font-family: monospace;
-    background: #EEEEEE;
-    padding: 1em;
-    border-radius: 2px;
-    line-height: 1.25;
     margin: 0 0 2em 0;
+    border-radius: 2px;
+    background: ${props => props.theme.colors.secondary} !important;
+    span {
+      background: inherit !important;
+    }
   }
 `
 

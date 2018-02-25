@@ -28,7 +28,16 @@ module.exports = {
     },
     'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
-    'gatsby-transformer-remark',
+    {
+    resolve: `gatsby-transformer-remark`,
+    options: {
+      plugins: [
+        {
+          resolve: `gatsby-remark-prismjs`,
+        },
+      ],
+    },
+  },
     {
     resolve: 'gatsby-source-contentful',
       options: process.env.NODE_ENV === 'development' ?

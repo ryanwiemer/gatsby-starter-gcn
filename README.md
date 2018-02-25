@@ -84,7 +84,7 @@ ACCESS_TOKEN
 4. Click `trigger deploy` on the Deploys page to confirm it is building successfully. At this point every time you push to production a deploy will automatically start and be published to production.
 
 
-### (Optional) Setup Contentful Webhook
+### Setup Contentful Webhook (Optional)
 
 1. Navigate to Netlify:
 **Settings** -> **Build & Deploy** -> **Build hooks**.

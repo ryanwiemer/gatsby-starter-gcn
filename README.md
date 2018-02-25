@@ -97,7 +97,7 @@ Create a new build hook.
 ![](contentful-webhook-selected-events.png)
 
 ## Tips
-* If you make edits to your Contentful space while running `gatsby build` you will need to stop it and rerun the command to see the changes reflected. For example a new post or page will not automatically show up until the website has been rebuilt.
+* If you make edits to your Contentful space while running `gatsby develop` you will need to stop it and rerun the command to see the changes reflected. For example a new post or page will not automatically show up until the website has been rebuilt.
 
 * Currently this template assumes you have at least one page and one post in Contentful. If you do not the website will fail to build.
 

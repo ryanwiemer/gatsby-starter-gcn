@@ -1,18 +1,17 @@
 # gatsby-starter-gcn
 A starter template to build amazing static websites with Gatsby, Contentful and Netlify. Inspired by [gatsby-contentful-starter](https://github.com/contentful-userland/gatsby-contentful-starter).
 
-## Demo
-https://gcn.netlify.com/
-
-![](screenshots/demo.jpg)
-
-
 ## Features
 * Contentful integration with ready to go placeholder content
 * Netlify integration including a pre-built contact form
 * Minimal responsive design - made to customize or tear apart
 * Styled components
 * SEO friendly
+
+## Demo
+https://gcn.netlify.com/
+
+![](screenshots/demo.jpg)
 
 ## Getting Started
 
@@ -34,7 +33,7 @@ gatsby new gatsby-starter-gcn https://github.com/ryanwiemer/gatsby-starter-gcn.g
 
 2. `npm run setup`
 
-3. Enter in the requested info for your Contentful space found here: **app.contentful.com** -> **Space Settings** -> **API keys**  
+3. Enter in the requested info for your Contentful space found here: **app.contentful.com** → **Space Settings** → **API keys**  
 
 ## Customization
 
@@ -97,11 +96,11 @@ SPACE_ID
 
 ![](screenshots/netlify-build-environment-variables.jpg)
 
-4. Confirm the site building successfully. Be aware that every time you push to `master` a deploy will automatically start and be published to production.
+4. Confirm the site is building successfully. Be aware that every time you push to `master` a deploy will automatically start and be published to production.
 
 ## Additional Settings
 
-### Setup Contentful Webhook (Optional)
+### Contentful Webhook (Optional)
 
 1. Navigate to Netlify:
 **Settings** → **Build & Deploy** → **Build hooks**.
@@ -114,7 +113,7 @@ Create a new build hook.
 ![](screenshots/contentful-webhook-selected-events.jpg)
 
 
-### Setup Netlify Form Notifications (Optional)
+### Netlify Form Notifications (Optional)
 
 1. Navigate to Netlify:
 **Forms** → **Notifications**

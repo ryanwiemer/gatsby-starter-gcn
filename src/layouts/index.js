@@ -1,6 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import styled, {ThemeProvider} from "styled-components"
+import styled, {ThemeProvider} from 'styled-components'
 import config from '../utils/siteConfig'
 import globals from '../styles/global'
 import theme from '../styles/theme'

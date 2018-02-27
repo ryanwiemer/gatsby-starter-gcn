@@ -129,7 +129,7 @@ class ContactForm extends React.Component {
       <Form name="contact" onSubmit={this.handleSubmit} data-netlify="true" data-netlify-honeypot="bot">
 
         <input type="hidden" name="form-name" value="contact" />
-        <input type="hidden" name="bot"/>
+        <p hidden><label>Don’t fill this out: <input name="bot" /></label></p>
 
         <Name name="name" type="text" placeholder="Full Name" value={this.state.name} onChange={this.handleInputChange} required/>
         <Email name="email" type="email" placeholder="Email" value={this.state.email} onChange={this.handleInputChange} required/>

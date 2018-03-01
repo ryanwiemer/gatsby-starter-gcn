@@ -121,7 +121,7 @@ const Modal = styled.div`
   }
 `
 
-const Button = styled.button`
+const Button = styled.div`
   background: ${props => props.theme.colors.base};
   font-size: 1em;
   display: inline-block;
@@ -134,6 +134,7 @@ const Button = styled.button`
   border-radius: 2px;
   text-decoration: none;
   transition: .2s;
+  z-index: 99;
   &:focus {
     outline: none;
   }

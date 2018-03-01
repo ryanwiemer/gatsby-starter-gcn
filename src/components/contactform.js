@@ -43,6 +43,20 @@ const Form = styled.form`
       color: gray;
     }
   }
+
+  &:before {
+    content: '';
+    background: black;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: .2s all;
+    opacity: ${props => props.overlay ? '.8' : '0'};
+    visibility: ${props => props.overlay ? 'visible' : 'hidden'};
+  }
 `
 
 const Name = styled.input`
@@ -73,9 +87,58 @@ const Submit = styled.input`
   background: ${props => props.theme.colors.base} !important;
   color: white !important;
   cursor: pointer;
-  transition: all .2s;
+  transition: .2s;
   &:hover {
     background: ${props => props.theme.colors.highlight} !important;
+  }
+`
+
+const Modal = styled.div`
+  background: white;
+  padding: 2em;
+  border-radius: 2px;
+  position: fixed;
+  min-width: 75%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  z-index: 99;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  transition: .2s all;
+  opacity: ${props => props.visible ? '1' : '0'};
+  visibility: ${props => props.visible ? 'visible' : 'hidden'};
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    min-width: inherit;
+    max-width: 400px;
+  }
+
+  p {
+    line-height: 1.6;
+    margin: 0 0 2em 0;
+  }
+`
+
+const Button = styled.button`
+  background: ${props => props.theme.colors.base};
+  font-size: 1em;
+  display: inline-block;
+  margin: 0 auto;
+  border: none;
+ 	outline: none;
+  cursor: pointer;
+  color: white;
+  padding: 1em;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: .2s;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    background: ${props => props.theme.colors.highlight};
   }
 `
 
@@ -92,7 +155,8 @@ class ContactForm extends React.Component {
     this.state = {
       name: '',
       email: '',
-      message: ''
+      message:'',
+      showModal: false
     };
     this.handleInputChange = this.handleInputChange.bind(this);
   }
@@ -112,32 +176,44 @@ class ContactForm extends React.Component {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({ "form-name": "contact", ...this.state })
       })
-      .then(() => alert("Success!"))
+      .then(this.handleSuccess)
       .catch(error => alert(error));
       event.preventDefault();
-      this.setState({
-        name: '',
-        email: '',
-        message:''
-      });
     };
+
+  handleSuccess = () =>  {
+    this.setState({
+      name: '',
+      email: '',
+      message:'',
+      showModal: true
+    });
+  }
+
+  closeModal = () => {
+    this.setState({ showModal: false });
+  }
 
   render() {
 
     return (
 
-      <Form name="contact" onSubmit={this.handleSubmit} data-netlify="true" data-netlify-honeypot="bot">
+      <Form name="contact" onSubmit={this.handleSubmit} data-netlify="true" data-netlify-honeypot="bot" overlay={this.state.showModal} onClick={this.closeModal}>
 
         <input type="hidden" name="form-name" value="contact" />
-        <p hidden><label>Don’t fill this out: <input name="bot" /></label></p>
+        <p hidden><label>Don’t fill this out: <input name="bot" onChange={this.handleInputChange} /></label></p>
 
         <Name name="name" type="text" placeholder="Full Name" value={this.state.name} onChange={this.handleInputChange} required/>
         <Email name="email" type="email" placeholder="Email" value={this.state.email} onChange={this.handleInputChange} required/>
         <Message name="message" type="text" placeholder="Message" value={this.state.message} onChange={this.handleInputChange} required/>
         <Submit name="submit" type="submit" value="Send" />
 
-      </Form>
+        <Modal visible={this.state.showModal}>
+          <p>Thank you for reaching out. I'll get back to you as soon as possible.</p>
+          <Button onClick={this.closeModal}>Okay</Button>
+        </Modal>
 
+      </Form>
     )
   }
 }

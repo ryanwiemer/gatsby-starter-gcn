@@ -43,7 +43,7 @@ const Contact = ({data}) => {
 
       <Wrapper>
         <Title>Contact</Title>
-        <Text>⚠️ This is a very basic example of a stateful form powered with Netlify form hanlding. Be sure to read the <a href="https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/" target="_blank"> related post</a> on Netlify's blog.</Text>
+        <Text>⚠️ This is an example of a contact form powered with Netlify form hanlding. Be sure to review the <a href="https://www.netlify.com/docs/form-handling/" target="_blank">Netlify documenation</a> for more information.</Text>
         <ContactForm/>
       </Wrapper>
 

@@ -1,9 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import 'whatwg-fetch'
-import Promise from 'promise-polyfill'
-if (typeof window !== `undefined`) {if (!window.Promise) {window.Promise = Promise;}}
+import 'whatwg-fetch' // Fetch Polyfill
+
+/*
+  ⚠️ This is an example of a contact form powered with Netlify form hanlding.
+  Be sure to review the Netlify documentation for more information:
+  https://www.netlify.com/docs/form-handling/
+*/
 
 const Form = styled.form`
   margin: 0 auto;
@@ -209,7 +213,7 @@ class ContactForm extends React.Component {
         <Submit name="submit" type="submit" value="Send" />
 
         <Modal visible={this.state.showModal}>
-          <p>Thank you for reaching out. I'll get back to you as soon as possible.</p>
+          <p>Thank you for reaching out. I will get back to you as soon as possible.</p>
           <Button onClick={this.closeModal}>Okay</Button>
         </Modal>
 

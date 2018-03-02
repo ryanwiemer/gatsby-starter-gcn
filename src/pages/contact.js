@@ -18,18 +18,6 @@ const Title = styled.h1`
   margin: 0 0 1em 0;
 `;
 
-const Text = styled.p`
-  margin: 0 auto 2em;
-  line-height: 1.6;
-  a  {
-    transition: all .2s;
-    color: ${props => props.theme.colors.base};
-    &:hover {
-      color: ${props => props.theme.colors.highlight};
-    }
-  }
-`;
-
 const Contact = ({data}) => {
 
   return(
@@ -43,7 +31,6 @@ const Contact = ({data}) => {
 
       <Wrapper>
         <Title>Contact</Title>
-        <Text>⚠️ This is an example of a contact form powered with Netlify form hanlding. Be sure to review the <a href="https://www.netlify.com/docs/form-handling/" target="_blank">Netlify documenation</a> for more information.</Text>
         <ContactForm/>
       </Wrapper>
 

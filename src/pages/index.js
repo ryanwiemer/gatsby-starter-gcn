@@ -96,30 +96,26 @@ const Index = ({data}) =>  {
   const posts = data.allContentfulPost.edges;
 
   return (
-    <div>
+    <Wrapper>
 
-      <Wrapper>
+      <Header>
+        <h1>A blog made with <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a>, <a href="https://www.contentful.com/" target="_blank">Contentful</a> and <a href="https://www.netlify.com/" target="_blank">Netlify</a> <span>🎉</span></h1>
+      </Header>
 
-        <Header>
-          <h1>A blog made with <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a>, <a href="https://www.contentful.com/" target="_blank">Contentful</a> and <a href="https://www.netlify.com/" target="_blank">Netlify</a> <span>🎉</span></h1>
-        </Header>
+      {posts && (
+        <List>
+           {posts.map(({ node: post, index }) => (
+              <Card key={post.id}>
+                <PostLink to={`/posts/${post.slug}/`}>
+                  <Img sizes={post.heroImage.sizes} backgroundColor={'#EEEEEE'} />
+                  <h3>{post.title}</h3>
+                </PostLink>
+              </Card>
+           ))}
+        </List>
+      )}
 
-        {posts && (
-          <List>
-             {posts.map(({ node: post, index }) => (
-                <Card key={post.id}>
-                  <PostLink to={`/posts/${post.slug}/`}>
-                    <Img sizes={post.heroImage.sizes} backgroundColor={'#EEEEEE'} />
-                    <h3>{post.title}</h3>
-                  </PostLink>
-                </Card>
-             ))}
-          </List>
-        )}
-
-      </Wrapper>
-
-    </div>
+    </Wrapper>
   )
 }
 
@@ -133,7 +129,7 @@ export const query = graphql`
           slug
           heroImage {
             title
-            sizes(maxWidth: 1800) {
+            sizes(maxWidth: 800) {
               ...GatsbyContentfulSizes_noBase64
             }
           }

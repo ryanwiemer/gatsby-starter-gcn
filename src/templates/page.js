@@ -31,18 +31,18 @@ const PageTemplate = ({data}) => {
   return(
     <div>
 
-    <Helmet>
-      <title>{`${title} - ${config.siteTitle}`}</title>
-      <meta property="og:title" content={`${title} - ${config.siteTitle}`} />
-      <meta property="og:url" content={`${config.siteUrl}/${slug}/`} />
-    </Helmet>
+      <Helmet>
+        <title>{`${title} - ${config.siteTitle}`}</title>
+        <meta property="og:title" content={`${title} - ${config.siteTitle}`} />
+        <meta property="og:url" content={`${config.siteUrl}/${slug}/`} />
+      </Helmet>
 
-    <Page>
-      <Title>{title}</Title>
-      <Body dangerouslySetInnerHTML={{ __html: body.childMarkdownRemark.html }} />
-    </Page>
+      <Page>
+        <Title>{title}</Title>
+        <Body dangerouslySetInnerHTML={{ __html: body.childMarkdownRemark.html }} />
+      </Page>
 
-  </div>
+    </div>
   )
 }
 

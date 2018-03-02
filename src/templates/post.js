@@ -65,29 +65,29 @@ const PostTemplate = ({data}) => {
   return(
     <div>
 
-    <Helmet>
-      <title>{`${title} - ${config.siteTitle}`}</title>
-      <meta property="og:title" content={`${title} - ${config.siteTitle}`} />
-      <meta property="og:url" content={`${config.siteUrl}/posts/${slug}/`} />
-      <meta property="og:image" content={heroImage.sizes.src} />
-    </Helmet>
+      <Helmet>
+        <title>{`${title} - ${config.siteTitle}`}</title>
+        <meta property="og:title" content={`${title} - ${config.siteTitle}`} />
+        <meta property="og:url" content={`${config.siteUrl}/posts/${slug}/`} />
+        <meta property="og:image" content={heroImage.sizes.src} />
+      </Helmet>
 
-    <Hero title={title} image={heroImage.sizes} height={'50vh'}/>
+      <Hero title={title} image={heroImage.sizes} height={'50vh'}/>
 
-    <Post>
+      <Post>
 
-      {tags && (<Tags items={tags} />)}
+        {tags && (<Tags items={tags} />)}
 
-      <Body dangerouslySetInnerHTML={{ __html: body.childMarkdownRemark.html }} />
+        <Body dangerouslySetInnerHTML={{ __html: body.childMarkdownRemark.html }} />
 
-      <PostNavigation >
-        {postIndex.previous && (<PreviousLink to={`/posts/${postIndex.previous.slug}/`}>Prev Post</PreviousLink>)}
-        {postIndex.next && (<NextLink to={`/posts/${postIndex.next.slug}/`}>Next Post</NextLink>)}
-      </PostNavigation>
+        <PostNavigation >
+          {postIndex.previous && (<PreviousLink to={`/posts/${postIndex.previous.slug}/`}>Prev Post</PreviousLink>)}
+          {postIndex.next && (<NextLink to={`/posts/${postIndex.next.slug}/`}>Next Post</NextLink>)}
+        </PostNavigation>
 
-    </Post>
+      </Post>
 
-  </div>
+    </div>
   )
 }
 

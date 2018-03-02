@@ -159,10 +159,9 @@ class ContactForm extends React.Component {
       message:'',
       showModal: false
     };
-    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
-  handleInputChange(event) {
+  handleInputChange = (event) => {
     const target = event.target;
     const value = target.value;
     const name = target.name;

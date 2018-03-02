@@ -45,8 +45,7 @@ Edit `/src/utils/siteConfig.js`
 module.exports = {
   siteTitle: 'GCN',
   siteDescription: 'A starter template to build amazing static websites with Gatsby, Contentful and Netlify',
-  siteUrl: 'https://gcn.netlify.com',
-  pathPrefix: '/'
+  siteUrl: 'https://gcn.netlify.com'
 };
 ```
 

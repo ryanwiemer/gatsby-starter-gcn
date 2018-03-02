@@ -34,7 +34,7 @@ const PageTemplate = ({data}) => {
     <Helmet>
       <title>{`${title} - ${config.siteTitle}`}</title>
       <meta property="og:title" content={`${title} - ${config.siteTitle}`} />
-      <meta property="og:url" content={`${config.siteUrl + config.pathPrefix}${slug}/`} />
+      <meta property="og:url" content={`${config.siteUrl}/${slug}/`} />
     </Helmet>
 
     <Page>

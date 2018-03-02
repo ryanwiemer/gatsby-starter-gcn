@@ -1,3 +1,5 @@
+// Setup modified from https://github.com/contentful-userland/gatsby-contentful-starter
+
 const spaceImport = require('contentful-import')
 const exportFile = require('../contentful/export.json')
 const inquirer = require('inquirer')
@@ -84,7 +86,7 @@ inquirer
   .then((_, error) => {
     console.log(
       `All set! You can now run ${chalk.yellow(
-        'npm run dev'
+        'gatsby develop'
       )} to see it in action.`
     )
   })

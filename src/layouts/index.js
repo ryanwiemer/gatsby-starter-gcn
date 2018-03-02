@@ -23,7 +23,7 @@ const Template = ({ children }) => {
           <meta property="og:locale" content="en_US" />
           <meta property="og:type" content="website" />
           <meta property="og:site_name" content={config.siteTitle} />
-          <meta property="og:url" content={config.siteUrl + config.pathPrefix}/>
+          <meta property="og:url" content={config.siteUrl}/>
         </Helmet>
 
         <ThemeProvider theme={theme}>

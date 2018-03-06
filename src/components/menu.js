@@ -12,7 +12,7 @@ const Nav = styled.nav`
   max-width: ${props => props.theme.sizes.maxWidth};
   margin: 0 auto;
   padding: 0 1.5em;
-  
+
   ul {
     display: flex;
     justify-content: space-between;
@@ -33,7 +33,6 @@ const Nav = styled.nav`
     color: DarkGray;
     font-weight: 600;
     transition: all .2s;
-    padding:
     border-bottom: 2px solid ${props => props.theme.colors.base};
     &:hover {
       color: white;
@@ -42,7 +41,7 @@ const Nav = styled.nav`
 `
 
 const activeLinkStyle = {
-  color: 'white',
+  color: 'white'
 };
 
 const Menu = () => {

@@ -18,7 +18,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     ).then(result => {
         result.data.allContentfulPost.edges.map(({ node }) => {
         createPage({
-          path: `posts/${node.slug}/`,
+          path: `${node.slug}/`,
           component: path.resolve(`./src/templates/post.js`),
           context: {
             slug: node.slug,
@@ -55,5 +55,31 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     })
   })
 
-  return Promise.all([loadPosts, loadPages])
+  const loadTags = new Promise((resolve, reject) => {
+    graphql(`
+      {
+        allContentfulTag {
+          edges {
+            node {
+              slug
+            }
+          }
+        }
+      }
+    `
+    ).then(result => {
+        result.data.allContentfulTag.edges.map(({ node }) => {
+        createPage({
+          path: `tag/${node.slug}/`,
+          component: path.resolve(`./src/templates/tag.js`),
+          context: {
+            slug: node.slug,
+          },
+        })
+      })
+      resolve()
+    })
+  })
+
+  return Promise.all([loadPosts, loadPages, loadTags])
 };

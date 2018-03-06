@@ -4,7 +4,9 @@ import Img from 'gatsby-image'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import config from '../utils/siteConfig'
-import Body from '../components/body'
+import Container from '../components/Container'
+import PageTitle from '../components/PageTitle'
+import PageBody from '../components/PageBody'
 
 const PageTemplate = ({data}) => {
 
@@ -15,19 +17,6 @@ const PageTemplate = ({data}) => {
     body,
   } = data.contentfulPage;
 
-  const Title = styled.h1`
-    font-size: 3em;
-    font-weight: 600;
-    text-align: center;
-    margin: 0 0 2rem 0;
-  `;
-
-  const Page = styled.section`
-    margin: 0 auto;
-    max-width: ${props => props.theme.sizes.maxWidthCentered};
-    padding: 3em 1.5em 2em;
-  `;
-
   return(
     <div>
 
@@ -37,10 +26,10 @@ const PageTemplate = ({data}) => {
         <meta property="og:url" content={`${config.siteUrl}/${slug}/`} />
       </Helmet>
 
-      <Page>
-        <Title>{title}</Title>
-        <Body dangerouslySetInnerHTML={{ __html: body.childMarkdownRemark.html }} />
-      </Page>
+      <Container>
+        <PageTitle>{title}</PageTitle>
+        <PageBody body={body} />
+      </Container>
 
     </div>
   )

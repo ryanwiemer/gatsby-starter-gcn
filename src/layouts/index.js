@@ -4,8 +4,8 @@ import styled, {ThemeProvider} from 'styled-components'
 import config from '../utils/siteConfig'
 import globals from '../styles/global'
 import theme from '../styles/theme'
-import Menu from '../components/menu'
-import Footer from '../components/footer'
+import Menu from '../components/Menu'
+import Footer from '../components/Footer'
 import favicon from '../images/favicon.ico'
 
 const Template = ({ children }) => {

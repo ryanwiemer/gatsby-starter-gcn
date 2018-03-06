@@ -2,7 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 require('prismjs/themes/prism.css')
 
-const Wrapper = styled.div`
+const Body = styled.div`
+  margin: 0 auto;
+  max-width: ${props => props.theme.sizes.maxWidthCentered};
 
   h1, h2, h3 {
     font-weight: 600;
@@ -29,7 +31,7 @@ const Wrapper = styled.div`
   }
 
   a {
-    transition: all .2s;
+    transition: .2s;
     color: ${props => props.theme.colors.base};
     &:hover {
       color: ${props => props.theme.colors.highlight};
@@ -94,10 +96,10 @@ const Wrapper = styled.div`
   }
 `
 
-const Body = (props) => {
+const PageBody = (props) => {
   return (
-    <Wrapper dangerouslySetInnerHTML={props.dangerouslySetInnerHTML}/>
+    <Body dangerouslySetInnerHTML={{ __html: props.body.childMarkdownRemark.html }}/>
   )
 }
 
-export default Body
+export default PageBody

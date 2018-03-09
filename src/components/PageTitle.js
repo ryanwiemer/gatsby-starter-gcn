@@ -19,7 +19,6 @@ const Title = styled.h1`
       color: ${props => props.theme.colors.highlight};
     }
   }
-
 `;
 
 const PageTitle = (props) => {

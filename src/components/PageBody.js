@@ -13,17 +13,9 @@ const Body = styled.div`
     text-transform: capitalize;
   }
 
-  h1 {
-    font-size: 1.5em;
-  }
-
-  h2 {
-    font-size: 1.25em;
-  }
-
-  h3 {
-    font-size: 1em;
-  }
+  h1 {font-size: 1.5em;}
+  h2 {font-size: 1.25em;}
+  h3 {font-size: 1em;}
 
   p {
     line-height: 1.6;
@@ -38,40 +30,32 @@ const Body = styled.div`
     }
   }
 
-  del {
-    text-decoration: line-through;
-  }
+  del {text-decoration: line-through;}
+  strong {font-weight: 600;}
+  em {font-style: italic;}
 
-  strong {
-    font-weight: 600;
-  }
-
-  em {
-    font-style: italic;
-  }
+  ul, ol {margin: 0 0 2em 0;}
 
   ul {
-    margin: 0 0 2em 0;
-
     li {
       list-style: disc;
       list-style-position: inside;
       line-height: 1.25;
-      &:last-child {margin: 0;}
+      &:last-child {
+        margin: 0;
+      }
     }
-
   }
 
   ol {
-    margin: 0 0 2em 0;
-
     li {
       list-style: decimal;
       list-style-position: inside;
       line-height: 1.25;
-      &:last-child {margin: 0;}
+      &:last-child {
+        margin: 0;
+      }
     }
-
   }
 
   hr {

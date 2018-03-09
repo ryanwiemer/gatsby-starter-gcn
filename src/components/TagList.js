@@ -9,7 +9,6 @@ const List = styled.ul`
 
 const Tag = styled.li`
   display: inline-block;
-
   a {
     transition: .2s;
     background: ${props => props.theme.colors.tertiary};

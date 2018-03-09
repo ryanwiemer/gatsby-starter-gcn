@@ -9,18 +9,8 @@ import Hero from '../components/Hero'
 import Container from '../components/Container'
 import PageBody from '../components/PageBody'
 import TagList from '../components/TagList'
-import PostNavigation from '../components/PostNavigation'
+import PostLinks from '../components/PostLinks'
 import PostDate from '../components/PostDate'
-
-const PrevLink = styled(Link)`
-  margin-right: auto;
-  order: 1;
-`;
-
-const NextLink = styled(Link)`
-  margin-left: auto;
-  order: 2;
-`;
 
 const PostTemplate = ({data}) => {
 
@@ -59,18 +49,10 @@ const PostTemplate = ({data}) => {
       />
 
       <Container>
-
         {tags && (<TagList tags={tags} />)}
-
         <PostDate date={publishDate}/>
-
         <PageBody body={body} />
-
-        <PostNavigation>
-          {postIndex.previous && (<PrevLink to={`/${postIndex.previous.slug}/`}>Prev Post</PrevLink>)}
-          {postIndex.next && (<NextLink to={`/${postIndex.next.slug}/`}>Next Post</NextLink>)}
-        </PostNavigation>
-
+        <PostLinks previous={postIndex.previous} next={postIndex.next} />
       </Container>
 
     </div>

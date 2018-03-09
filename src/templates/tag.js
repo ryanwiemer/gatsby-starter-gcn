@@ -24,9 +24,9 @@ const TagTemplate = ({data}) => {
     <div>
 
       <Helmet>
-        <title>{`${title} - ${config.siteTitle}`}</title>
-        <meta property="og:title" content={`${title} - ${config.siteTitle}`} />
-        <meta property="og:url" content={`${config.siteUrl}/${slug}/`} />
+        <title>{`Tag: ${title} - ${config.siteTitle}`}</title>
+        <meta property="og:title" content={`Tag: ${title} - ${config.siteTitle}`} />
+        <meta property="og:url" content={`${config.siteUrl}/tag/${slug}/`} />
       </Helmet>
 
       <Container>

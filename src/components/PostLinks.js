@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import Link from 'gatsby-link'
 
-const Navigation = styled.div`
+const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
@@ -19,12 +20,24 @@ const Navigation = styled.div`
   }
 `;
 
-const PostNavigation = (props) => {
+const PreviousLink = styled(Link)`
+  margin-right: auto;
+  order: 1;
+`;
+
+const NextLink = styled(Link)`
+  margin-left: auto;
+  order: 2;
+`;
+
+
+const PostLinks = (props) => {
   return (
-    <Navigation>
-      {props.children}
-    </Navigation>
+    <Wrapper>
+      {props.previous && (<PreviousLink to={`/${props.previous.slug}/`}>Prev Post</PreviousLink>)}
+      {props.next && (<NextLink to={`/${props.next.slug}/`}>Next Post</NextLink>)}
+    </Wrapper>
   )
 }
 
-export default PostNavigation
+export default PostLinks

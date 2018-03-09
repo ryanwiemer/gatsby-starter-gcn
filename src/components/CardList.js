@@ -7,7 +7,8 @@ const List = styled.ul`
   justify-content: space-between;
   margin: 0 auto;
   &:after {
-    content: "";
+    content: " ";
+    flex: auto;
     @media screen and (min-width: ${props => props.theme.responsive.small}) {
       flex: 0 0 49%;
     }

@@ -42,6 +42,7 @@ const Title = styled.h1`
   position: absolute;
   width: 100%;
   max-width: ${props => props.theme.sizes.maxWidthCentered};
+  padding: 0 1rem;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

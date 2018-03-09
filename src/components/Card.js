@@ -10,11 +10,11 @@ const Post = styled.li`
   width: 100%;
   transition: background .2s;
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
-    width: 49%;
+    flex: 0 0 49%;
     margin: 0 0 2vw 0;
   }
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
-    width: 32%;
+    flex: 0 0 32%;
   }
   &:hover {
     background: ${props => props.theme.colors.tertiary};
@@ -23,7 +23,7 @@ const Post = styled.li`
     display: flex;
     flex-flow: column;
     height: 100%;
-    flex: 0 1 100%;
+    width: 100%;
     color: ${props => props.theme.colors.base};
     text-decoration: none;
     div {

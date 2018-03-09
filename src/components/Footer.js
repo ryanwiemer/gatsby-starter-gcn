@@ -16,7 +16,7 @@ const Wrapper = styled.footer`
     align-items: flex-start;
     width: 100%;
     border-top: 1px solid ${props => props.theme.colors.secondary};
-    padding: 1em 0;
+    padding: 1em 0 2em;
     margin: 0 1.5em;
   }
 
@@ -35,6 +35,9 @@ const Wrapper = styled.footer`
     color: ${props => props.theme.colors.base};
     &:hover {
       color: ${props => props.theme.colors.highlight};
+    }
+    &:visited {
+      color: ${props => props.theme.colors.base};
     }
   }
 `

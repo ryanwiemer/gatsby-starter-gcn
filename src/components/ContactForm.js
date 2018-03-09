@@ -16,7 +16,6 @@ const Form = styled.form`
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: flex-start;
-
   input, textarea {
     font-family: inherit;
     font-size: inherit;
@@ -36,7 +35,6 @@ const Form = styled.form`
     &:-ms-input-placeholder {color: gray;}
     &:-moz-placeholder {color: gray;}
   }
-
   &:before {
     content: '';
     background: black;
@@ -107,7 +105,6 @@ const Modal = styled.div`
     min-width: inherit;
     max-width: 400px;
   }
-
   p {
     line-height: 1.6;
     margin: 0 0 2em 0;

@@ -15,6 +15,7 @@ const PostTemplate = ({data}) => {
   const {
     title,
     slug,
+    id,
     heroImage,
     description,
     body,
@@ -58,6 +59,7 @@ export const query = graphql`
   query postQuery($slug: String!) {
     contentfulPost(slug: {eq: $slug}) {
       title
+      id
       slug
       publishDate(formatString: "MMMM DD, YYYY")
       tags {

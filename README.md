@@ -96,7 +96,7 @@ SPACE_ID
 
 ![](screenshots/netlify-build-environment-variables.jpg)
 
-4. Confirm the website is building successfully. Be aware that every time you push to `master` a deploy will automatically start and be published to production.
+4. Navigate to Netlify: **Deploys**. Click `Trigger deploy` to manually trigger a deploy to confirm the website is building successfully using your build environment variables. At this point be aware that every time you push to `master` a deploy will automatically start and be published to production.
 
 ## Additional Settings
 

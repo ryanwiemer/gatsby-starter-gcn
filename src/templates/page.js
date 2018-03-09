@@ -10,7 +10,6 @@ const PageTemplate = ({data}) => {
 
   const {
     title,
-    id,
     slug,
     body,
   } = data.contentfulPage;
@@ -37,7 +36,6 @@ export const query = graphql`
   query pageQuery($slug: String!) {
     contentfulPage(slug: {eq: $slug}) {
       title
-      id
       slug
       body {
         childMarkdownRemark {

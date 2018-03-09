@@ -14,16 +14,13 @@ const PostTemplate = ({data}) => {
 
   const {
     title,
-    id,
     slug,
     heroImage,
     description,
     body,
-    author,
     publishDate,
     tags,
   } = data.contentfulPost;
-
 
   const postIndex = find(
     data.allContentfulPost.edges,
@@ -42,7 +39,7 @@ const PostTemplate = ({data}) => {
 
       <Hero
         title={title}
-        image={heroImage.sizes}
+        image={heroImage}
         height={'50vh'}
       />
 
@@ -61,7 +58,6 @@ export const query = graphql`
   query postQuery($slug: String!) {
     contentfulPost(slug: {eq: $slug}) {
       title
-      id
       slug
       publishDate(formatString: "MMMM DD, YYYY")
       tags {
@@ -88,11 +84,9 @@ export const query = graphql`
         }
         previous {
           slug
-          title
         }
         next {
           slug
-          title
         }
       }
     }
@@ -100,13 +94,3 @@ export const query = graphql`
 `
 
 export default PostTemplate
-
-
-/*
-
-<PostNavigation previousLink={} >
-  {postIndex.previous && (<PreviousLink to={`/${postIndex.previous.slug}/`}>Prev Post</PreviousLink>)}
-  {postIndex.next && (<NextLink to={`/${postIndex.next.slug}/`}>Next Post</NextLink>)}
-</PostNavigation>
-
-*/

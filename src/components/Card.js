@@ -6,14 +6,15 @@ import Img from 'gatsby-image'
 const Post = styled.li`
   border: 1px solid ${props => props.theme.colors.secondary};
   border-radius: 2px;
-  margin: 0 0 2vw 0;
+  margin: 0 0 1em 0;
   width: 100%;
   transition: background .2s;
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
-    flex: 0 0 49%;
+    width: 49%;
+    margin: 0 0 2vw 0;
   }
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
-    flex: 0 0 32%;
+    width: 32%;
   }
   &:hover {
     background: ${props => props.theme.colors.tertiary};

@@ -3,17 +3,19 @@ import styled from 'styled-components'
 
 const List = styled.ul`
   display: flex;
-  flex-flow: row wrap;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin: 0 auto;
   &:after {
-    content: " ";
-    flex: auto;
+    content: "";
+    display: block;
     @media screen and (min-width: ${props => props.theme.responsive.small}) {
-      flex: 0 0 49%;
+      margin-left: 49%;
+      display: block;
     }
     @media screen and (min-width: ${props => props.theme.responsive.medium}) {
-      flex: 0 0 32%;
+      margin-left: 32%;
+      display: block;
     }
   }
 `;

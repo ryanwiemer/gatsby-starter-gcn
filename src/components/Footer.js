@@ -8,27 +8,26 @@ const Wrapper = styled.footer`
   align-items: flex-start;
   margin: 0 auto;
   max-width: ${props => props.theme.sizes.maxWidth};
+`
 
-  ul {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-    border-top: 1px solid ${props => props.theme.colors.secondary};
-    padding: 1em 0 2em;
-    margin: 0 1.5em;
+const List = styled.ul`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  border-top: 1px solid ${props => props.theme.colors.secondary};
+  padding: 1em 0 2em;
+  margin: 0 1.5em;
+`
+
+const Item = styled.li`
+  display: inline-block;
+  padding: .25em 0;
+  width: 100%;
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    width: auto;
   }
-
-  li {
-    display: inline-block;
-    padding: .25em 0;
-    width: 100%;
-    @media screen and (min-width: ${props => props.theme.responsive.small}) {
-      width: auto;
-    }
-  }
-
   a {
     font-weight: 600;
     transition: all .2s;
@@ -48,10 +47,10 @@ const Wordmark = styled.img`
 
 const Footer = () => (
   <Wrapper>
-    <ul>
-      <li><a href="https://www.contentful.com/" rel="nofollow" target="_blank"><Wordmark src="https://images.contentful.com/fo9twyrwpveg/44baP9Gtm8qE2Umm8CQwQk/c43325463d1cb5db2ef97fca0788ea55/PoweredByContentful_LightBackground.svg" alt="Powered by Contentful" /></a></li>
-      <li><a href="https://github.com/ryanwiemer/gatsby-starter-gcn" target="_blank">gatsby-starter-gcn</a> by <a href="https://github.com/ryanwiemer" target="_blank">@ryanwiemer</a></li>
-    </ul>
+    <List>
+      <Item><a href="https://www.contentful.com/" rel="nofollow" target="_blank"><Wordmark src="https://images.contentful.com/fo9twyrwpveg/44baP9Gtm8qE2Umm8CQwQk/c43325463d1cb5db2ef97fca0788ea55/PoweredByContentful_LightBackground.svg" alt="Powered by Contentful" /></a></Item>
+      <Item><a href="https://github.com/ryanwiemer/gatsby-starter-gcn" target="_blank">gatsby-starter-gcn</a> by <a href="https://github.com/ryanwiemer" target="_blank">@ryanwiemer</a></Item>
+    </List>
   </Wrapper>
 )
 

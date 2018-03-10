@@ -2,18 +2,25 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
-import PageTitle from '../components/PageTitle'
-import PageBody from '../components/PageBody'
 
 const Box = styled.div`
   margin: 0 auto;
   padding: 3em 1.5em 2em;
+  text-align: center;
 `;
 
 const Text = styled.p`
   text-align: center;
   line-height: 1.6;
   margin: 0 0 1em 0;
+`;
+
+const Title = styled.h1`
+  font-size: 3em;
+  text-transform: capitalize;
+  font-weight: 600;
+  margin: 0 0 3rem 0;
+  line-height: 1.2;
 `;
 
 const NotFoundPage = () => (
@@ -25,7 +32,7 @@ const NotFoundPage = () => (
     </Helmet>
 
     <Box>
-      <PageTitle>Error 404</PageTitle>
+      <Title>Error 404</Title>
       <Text>Sorry, that page can't be found</Text>
     </Box>
 

@@ -44,7 +44,7 @@ export const query = graphql`
           heroImage {
             title
             sizes(maxWidth: 800) {
-              ...GatsbyContentfulSizes_noBase64
+              ...GatsbyContentfulSizes_withWebp_noBase64
             }
           }
           body {

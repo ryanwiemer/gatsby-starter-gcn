@@ -127,6 +127,4 @@ Create a new build hook.
 
 * Currently this template assumes you have at least **one page**, **one post** and **one tag** in Contentful. If you do not the website will fail to build.
 
-* Remove `/static/robots.txt` if you want your website to be crawled by search engines.
-
 * **DO NOT** store your Contentful access tokens or space ids anywhere in GitHub. Treat them like passwords.

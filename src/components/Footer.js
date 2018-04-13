@@ -42,7 +42,7 @@ const Item = styled.li`
 `
 
 const Wordmark = styled.img`
-  max-width: 100px;
+  width: 100px;
 `
 
 const Footer = () => (

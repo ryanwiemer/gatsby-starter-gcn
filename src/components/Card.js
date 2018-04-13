@@ -26,7 +26,7 @@ const Post = styled.li`
     width: 100%;
     color: ${props => props.theme.colors.base};
     text-decoration: none;
-    div {
+    .gatsby-image-wrapper {
       height: 0;
       padding-bottom: 60%;
     }

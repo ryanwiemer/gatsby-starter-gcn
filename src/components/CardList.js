@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const List = styled.ul`
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   justify-content: space-between;
   margin: 0 auto;
   &::after {

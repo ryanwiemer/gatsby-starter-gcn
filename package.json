@@ -6,7 +6,7 @@
   "author": "Ryan Wiemer <ryan@ryanwiemer.com>",
   "dependencies": {
     "chalk": "^2.3.2",
-    "contentful-import": "^6.2.3",
+    "contentful-import": "^7.0.1",
     "dotenv": "^5.0.1",
     "gatsby": "^1.9.248",
     "gatsby-image": "^1.0.45",

@@ -35,6 +35,13 @@ injectGlobal`
     line-height: 1;
   }
 
+  @media screen and (min-width: 35em) {
+    html {
+      margin-right: calc(-100vw + 100%);
+      overflow-x: hidden;
+    }
+  }
+
   ol, ul {
     list-style: none;
   }

@@ -1,0 +1,3 @@
+{
+  "extends": "gatsby-standard"
+}

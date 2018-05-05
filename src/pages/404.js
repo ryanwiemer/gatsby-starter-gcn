@@ -7,13 +7,13 @@ const Box = styled.div`
   margin: 0 auto;
   padding: 3em 1.5em 2em;
   text-align: center;
-`;
+`
 
 const Text = styled.p`
   text-align: center;
   line-height: 1.6;
   margin: 0 0 1em 0;
-`;
+`
 
 const Title = styled.h1`
   font-size: 3em;
@@ -21,12 +21,10 @@ const Title = styled.h1`
   font-weight: 600;
   margin: 0 0 3rem 0;
   line-height: 1.2;
-`;
+`
 
 const NotFoundPage = () => (
-
   <div>
-
     <Helmet>
       <title>404 - Page Not Found</title>
     </Helmet>
@@ -35,7 +33,6 @@ const NotFoundPage = () => (
       <Title>Error 404</Title>
       <Text>Sorry, that page can't be found</Text>
     </Box>
-
   </div>
 )
 

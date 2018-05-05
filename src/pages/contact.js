@@ -8,11 +8,9 @@ import PageTitle from '../components/PageTitle'
 import PageBody from '../components/PageBody'
 import ContactForm from '../components/ContactForm'
 
-const Contact = ({data}) => {
-
-  return(
+const Contact = ({ data }) => {
+  return (
     <div>
-
       <Helmet>
         <title>{`Contact - ${config.siteTitle}`}</title>
         <meta property="og:title" content={`Contact - ${config.siteTitle}`} />
@@ -21,9 +19,8 @@ const Contact = ({data}) => {
 
       <Container>
         <PageTitle>Contact</PageTitle>
-        <ContactForm/>
+        <ContactForm />
       </Container>
-
     </div>
   )
 }

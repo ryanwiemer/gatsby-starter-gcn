@@ -1,7 +1,6 @@
 import React from 'react'
 import sortBy from 'lodash/sortBy'
 import Helmet from 'react-helmet'
-import styled from 'styled-components'
 import config from '../utils/siteConfig'
 import Card from '../components/Card'
 import CardList from '../components/CardList'
@@ -9,7 +8,7 @@ import PageTitle from '../components/PageTitle'
 import Container from '../components/Container'
 
 const TagTemplate = ({ data }) => {
-  const { title, id, slug } = data.contentfulTag
+  const { title, slug } = data.contentfulTag
 
   const posts = sortBy(data.contentfulTag.post, 'publishDate').reverse()
 

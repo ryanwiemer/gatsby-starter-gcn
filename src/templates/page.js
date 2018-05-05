@@ -1,6 +1,5 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import styled from 'styled-components'
 import config from '../utils/siteConfig'
 import Container from '../components/Container'
 import PageTitle from '../components/PageTitle'

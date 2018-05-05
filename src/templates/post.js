@@ -1,7 +1,6 @@
 import React from 'react'
 import find from 'lodash/find'
 import Helmet from 'react-helmet'
-import styled from 'styled-components'
 import config from '../utils/siteConfig'
 import Hero from '../components/Hero'
 import Container from '../components/Container'
@@ -16,7 +15,6 @@ const PostTemplate = ({ data }) => {
     slug,
     id,
     heroImage,
-    description,
     body,
     publishDate,
     tags,

@@ -1,7 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import styled, { ThemeProvider } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import config from '../utils/siteConfig'
+// eslint-disable-next-line
 import globals from '../styles/global'
 import theme from '../styles/theme'
 import Menu from '../components/Menu'

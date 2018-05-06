@@ -23,7 +23,7 @@ const BgImg = styled(Img)`
   }
   &:before {
     content: '';
-    background: rgba(0,0,0,.25);
+    background: rgba(0, 0, 0, 0.25);
     position: absolute;
     top: 0;
     left: 0;
@@ -50,9 +50,13 @@ const Title = styled.h1`
   color: white;
 `
 
-const Hero = (props) => (
+const Hero = props => (
   <Wrapper>
-    <BgImg height={props.height} sizes={props.image.sizes} backgroundColor={'#eeeeee'} />
+    <BgImg
+      height={props.height}
+      sizes={props.image.sizes}
+      backgroundColor={'#eeeeee'}
+    />
     <Title>{props.title}</Title>
   </Wrapper>
 )

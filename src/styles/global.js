@@ -84,4 +84,4 @@ injectGlobal`
   	width: 100%;
   	height: auto;
   }
-`;
+`

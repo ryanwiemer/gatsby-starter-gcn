@@ -6,16 +6,24 @@ const Body = styled.div`
   margin: 0 auto;
   max-width: ${props => props.theme.sizes.maxWidthCentered};
 
-  h1, h2, h3 {
+  h1,
+  h2,
+  h3 {
     font-weight: 600;
     line-height: 1.25;
     margin: 0 0 1rem 0;
     text-transform: capitalize;
   }
 
-  h1 {font-size: 1.5em;}
-  h2 {font-size: 1.25em;}
-  h3 {font-size: 1em;}
+  h1 {
+    font-size: 1.5em;
+  }
+  h2 {
+    font-size: 1.25em;
+  }
+  h3 {
+    font-size: 1em;
+  }
 
   p {
     line-height: 1.6;
@@ -23,18 +31,27 @@ const Body = styled.div`
   }
 
   a {
-    transition: .2s;
+    transition: 0.2s;
     color: ${props => props.theme.colors.base};
     &:hover {
       color: ${props => props.theme.colors.highlight};
     }
   }
 
-  del {text-decoration: line-through;}
-  strong {font-weight: 600;}
-  em {font-style: italic;}
+  del {
+    text-decoration: line-through;
+  }
+  strong {
+    font-weight: 600;
+  }
+  em {
+    font-style: italic;
+  }
 
-  ul, ol {margin: 0 0 2em 0;}
+  ul,
+  ol {
+    margin: 0 0 2em 0;
+  }
 
   ul {
     li {
@@ -67,7 +84,7 @@ const Body = styled.div`
   blockquote {
     font-style: italic;
     border-left: 4px solid ${props => props.theme.colors.secondary};
-    padding: 0 0 0 .5em;
+    padding: 0 0 0 0.5em;
   }
 
   pre {
@@ -80,9 +97,11 @@ const Body = styled.div`
   }
 `
 
-const PageBody = (props) => {
+const PageBody = props => {
   return (
-    <Body dangerouslySetInnerHTML={{ __html: props.body.childMarkdownRemark.html }}/>
+    <Body
+      dangerouslySetInnerHTML={{ __html: props.body.childMarkdownRemark.html }}
+    />
   )
 }
 

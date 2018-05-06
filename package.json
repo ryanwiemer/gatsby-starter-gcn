@@ -34,12 +34,19 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "setup": "node ./bin/setup.js",
-    "dev": "gatsby develop"
+    "dev": "gatsby develop",
+    "lint:js": "./node_modules/.bin/eslint --ext .js,.jsx .",
+    "lint:css": "./node_modules/.bin/stylelint 'src/**/*.css'",
+    "check-pretty": "./node_modules/.bin/prettier -l 'src/**'",
+    "format": "prettier --write \"src/**/*.js\""
   },
   "devDependencies": {
-    "prettier": "^1.12.0"
+    "eslint": "^4.19.1",
+    "eslint-config-gatsby-standard": "^1.2.0",
+    "prettier": "^1.12.1",
+    "stylelint-config-prettier": "^3.2.0",
+    "stylelint-config-standard": "^18.2.0"
   }
 }

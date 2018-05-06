@@ -13,29 +13,30 @@ const Wrapper = styled.div`
     padding: 1em;
     border-radius: 2px;
     text-decoration: none;
-    transition: .2s;
+    transition: 0.2s;
     &:hover {
       background: ${props => props.theme.colors.highlight};
     }
   }
-`;
+`
 
 const PreviousLink = styled(Link)`
   margin-right: auto;
   order: 1;
-`;
+`
 
 const NextLink = styled(Link)`
   margin-left: auto;
   order: 2;
-`;
+`
 
-
-const PostLinks = (props) => {
+const PostLinks = props => {
   return (
     <Wrapper>
-      {props.previous && (<PreviousLink to={`/${props.previous.slug}/`}>Prev Post</PreviousLink>)}
-      {props.next && (<NextLink to={`/${props.next.slug}/`}>Next Post</NextLink>)}
+      {props.previous && (
+        <PreviousLink to={`/${props.previous.slug}/`}>Prev Post</PreviousLink>
+      )}
+      {props.next && <NextLink to={`/${props.next.slug}/`}>Next Post</NextLink>}
     </Wrapper>
   )
 }

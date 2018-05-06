@@ -32,7 +32,7 @@ const Nav = styled.nav`
     text-decoration: none;
     color: DarkGray;
     font-weight: 600;
-    transition: all .2s;
+    transition: all 0.2s;
     border-bottom: 2px solid ${props => props.theme.colors.base};
     &:hover {
       color: white;
@@ -41,21 +41,33 @@ const Nav = styled.nav`
 `
 
 const activeLinkStyle = {
-  color: 'white'
-};
+  color: 'white',
+}
 
 const Menu = () => {
-    return (
-      <Header>
-        <Nav>
-          <ul>
-            <li><Link to="/" exact activeStyle={activeLinkStyle}>Home</Link></li>
-            <li><Link to="/about/" activeStyle={activeLinkStyle}>About</Link></li>
-            <li><Link to="/contact/" activeStyle={activeLinkStyle}>Contact</Link></li>
-          </ul>
-        </Nav>
-      </Header>
-    )
+  return (
+    <Header>
+      <Nav>
+        <ul>
+          <li>
+            <Link to="/" exact activeStyle={activeLinkStyle}>
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/about/" activeStyle={activeLinkStyle}>
+              About
+            </Link>
+          </li>
+          <li>
+            <Link to="/contact/" activeStyle={activeLinkStyle}>
+              Contact
+            </Link>
+          </li>
+        </ul>
+      </Nav>
+    </Header>
+  )
 }
 
 export default Menu

@@ -21,10 +21,10 @@ const Template = ({ children }) => {
         <link rel="icon" href={favicon} />
         <meta name="description" content={config.siteDescription} />
         <meta property="og:title" content={config.siteTitle} />
+        <meta property="og:url" content={config.siteUrl} />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content={config.siteTitle} />
-        <meta property="og:url" content={config.siteUrl} />
       </Helmet>
 
       <ThemeProvider theme={theme}>

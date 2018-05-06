@@ -23,7 +23,7 @@ module.exports = {
       title: config.siteTitle,
       description: config.siteDescription,
       image_url: `${config.siteUrl}${config.siteLogo}`,
-      author: config.userName,
+      author: config.author,
       copyright: config.copyright,
     },
   },

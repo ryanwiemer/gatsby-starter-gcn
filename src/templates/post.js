@@ -32,7 +32,7 @@ const PostTemplate = ({ data }) => {
       <Helmet>
         <title>{`${title} - ${config.siteTitle}`}</title>
       </Helmet>
-      <SEO postPath={slug} postNode={postNode} postSEO />
+      <SEO pagePath={slug} postNode={postNode} postSEO />
 
       <Hero title={title} image={heroImage} height={'50vh'} />
 
@@ -54,6 +54,7 @@ export const query = graphql`
       slug
       metaDescription
       publishDate(formatString: "MMMM DD, YYYY")
+      publishDateISO: publishDate(formatString: "YYYY-MM-DD")
       tags {
         title
         id
@@ -63,6 +64,11 @@ export const query = graphql`
         title
         sizes(maxWidth: 1800) {
           ...GatsbyContentfulSizes_withWebp_noBase64
+        }
+        ogimg: resize(width: 1800) {
+          src
+          width
+          height
         }
       }
       body {

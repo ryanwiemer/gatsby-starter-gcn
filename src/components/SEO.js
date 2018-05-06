@@ -4,34 +4,51 @@ import config from '../utils/siteConfig'
 
 class SEO extends Component {
   render() {
-    const { postNode, postPath, postSEO } = this.props
+    const { postNode, pagePath, postSEO, pageSEO } = this.props
     let title
     let description
     let image
-    let postURL
-    if (postSEO) {
+    let imgWidth
+    let imgHeight
+    let pageUrl
+
+    // Set Default OpenGraph Parameters for Fallback
+    title = config.siteTitle
+    description = config.siteDescription
+    image = config.siteUrl + config.siteLogo
+    imgWidth = 512
+    imgHeight = 512
+    pageUrl = config.siteUrl
+
+    // Replace with Page Parameters if post or page
+    if (postSEO || pageSEO) {
       title = postNode.title
       description =
         postNode.metaDescription === null
           ? postNode.body.childMarkdownRemark.excerpt
           : postNode.metaDescription
-      image = postNode.heroImage.sizes.src
-      postURL = config.siteUrl + '/' + postPath
-    } else {
-      title = config.siteTitle
-      description = config.siteDescription
-      image = config.siteLogo
+
+      pageUrl = config.siteUrl + '/' + pagePath + '/'
+    }
+    // Use Hero Image for OpenGraph
+    if (postSEO) {
+      image = 'https:' + postNode.heroImage.ogimg.src
+      imgWidth = postNode.heroImage.ogimg.width
+      imgHeight = postNode.heroImage.ogimg.height
     }
 
+    // Default Website Schema
     const schemaOrgJSONLD = [
       {
         '@context': 'http://schema.org',
         '@type': 'WebSite',
         url: config.siteUrl,
-        name: title,
+        name: config.siteTitle,
         alternateName: config.siteTitleAlt ? config.siteTitleAlt : '',
       },
     ]
+
+    // Blog Post Schema
     if (postSEO) {
       schemaOrgJSONLD.push(
         {
@@ -42,9 +59,16 @@ class SEO extends Component {
               '@type': 'ListItem',
               position: 1,
               item: {
-                '@id': postURL,
+                '@id': config.siteUrl,
+                name: config.siteTitle,
+              },
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              item: {
+                '@id': pageUrl,
                 name: title,
-                image,
               },
             },
           ],
@@ -52,18 +76,42 @@ class SEO extends Component {
         {
           '@context': 'http://schema.org',
           '@type': 'BlogPosting',
-          url: config.siteUrl,
+          url: pageUrl,
           name: title,
           alternateName: config.siteTitleAlt ? config.siteTitleAlt : '',
           headline: title,
           image: {
             '@type': 'ImageObject',
             url: image,
+            width: imgWidth,
+            height: imgHeight,
           },
-          description,
+          author: {
+            '@type': 'Person',
+            name: config.author,
+            url: config.authorUrl,
+          },
+          publisher: {
+            '@type': 'Organization',
+            name: config.publisher,
+            url: config.siteUrl,
+          },
+          datePublished: postNode.publishDateISO,
+          mainEntityOfPage: pageUrl,
         }
       )
     }
+
+    // Page SEO Schema
+    if (pageSEO) {
+      schemaOrgJSONLD.push({
+        '@context': 'http://schema.org',
+        '@type': 'WebPage',
+        url: pageUrl,
+        name: title,
+      })
+    }
+
     return (
       <Helmet>
         {/* General tags */}
@@ -78,8 +126,11 @@ class SEO extends Component {
         {/* OpenGraph tags */}
         <meta property="og:title" content={title} />
         {postSEO ? <meta property="og:type" content="article" /> : null}
-        <meta property="og:url" content={postSEO ? postURL : config.siteUrl} />
-        {postSEO ? <meta property="og:image" content={image} /> : null}
+
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:image" content={image} />
+        <meta property="og:image:width" content={imgWidth} />
+        <meta property="og:image:height" content={imgHeight} />
         <meta property="og:description" content={description} />
 
         {/* Twitter Card tags */}

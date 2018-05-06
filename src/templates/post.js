@@ -31,9 +31,6 @@ const PostTemplate = ({ data }) => {
     <div>
       <Helmet>
         <title>{`${title} - ${config.siteTitle}`}</title>
-        <meta property="og:title" content={`${title} - ${config.siteTitle}`} />
-        <meta property="og:url" content={`${config.siteUrl}/${slug}/`} />
-        <meta property="og:image" content={heroImage.sizes.src} />
       </Helmet>
       <SEO postPath={slug} postNode={postNode} postSEO />
 
@@ -55,6 +52,7 @@ export const query = graphql`
       title
       id
       slug
+      metaDescription
       publishDate(formatString: "MMMM DD, YYYY")
       tags {
         title
@@ -70,6 +68,7 @@ export const query = graphql`
       body {
         childMarkdownRemark {
           html
+          excerpt(pruneLength: 130)
         }
       }
     }

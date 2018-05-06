@@ -11,9 +11,10 @@ class SEO extends Component {
     let postURL
     if (postSEO) {
       title = postNode.title
-      description = postNode.description
-        ? postNode.description
-        : postNode.excerpt
+      description =
+        postNode.metaDescription === null
+          ? postNode.body.childMarkdownRemark.excerpt
+          : postNode.metaDescription
       image = postNode.heroImage.sizes.src
       postURL = config.siteUrl + '/' + postPath
     } else {
@@ -22,12 +23,11 @@ class SEO extends Component {
       image = config.siteLogo
     }
 
-    const blogURL = config.siteUrl
     const schemaOrgJSONLD = [
       {
         '@context': 'http://schema.org',
         '@type': 'WebSite',
-        url: blogURL,
+        url: config.siteUrl,
         name: title,
         alternateName: config.siteTitleAlt ? config.siteTitleAlt : '',
       },
@@ -52,7 +52,7 @@ class SEO extends Component {
         {
           '@context': 'http://schema.org',
           '@type': 'BlogPosting',
-          url: blogURL,
+          url: config.siteUrl,
           name: title,
           alternateName: config.siteTitleAlt ? config.siteTitleAlt : '',
           headline: title,
@@ -78,14 +78,9 @@ class SEO extends Component {
         {/* OpenGraph tags */}
         <meta property="og:title" content={title} />
         {postSEO ? <meta property="og:type" content="article" /> : null}
-        <meta property="og:url" content={postSEO ? postURL : blogURL} />
-        <meta property="og:image" content={image} />
+        <meta property="og:url" content={postSEO ? postURL : config.siteUrl} />
+        {postSEO ? <meta property="og:image" content={image} /> : null}
         <meta property="og:description" content={description} />
-        <meta property="og:site_name" content={config.siteTitle} />
-        <meta
-          property="fb:app_id"
-          content={config.siteFBAppID ? config.siteFBAppID : ''}
-        />
 
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />

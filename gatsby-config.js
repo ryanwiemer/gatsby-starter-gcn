@@ -22,7 +22,7 @@ module.exports = {
       feed_url: `${config.siteUrl}/rss.xml`,
       title: config.siteTitle,
       description: config.siteDescription,
-      image_url: `${config.siteUrl}/logos/logo-1024.png`,
+      image_url: `${config.siteUrl}${config.siteLogo}`,
       author: config.userName,
       copyright: config.copyright,
     },
@@ -54,6 +54,12 @@ module.exports = {
           : contentfulConfig.production,
     },
     'gatsby-plugin-netlify',
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: config.googleAnalyticsID,
+      },
+    },
     'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-manifest',
@@ -65,7 +71,7 @@ module.exports = {
         background_color: config.backgroundColor,
         theme_color: config.themeColor,
         display: 'minimal-ui',
-        icon: 'static/logos/logo-1024.png',
+        icon: `static/${config.siteLogo}`,
       },
     },
     'gatsby-plugin-offline',

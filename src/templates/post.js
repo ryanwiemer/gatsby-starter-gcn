@@ -8,6 +8,7 @@ import PageBody from '../components/PageBody'
 import TagList from '../components/TagList'
 import PostLinks from '../components/PostLinks'
 import PostDate from '../components/PostDate'
+import SEO from '../components/SEO'
 
 const PostTemplate = ({ data }) => {
   const {
@@ -19,6 +20,7 @@ const PostTemplate = ({ data }) => {
     publishDate,
     tags,
   } = data.contentfulPost
+  const postNode = data.contentfulPost
 
   const postIndex = find(
     data.allContentfulPost.edges,
@@ -33,6 +35,7 @@ const PostTemplate = ({ data }) => {
         <meta property="og:url" content={`${config.siteUrl}/${slug}/`} />
         <meta property="og:image" content={heroImage.sizes.src} />
       </Helmet>
+      <SEO postPath={slug} postNode={postNode} postSEO />
 
       <Hero title={title} image={heroImage} height={'50vh'} />
 

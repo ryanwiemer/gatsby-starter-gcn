@@ -1,5 +1,6 @@
 module.exports = {
   siteTitle: 'GCN',
+  siteTitleAlt: 'GCN', // This allows an alternative site title for SEO schema.
   shortTitle: 'GCN', // Used for App manifest e.g. Mobile Home Screen
   siteDescription:
     'A starter template to build amazing static websites with Gatsby, Contentful and Netlify',

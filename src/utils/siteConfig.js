@@ -4,7 +4,7 @@ module.exports = {
   siteDescription:
     'A starter template to build amazing static websites with Gatsby, Contentful and Netlify',
   siteUrl: 'https://gcn.netlify.com', // Site domain. Do not include a trailing slash! If you wish to use a path prefix you can read more about that here: https://www.gatsbyjs.org/docs/path-prefix/
-  siteLogo: '/logos/logo-1024.png', // Logo used for SEO, RSS, and manifest.
+  siteLogo: '/logos/logo-512.png', // Logo used for SEO, RSS, and manifest.
   userName: 'GCN User', // Username for RSS author segment.
   backgroundColor: '#e9e9e9',
   themeColor: '#121212',

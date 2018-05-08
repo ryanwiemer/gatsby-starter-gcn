@@ -4,15 +4,19 @@ import config from '../utils/siteConfig'
 import Container from '../components/Container'
 import PageTitle from '../components/PageTitle'
 import ContactForm from '../components/ContactForm'
+import SEO from '../components/SEO'
 
 const Contact = ({ data }) => {
+  const postNode = {
+    title: `Contact - ${config.siteTitle}`,
+  }
+
   return (
     <div>
       <Helmet>
         <title>{`Contact - ${config.siteTitle}`}</title>
-        <meta property="og:title" content={`Contact - ${config.siteTitle}`} />
-        <meta property="og:url" content={`${config.siteUrl}/contact/`} />
       </Helmet>
+      <SEO postNode={postNode} pagePath="contact" customTitle />
 
       <Container>
         <PageTitle>Contact</PageTitle>

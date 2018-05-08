@@ -4,5 +4,8 @@
     "stylelint-config-standard",
     "stylelint-config-prettier",
     "stylelint-config-styled-components"
-  ]
+  ],
+  "rules": {
+    "no-descending-specificity": null
+  }
 }

@@ -22,6 +22,6 @@ module.exports = {
   backgroundColor: '#e9e9e9', // Used for Offline Manifest
   themeColor: '#121212', // Used for Offline Manifest
 
-  googleAnalyticsID: '', // GA tracking ID.
+  googleAnalyticsID: 'UA-47311644-5', // Replace with your GA tracking ID.
   copyright: 'Copyright © 2018 GCN User', // Copyright string for the RSS feed. Could also go in the footer.
 }

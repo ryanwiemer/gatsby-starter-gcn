@@ -10,7 +10,7 @@ import favicon from '../images/favicon.ico'
 
 const Template = ({ children }) => {
   return (
-    <div>
+    <div className="siteRoot">
       <Helmet>
         <title>{config.siteTitle}</title>
         <meta charSet="utf-8" />
@@ -21,18 +21,21 @@ const Template = ({ children }) => {
         <link rel="icon" href={favicon} />
         <meta name="description" content={config.siteDescription} />
         <meta property="og:title" content={config.siteTitle} />
+        <meta property="og:url" content={config.siteUrl} />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content={config.siteTitle} />
-        <meta property="og:url" content={config.siteUrl} />
       </Helmet>
 
       <ThemeProvider theme={theme}>
-        <div>
+        <div className="siteContent">
           <Menu />
           {children()}
-          <Footer />
         </div>
+      </ThemeProvider>
+      {/* Footer placed in seperate ThemeProvider to avoid Rendering an extra DIV in HTML output  */}
+      <ThemeProvider theme={theme}>
+        <Footer />
       </ThemeProvider>
     </div>
   )

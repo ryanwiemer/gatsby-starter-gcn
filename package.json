@@ -39,12 +39,13 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "test": "npm run lint:css && npm run lint:js && check-pretty",
+    "test": "npm run lint:css && npm run lint:js && npm run check-pretty",
     "setup": "node ./bin/setup.js",
     "dev": "gatsby develop",
     "lint:js": "eslint --ext .js,.jsx .",
     "lint:css": "stylelint 'src/**/*.js'",
-    "check-pretty": "./node_modules/.bin/prettier -l 'src/**'",
+    "check-pretty":
+      "prettier -l prettier --list-different {,src/**/}*.{js,jsx,json,css,scss}",
     "format": "prettier --write \"src/**/*.js\""
   },
   "devDependencies": {

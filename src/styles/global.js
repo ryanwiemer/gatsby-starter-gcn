@@ -26,6 +26,23 @@ injectGlobal`
     vertical-align: baseline;
   }
 
+  /* Added to Fix Footer to bottom of viewport */
+  html, body {
+    height: 100%;
+  }
+  .siteRoot {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .siteContent {
+    flex: 1 0 auto;
+  }
+  footer {
+    width: 100%;
+  }
+  /* End Fix to Place Footer on Bottom of Viewport */
+
   article, aside, details, figcaption, figure,
   footer, header, hgroup, menu, nav, section {
     display: block;

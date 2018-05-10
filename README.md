@@ -10,6 +10,11 @@ A starter template to build amazing static websites with Gatsby, Contentful and 
 * Styled components
 * SEO friendly
 * Google Analytics
+* Progressive Web app
+* Offline Support
+* RSS feed
+* [Gatsby Standard module](https://www.npmjs.com/package/eslint-config-gatsby-standard) for linting Javascript with StandardJS
+* Stylelint support for Styled Components to lint the CSS in JS
 
 ## Demo
 

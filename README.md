@@ -16,6 +16,7 @@ A starter template to build amazing static websites with Gatsby, Contentful and 
 * Offline Support
 * RSS Feed
 * [Gatsby Standard module](https://www.npmjs.com/package/eslint-config-gatsby-standard) for linting Javascript with StandardJS
+* Google Analytics
 * Stylelint support for Styled Components to lint the CSS in JS
 
 ## Demo
@@ -134,6 +135,7 @@ const theme = {
 ```
 ACCESS_TOKEN
 SPACE_ID
+GOOGLE_ANALYTICS
 ```
 
 ![](screenshots/netlify-build-environment-variables.jpg)

@@ -20,21 +20,12 @@ const Form = styled.form`
   textarea {
     font-family: inherit;
     font-size: inherit;
-    background: none;
     border: none;
     outline: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     background: ${props => props.theme.colors.tertiary};
     color: ${props => props.theme.colors.base};
     border-radius: 2px;
     padding: 1em;
-    &:focus {
-      outline: none;
-    }
-    &:required {
-      box-shadow: none;
-    }
     &::-webkit-input-placeholder {
       color: gray;
     }
@@ -47,8 +38,14 @@ const Form = styled.form`
     &:-moz-placeholder {
       color: gray;
     }
+    &:required {
+      box-shadow: none;
+    }
+    &:focus {
+      outline: none;
+    }
   }
-  &:before {
+  &::before {
     content: '';
     background: black;
     height: 100%;

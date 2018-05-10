@@ -43,8 +43,7 @@
     "dev": "gatsby develop",
     "lint:js": "eslint --ext .js,.jsx .",
     "lint:css": "stylelint 'src/**/*.js'",
-    "check-pretty":
-      "prettier -l prettier --list-different {,src/**/}*.{js,jsx,json,css,scss}",
+    "check-pretty": "prettier -l {,src/**/}*.{js,jsx,json,css,scss}",
     "format": "prettier --write \"src/**/*.js\""
   },
   "devDependencies": {

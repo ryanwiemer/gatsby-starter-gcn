@@ -4,17 +4,18 @@ import config from '../utils/siteConfig'
 import Container from '../components/Container'
 import PageTitle from '../components/PageTitle'
 import PageBody from '../components/PageBody'
+import SEO from '../components/SEO'
 
 const PageTemplate = ({ data }) => {
   const { title, slug, body } = data.contentfulPage
+  const postNode = data.contentfulPage
 
   return (
     <div>
       <Helmet>
         <title>{`${title} - ${config.siteTitle}`}</title>
-        <meta property="og:title" content={`${title} - ${config.siteTitle}`} />
-        <meta property="og:url" content={`${config.siteUrl}/${slug}/`} />
       </Helmet>
+      <SEO pagePath={slug} postNode={postNode} pageSEO />
 
       <Container>
         <PageTitle>{title}</PageTitle>
@@ -29,9 +30,11 @@ export const query = graphql`
     contentfulPage(slug: { eq: $slug }) {
       title
       slug
+      metaDescription
       body {
         childMarkdownRemark {
           html
+          excerpt(pruneLength: 130)
         }
       }
     }

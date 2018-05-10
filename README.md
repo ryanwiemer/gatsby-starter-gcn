@@ -7,6 +7,7 @@ A starter template to build amazing static websites with Gatsby, Contentful and 
 * Minimal responsive design - made to customize or tear apart
 * Styled components
 * SEO friendly
+* Google Analytics
 
 ## Demo
 https://gcn.netlify.com/
@@ -92,6 +93,7 @@ const theme = {
 ```
 ACCESS_TOKEN
 SPACE_ID
+GOOGLE_ANALYTICS
 ```
 
 ![](screenshots/netlify-build-environment-variables.jpg)

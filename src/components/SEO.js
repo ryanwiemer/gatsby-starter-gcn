@@ -4,7 +4,7 @@ import config from '../utils/siteConfig'
 
 class SEO extends Component {
   render() {
-    const { postNode, pagePath, postSEO, pageSEO } = this.props
+    const { postNode, pagePath, postSEO, pageSEO, customTitle } = this.props
     let title
     let description
     let image
@@ -15,10 +15,15 @@ class SEO extends Component {
     // Set Default OpenGraph Parameters for Fallback
     title = config.siteTitle
     description = config.siteDescription
-    image = config.siteUrl + config.siteLogo
-    imgWidth = 512
-    imgHeight = 512
+    image = config.siteUrl + config.shareImage
+    imgWidth = config.shareImageWidth
+    imgHeight = config.shareImageHeight
     pageUrl = config.siteUrl
+
+    if (customTitle) {
+      title = postNode.title
+      pageUrl = config.siteUrl + '/' + pagePath + '/'
+    }
 
     // Replace with Page Parameters if post or page
     if (postSEO || pageSEO) {

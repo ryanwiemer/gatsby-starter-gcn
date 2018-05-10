@@ -8,6 +8,7 @@ import PageBody from '../components/PageBody'
 import TagList from '../components/TagList'
 import PostLinks from '../components/PostLinks'
 import PostDate from '../components/PostDate'
+import SEO from '../components/SEO'
 
 const PostTemplate = ({ data }) => {
   const {
@@ -19,6 +20,7 @@ const PostTemplate = ({ data }) => {
     publishDate,
     tags,
   } = data.contentfulPost
+  const postNode = data.contentfulPost
 
   const postIndex = find(
     data.allContentfulPost.edges,
@@ -29,10 +31,8 @@ const PostTemplate = ({ data }) => {
     <div>
       <Helmet>
         <title>{`${title} - ${config.siteTitle}`}</title>
-        <meta property="og:title" content={`${title} - ${config.siteTitle}`} />
-        <meta property="og:url" content={`${config.siteUrl}/${slug}/`} />
-        <meta property="og:image" content={heroImage.sizes.src} />
       </Helmet>
+      <SEO pagePath={slug} postNode={postNode} postSEO />
 
       <Hero title={title} image={heroImage} height={'50vh'} />
 
@@ -52,7 +52,9 @@ export const query = graphql`
       title
       id
       slug
+      metaDescription
       publishDate(formatString: "MMMM DD, YYYY")
+      publishDateISO: publishDate(formatString: "YYYY-MM-DD")
       tags {
         title
         id
@@ -63,10 +65,16 @@ export const query = graphql`
         sizes(maxWidth: 1800) {
           ...GatsbyContentfulSizes_withWebp_noBase64
         }
+        ogimg: resize(width: 1800) {
+          src
+          width
+          height
+        }
       }
       body {
         childMarkdownRemark {
           html
+          excerpt(pruneLength: 130)
         }
       }
     }

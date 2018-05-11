@@ -8,11 +8,14 @@ A starter template to build amazing static websites with Gatsby, Contentful and 
 * Netlify integration including a pre-built contact form
 * Minimal responsive design - made to customize or tear apart
 * Styled components
-* SEO friendly
+* SEO Friendly Component
+  * JSON-LD Schema
+  * OpenGraph sharing support
+  * Sitemap Generation
 * Google Analytics
 * Progressive Web app
 * Offline Support
-* RSS feed
+* RSS Feed
 * [Gatsby Standard module](https://www.npmjs.com/package/eslint-config-gatsby-standard) for linting Javascript with StandardJS
 * Stylelint support for Styled Components to lint the CSS in JS
 
@@ -51,44 +54,65 @@ gatsby new gatsby-starter-gcn https://github.com/ryanwiemer/gatsby-starter-gcn.g
 
 Edit `/src/utils/siteConfig.js`
 
-```
+```js
 module.exports = {
   siteTitle: 'GCN',
+  siteTitleAlt: 'GCN Gatsby Starter', // This allows an alternative site title for SEO schema.
+  publisher: 'Publisher named GCN', // Organization name used for SEO schema
   siteDescription:
     'A starter template to build amazing static websites with Gatsby, Contentful and Netlify',
-  siteUrl: 'https://gcn.netlify.com',
-  author: 'GCN User',
-  shortTitle: 'GCN App',
-  siteLogo: '/logos/logo-512.png',
-  backgroundColor: '#e9e9e9',
-  themeColor: '#121212',
-  copyright: 'Copyright © 2018 GCN User'
-};
+  siteUrl: 'https://gcn.netlify.com', // Site domain. Do not include a trailing slash! If you wish to use a path prefix you can read more about that here: https://www.gatsbyjs.org/docs/path-prefix/
+
+  author: 'GCN User', // Author for RSS author segment and SEO schema
+  authorUrl: 'https://gcn.netlify.com/about/', // URL used for author and publisher schema, can be a social profile or other personal site
+  userTwitter: '@twitter', // Change for Twitter Cards
+
+  // Open Graph Default Share Image 1200x1200 is recommended
+  shortTitle: 'GCN App', // Used for App manifest e.g. Mobile Home Screen
+  shareImage: '/logos/share.jpg',
+  shareImageWidth: 900,
+  shareImageHeight: 600,
+
+  siteLogo: '/logos/logo-512.png', // Logo used for SEO, RSS, and App manifest
+  backgroundColor: '#e9e9e9', // Used for Offline Manifest
+  themeColor: '#121212', // Used for Offline Manifest
+  copyright: 'Copyright © 2018 GCN User', // Copyright string for the RSS feed
+}
 ```
 
 ### Theme
 
 Edit `/src/styles/theme.js`
 
-```
+```js
 const theme = {
   colors: {
     base: '#121212',
     secondary: '#e9e9e9',
     tertiary: '#f3f3f3',
-    highlight: '#5b8bf7'
+    highlight: '#5b8bf7',
   },
   sizes: {
     maxWidth: '1200px',
-    maxWidthCentered: '650px'
+    maxWidthCentered: '650px',
   },
   responsive: {
     small: '35em',
     medium: '50em',
-    large: '70em'
-  }
-};
+    large: '70em',
+  },
+}
 ```
+
+### Using Gatsby Standard
+
+1.  Quickly check your code for errors with the `npm test` script
+2.  You can view the [Gatsby Standard README](https://github.com/brandonkal/eslint-config-gatsby-standard) for details on how to integrate this project's included Gatsby Standard, Stylelint, and Prettier modules into your text editor
+
+### Content and SEO
+
+1.  You can replace the `share.jpg` and `logo-512` files in the `static/logos` directory. After replacing these files ensure that you edit the image size dimensions specified in `/src/utils/siteConfig.js`
+2.  Meta descriptions are defined in Contentful. If you choose to leave this field blank on new posts a 130 character excerpt of the post/page will be used.
 
 ## Deployment
 
@@ -142,7 +166,5 @@ GOOGLE_ANALYTICS
 ## Useful Tips
 
 * If you make edits to your Contentful space while running `gatsby develop` you will need to stop it and rerun the command to see the changes reflected. For example a new post or page will not automatically show up until the website has been rebuilt.
-
 * Currently this template assumes you have at least **one page**, **one post** and **one tag** in Contentful. If you do not the website will fail to build.
-
 * **DO NOT** store your Contentful access tokens or space ids anywhere in GitHub. Treat them like passwords.

@@ -12,7 +12,14 @@
         "id": "post",
         "type": "ContentType",
         "createdAt": "2018-03-03T22:58:15.713Z",
-        "updatedAt": "2018-03-06T05:48:58.881Z",
+        "updatedAt": "2018-05-11T17:52:52.960Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
         "createdBy": {
           "sys": {
             "type": "Link",
@@ -27,8 +34,8 @@
             "id": "6bursH6S5NNRZVuRrO7oVO"
           }
         },
-        "publishedCounter": 7,
-        "version": 14,
+        "publishedCounter": 17,
+        "version": 34,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -36,9 +43,9 @@
             "id": "6bursH6S5NNRZVuRrO7oVO"
           }
         },
-        "publishedVersion": 13,
+        "publishedVersion": 33,
         "firstPublishedAt": "2018-03-03T22:58:19.194Z",
-        "publishedAt": "2018-03-06T05:48:58.881Z"
+        "publishedAt": "2018-05-11T17:52:52.960Z"
       },
       "displayField": "title",
       "name": "Post",
@@ -62,6 +69,22 @@
           "localized": false,
           "required": true,
           "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "metaDescription",
+          "name": "Meta Description",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "size": {
+                "max": 320
+              }
+            }
           ],
           "disabled": false,
           "omitted": false
@@ -136,7 +159,14 @@
         "id": "page",
         "type": "ContentType",
         "createdAt": "2018-03-03T22:58:15.903Z",
-        "updatedAt": "2018-03-03T22:58:19.838Z",
+        "updatedAt": "2018-05-11T17:52:33.903Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
         "createdBy": {
           "sys": {
             "type": "Link",
@@ -151,8 +181,8 @@
             "id": "6bursH6S5NNRZVuRrO7oVO"
           }
         },
-        "publishedCounter": 1,
-        "version": 2,
+        "publishedCounter": 10,
+        "version": 20,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -160,9 +190,9 @@
             "id": "6bursH6S5NNRZVuRrO7oVO"
           }
         },
-        "publishedVersion": 1,
+        "publishedVersion": 19,
         "firstPublishedAt": "2018-03-03T22:58:19.838Z",
-        "publishedAt": "2018-03-03T22:58:19.838Z"
+        "publishedAt": "2018-05-11T17:52:33.903Z"
       },
       "displayField": "title",
       "name": "Page",
@@ -186,6 +216,22 @@
           "localized": false,
           "required": true,
           "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "metaDescription",
+          "name": "Meta Description",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "size": {
+                "max": 320
+              }
+            }
           ],
           "disabled": false,
           "omitted": false
@@ -216,6 +262,13 @@
         "type": "ContentType",
         "createdAt": "2018-03-04T00:56:04.813Z",
         "updatedAt": "2018-03-04T00:56:05.520Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
         "createdBy": {
           "sys": {
             "type": "Link",
@@ -290,7 +343,7 @@
             "linkType": "Space"
           }
         },
-        "version": 14,
+        "version": 34,
         "createdAt": "2018-03-03T22:58:19.413Z",
         "createdBy": {
           "sys": {
@@ -299,7 +352,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2018-03-06T05:48:59.628Z",
+        "updatedAt": "2018-05-11T17:52:53.623Z",
         "updatedBy": {
           "sys": {
             "id": "6bursH6S5NNRZVuRrO7oVO",
@@ -313,6 +366,13 @@
             "type": "Link",
             "linkType": "ContentType"
           }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
         }
       },
       "controls": [
@@ -323,6 +383,13 @@
         {
           "fieldId": "slug",
           "widgetId": "slugEditor"
+        },
+        {
+          "fieldId": "metaDescription",
+          "settings": {
+            "helpText": "Used for SEO. If left blank a post/page excerpt will be used. See the README for more details."
+          },
+          "widgetId": "singleLine"
         },
         {
           "fieldId": "publishDate",
@@ -360,7 +427,7 @@
             "linkType": "Space"
           }
         },
-        "version": 2,
+        "version": 20,
         "createdAt": "2018-03-03T22:58:20.114Z",
         "createdBy": {
           "sys": {
@@ -369,7 +436,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2018-03-03T22:58:20.498Z",
+        "updatedAt": "2018-05-11T17:52:34.453Z",
         "updatedBy": {
           "sys": {
             "id": "6bursH6S5NNRZVuRrO7oVO",
@@ -383,6 +450,13 @@
             "type": "Link",
             "linkType": "ContentType"
           }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
         }
       },
       "controls": [
@@ -393,6 +467,13 @@
         {
           "fieldId": "slug",
           "widgetId": "slugEditor"
+        },
+        {
+          "fieldId": "metaDescription",
+          "settings": {
+            "helpText": "Used for SEO. If left blank a post/page excerpt will be used. See the README for more details."
+          },
+          "widgetId": "singleLine"
         },
         {
           "fieldId": "body",
@@ -434,6 +515,13 @@
             "type": "Link",
             "linkType": "ContentType"
           }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
         }
       },
       "controls": [
@@ -461,7 +549,14 @@
         "id": "3nAFKDwDRKo6Wg0WO0QsaM",
         "type": "Entry",
         "createdAt": "2018-03-03T22:58:29.282Z",
-        "updatedAt": "2018-03-06T22:58:29.945Z",
+        "updatedAt": "2018-05-08T04:35:36.826Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
         "createdBy": {
           "sys": {
             "type": "Link",
@@ -476,8 +571,8 @@
             "id": "6bursH6S5NNRZVuRrO7oVO"
           }
         },
-        "publishedCounter": 9,
-        "version": 125,
+        "publishedCounter": 10,
+        "version": 150,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -485,9 +580,9 @@
             "id": "6bursH6S5NNRZVuRrO7oVO"
           }
         },
-        "publishedVersion": 124,
+        "publishedVersion": 149,
         "firstPublishedAt": "2018-03-03T22:58:29.678Z",
-        "publishedAt": "2018-03-06T22:58:29.945Z",
+        "publishedAt": "2018-05-08T04:35:36.826Z",
         "contentType": {
           "sys": {
             "type": "Link",
@@ -502,6 +597,9 @@
         },
         "slug": {
           "en-US": "about"
+        },
+        "metaDescription": {
+          "en-US": "Lorem ipsum dolor set amet."
         },
         "body": {
           "en-US": "![about](//images.ctfassets.net/0xers3fafzag/1yyfw0vtIY2qEQqkKYMGwK/0b03e5f3556489a2079f01a8dc600ce5/about.jpg)\n\n# Doggo Ipsum \n\nWrinkler ur givin me a spook heckin floofs long water shoob, sub woofer boof heckin dat tungg tho corgo, smol borkf you are doing me a frighten. Wow such tempt ruff bork I am bekom fat shooberino, tungg adorable doggo. Wow very biscit doge he made many woofs sub woofer smol borking doggo with a long snoot for pats blop, many pats most angery pupper I have ever seen he made many woofs clouds. Long water shoob porgo pupperino shoob heckin good boys and girls.\n\n## Woofer\n\nBoofers much ruin diet woofer borkf, length boy. Clouds extremely __cuuuuuute__ thicc [smol](https://www.google.com) I am ~~bekom fat~~, doggorino clouds porgo shooberino super chub, aqua doggo super chub very taste wow. Dat tungg tho waggy wags blop heckin sub woofer, shibe wow such tempt adorable doggo. Thicc shoob you are doing me the shock fat boi very hand that feed shibe big ol pupper long water shoob heckin good.\n\n### Tail Waggers\n\n- Fido\n- Rex \n- Lola\n- Bella\n\n---\n\n1. Feed\n2. Play\n3. Love\n\n> He made many woofs fat boi heckin good boys, shibe. Doggorino long water shoob maximum.\n\n```javascript\nconst dog = \"doggo\";\n```\n"
@@ -521,6 +619,13 @@
         "type": "Entry",
         "createdAt": "2018-03-06T23:09:15.463Z",
         "updatedAt": "2018-03-06T23:09:40.734Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
         "createdBy": {
           "sys": {
             "type": "Link",
@@ -577,6 +682,13 @@
         "type": "Entry",
         "createdAt": "2018-03-06T23:09:45.626Z",
         "updatedAt": "2018-03-06T23:11:04.031Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
         "createdBy": {
           "sys": {
             "type": "Link",
@@ -633,6 +745,13 @@
         "type": "Entry",
         "createdAt": "2018-03-06T23:11:17.177Z",
         "updatedAt": "2018-03-06T23:11:21.440Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
         "createdBy": {
           "sys": {
             "type": "Link",
@@ -689,6 +808,13 @@
         "type": "Entry",
         "createdAt": "2018-03-06T23:11:46.846Z",
         "updatedAt": "2018-03-06T23:12:12.045Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
         "createdBy": {
           "sys": {
             "type": "Link",
@@ -745,6 +871,13 @@
         "type": "Entry",
         "createdAt": "2018-03-06T23:13:06.284Z",
         "updatedAt": "2018-03-06T23:13:10.672Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
         "createdBy": {
           "sys": {
             "type": "Link",
@@ -800,7 +933,14 @@
         "id": "46W6F2LB9KK48AoKWGKQWy",
         "type": "Entry",
         "createdAt": "2018-03-03T22:58:29.267Z",
-        "updatedAt": "2018-03-06T23:13:24.039Z",
+        "updatedAt": "2018-05-08T04:36:13.179Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
         "createdBy": {
           "sys": {
             "type": "Link",
@@ -815,8 +955,8 @@
             "id": "6bursH6S5NNRZVuRrO7oVO"
           }
         },
-        "publishedCounter": 11,
-        "version": 54,
+        "publishedCounter": 18,
+        "version": 82,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -824,9 +964,9 @@
             "id": "6bursH6S5NNRZVuRrO7oVO"
           }
         },
-        "publishedVersion": 53,
+        "publishedVersion": 81,
         "firstPublishedAt": "2018-03-03T22:58:31.635Z",
-        "publishedAt": "2018-03-06T23:13:24.039Z",
+        "publishedAt": "2018-05-08T04:36:13.179Z",
         "contentType": {
           "sys": {
             "type": "Link",
@@ -841,6 +981,9 @@
         },
         "slug": {
           "en-US": "beach-day"
+        },
+        "metaDescription": {
+          "en-US": "Fun times at the beach."
         },
         "publishDate": {
           "en-US": "2018-02-12"
@@ -890,6 +1033,13 @@
         "type": "Entry",
         "createdAt": "2018-03-03T22:58:29.258Z",
         "updatedAt": "2018-03-06T23:13:20.511Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
         "createdBy": {
           "sys": {
             "type": "Link",
@@ -972,6 +1122,13 @@
         "type": "Entry",
         "createdAt": "2018-03-03T22:58:29.147Z",
         "updatedAt": "2018-03-06T23:12:53.316Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
         "createdBy": {
           "sys": {
             "type": "Link",
@@ -1061,6 +1218,13 @@
         "type": "Entry",
         "createdAt": "2018-03-03T22:58:29.121Z",
         "updatedAt": "2018-03-06T23:13:13.448Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
         "createdBy": {
           "sys": {
             "type": "Link",
@@ -1152,6 +1316,13 @@
         "type": "Asset",
         "createdAt": "2018-03-06T22:36:09.277Z",
         "updatedAt": "2018-03-06T22:36:31.837Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
         "createdBy": {
           "sys": {
             "type": "Link",
@@ -1212,6 +1383,13 @@
         "type": "Asset",
         "createdAt": "2018-03-06T22:36:36.153Z",
         "updatedAt": "2018-03-06T22:36:51.998Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
         "createdBy": {
           "sys": {
             "type": "Link",
@@ -1272,6 +1450,13 @@
         "type": "Asset",
         "createdAt": "2018-03-06T22:36:55.405Z",
         "updatedAt": "2018-03-06T22:37:08.069Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
         "createdBy": {
           "sys": {
             "type": "Link",
@@ -1332,6 +1517,13 @@
         "type": "Asset",
         "createdAt": "2018-03-06T22:37:14.427Z",
         "updatedAt": "2018-03-06T22:37:27.422Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
         "createdBy": {
           "sys": {
             "type": "Link",
@@ -1392,6 +1584,13 @@
         "type": "Asset",
         "createdAt": "2018-03-06T22:42:29.283Z",
         "updatedAt": "2018-03-06T22:57:50.213Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
         "createdBy": {
           "sys": {
             "type": "Link",

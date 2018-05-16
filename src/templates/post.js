@@ -52,7 +52,11 @@ export const query = graphql`
       title
       id
       slug
-      metaDescription
+      metaDescription {
+        internal {
+          content
+        }
+      }
       publishDate(formatString: "MMMM DD, YYYY")
       publishDateISO: publishDate(formatString: "YYYY-MM-DD")
       tags {

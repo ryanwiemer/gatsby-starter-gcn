@@ -31,7 +31,7 @@ class SEO extends Component {
       description =
         postNode.metaDescription === null
           ? postNode.body.childMarkdownRemark.excerpt
-          : postNode.metaDescription
+          : postNode.metaDescription.internal.content
 
       pageUrl = config.siteUrl + '/' + pagePath + '/'
     }

@@ -1,3 +1,6 @@
 {
-  "extends": "gatsby-standard"
+  "extends": "gatsby-standard",
+  "rules": {
+    "no-unsafe-finally": "off"
+  }
 }

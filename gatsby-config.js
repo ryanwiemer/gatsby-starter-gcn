@@ -1,16 +1,19 @@
-require('dotenv').config()
 const config = require('./src/utils/siteConfig')
+let contentfulConfig
 
-// If the contentfulConfig can't be found assume the site is being built via Netlify with production environment variables
 try {
-  var contentfulConfig = require('./.contentful')
+  contentfulConfig = require('./.contentful')
 } catch (e) {
-  // eslint-disable-next-line
-  var contentfulConfig = {
+  contentfulConfig = {
     production: {
       spaceId: process.env.SPACE_ID,
       accessToken: process.env.ACCESS_TOKEN,
     },
+  }
+} finally {
+  const { spaceId, accessToken } = contentfulConfig.production
+  if (!spaceId || !accessToken) {
+    throw new Error('Contentful space ID and access token need to be provided.')
   }
 }
 

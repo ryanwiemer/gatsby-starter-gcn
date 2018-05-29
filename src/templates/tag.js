@@ -56,7 +56,7 @@ export const query = graphql`
         publishDate(formatString: "MMMM DD, YYYY")
         heroImage {
           title
-          sizes(maxWidth: 800) {
+          sizes(maxWidth: 1800) {
             ...GatsbyContentfulSizes_withWebp_noBase64
           }
         }

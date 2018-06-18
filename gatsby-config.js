@@ -46,6 +46,14 @@ module.exports = {
           {
             resolve: `gatsby-remark-prismjs`,
           },
+          {
+            resolve: `gatsby-remark-images-contentful`,
+            options: {
+              maxWidth: 650,
+              backgroundColor: 'white',
+              linkImagesToOriginal: false,
+            },
+          },
         ],
       },
     },
@@ -56,7 +64,6 @@ module.exports = {
           ? contentfulConfig.development
           : contentfulConfig.production,
     },
-    'gatsby-plugin-netlify',
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
@@ -153,5 +160,6 @@ module.exports = {
         color: config.themeColor,
       },
     },
+    'gatsby-plugin-netlify',
   ],
 }

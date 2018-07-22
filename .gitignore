@@ -3,7 +3,6 @@ node_modules
 public/
 .DS_Store
 yarn*
+*.log
 .env*
-npm-debug.log
-package-lock.json
 .contentful.json

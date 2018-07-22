@@ -46,7 +46,7 @@ gatsby new gatsby-starter-gcn https://github.com/ryanwiemer/gatsby-starter-gcn.g
 
 2.  `npm run setup`
 
-3.  Enter in the requested info for your Contentful space found here: **app.contentful.com** → **Space Settings** → **API keys**
+3.  Enter in the requested info for your Contentful space found here: **app.contentful.com** → **Space Settings** → **API keys**. You will need to provide both a standard API key (first tab) and a management key (second tab).
 
 ## Customization
 

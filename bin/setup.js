@@ -19,14 +19,14 @@ console.log(`
     )} API keys`
   )}
 
-  The ${chalk.green('Content Management API Token')}
-    will be used to import and write data to your space.
-
   The ${chalk.green('Content Delivery API Token')}
     will be used to ship published production-ready content in your Gatsby app.
 
   The ${chalk.green('Content Preview API Token')}
     will be used to show not published data in your development environment.
+
+  The ${chalk.green('Content Management API Token')}
+    will be used to import and write data to your space.
 
   Ready? Let's do it! 🎉
 `)
@@ -40,10 +40,6 @@ const questions = [
       'Space ID must be 12 lowercase characters',
   },
   {
-    name: 'managementToken',
-    message: 'Your Content Management API access token',
-  },
-  {
     name: 'accessToken',
     message: 'Your Content Delivery API access token',
   },
@@ -51,11 +47,15 @@ const questions = [
     name: 'previewToken',
     message: 'Your Content Preview API access token',
   },
+  {
+    name: 'managementToken',
+    message: 'Your Content Management API access token',
+  },
 ]
 
 inquirer
   .prompt(questions)
-  .then(({ spaceId, managementToken, accessToken, previewToken }) => {
+  .then(({ spaceId, accessToken, previewToken, managementToken }) => {
     console.log('Writing config file...')
     const configFilePath = path.resolve(__dirname, '..', '.contentful.json')
     writeFileSync(

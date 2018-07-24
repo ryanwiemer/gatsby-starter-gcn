@@ -4,20 +4,20 @@ A starter template to build amazing static websites with Gatsby, Contentful and 
 
 ## Features
 
-* Contentful integration with ready to go placeholder content
-* Netlify integration including a pre-built contact form
-* Minimal responsive design - made to customize or tear apart
-* Styled components
-* SEO Friendly Component
-  * JSON-LD Schema
-  * OpenGraph sharing support
-  * Sitemap Generation
-* Google Analytics
-* Progressive Web app
-* Offline Support
-* RSS Feed
-* [Gatsby Standard module](https://www.npmjs.com/package/eslint-config-gatsby-standard) for linting Javascript with StandardJS
-* Stylelint support for Styled Components to lint the CSS in JS
+- Contentful integration with ready to go placeholder content
+- Netlify integration including a pre-built contact form
+- Minimal responsive design - made to customize or tear apart
+- Styled components
+- SEO Friendly Component
+  - JSON-LD Schema
+  - OpenGraph sharing support
+  - Sitemap Generation
+- Google Analytics
+- Progressive Web app
+- Offline Support
+- RSS Feed
+- [Gatsby Standard module](https://www.npmjs.com/package/eslint-config-gatsby-standard) for linting Javascript with StandardJS
+- Stylelint support for Styled Components to lint the CSS in JS
 
 ## Demo
 
@@ -46,7 +46,7 @@ gatsby new gatsby-starter-gcn https://github.com/ryanwiemer/gatsby-starter-gcn.g
 
 2.  `npm run setup`
 
-3.  Enter in the requested info for your Contentful space found here: **app.contentful.com** → **Space Settings** → **API keys**
+3.  Enter in the requested info for your Contentful space found here: **app.contentful.com** → **Space Settings** → **API keys**. You will need to provide both a standard API key (first tab) and a management key (second tab).
 
 ## Customization
 
@@ -162,7 +162,8 @@ GOOGLE_ANALYTICS
 
 ## Useful Tips
 
-* If you make edits to your Contentful space while running `gatsby develop` you will need to stop it and rerun the command to see the changes reflected. For example a new post or page will not automatically show up until the website has been rebuilt.
-* The template assumes you have at least **one page**, **one post** and **one tag** in Contentful. If you do not the website will fail to build.
-* The SEO component assumes you have entered at least one meta description in Contentful for a post and one for a page. If you do not the website will fail to build. See the Content and SEO section above.
-* **DO NOT** store your Contentful access tokens or space ids anywhere in GitHub. Treat them like passwords.
+- If you make edits to your Contentful space while running `gatsby develop` you will need to stop it and rerun the command to see the changes reflected. For example a new post or page will not automatically show up until the website has been rebuilt.
+- The template assumes you have at least **one page**, **one post** and **one tag** in Contentful. If you do not the website will fail to build.
+- The SEO component assumes you have entered at least one meta description in Contentful for a post and one for a page. If you do not the website will fail to build. See the Content and SEO section above.
+- **DO NOT** store your Contentful access tokens or space ids anywhere in GitHub. Treat them like passwords.
+- **Yarn Users:** remove the `yarn*` line from the `.gitignore` file to avoid discrepancies in the Netlify deploy.

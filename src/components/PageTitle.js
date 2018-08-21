@@ -1,13 +1,9 @@
-import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
-const Title = styled.h1`
-  font-size: ${props => (props.small ? '2em' : '3em')};
+const sharedStyles = css`
   text-transform: capitalize;
   font-weight: 600;
   text-align: center;
-  margin: 0 0 3rem 0;
-  margin: ${props => (props.small ? '1rem 0 4rem 0' : '0 0 3rem 0')};
   line-height: 1.2;
   span {
     margin: 0 0 0 0.25em;
@@ -21,8 +17,15 @@ const Title = styled.h1`
   }
 `
 
-const PageTitle = props => {
-  return <Title small={props.small}>{props.children}</Title>
-}
-
+const PageTitle = styled.h1`
+  ${sharedStyles};
+  font-size: 2.35em;
+  margin: 0 0 3rem 0;
+`
 export default PageTitle
+
+export const PageTitleSmall = styled.h2`
+  ${sharedStyles};
+  font-size: 2em;
+  margin: 1rem 0 2rem 0;
+`

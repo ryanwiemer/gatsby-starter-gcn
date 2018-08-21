@@ -161,5 +161,20 @@ module.exports = {
       },
     },
     'gatsby-plugin-netlify',
+    {
+      resolve: `@andrew-codes/gatsby-plugin-elasticlunr-search`,
+      options: {
+        // Fields to index
+        fields: ['title'],
+        // How to resolve each field's value for a supported node type
+        resolvers: {
+          // For any node of type MarkdownRemark, list how to resolve the fields' values
+          ContentfulPost: {
+            title: node => node.title,
+            // description: node => node.description,
+          },
+        },
+      },
+    },
   ],
 }

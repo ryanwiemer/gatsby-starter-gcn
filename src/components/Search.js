@@ -38,6 +38,7 @@ export default class Search extends Component {
 
     this.updateQuery = evt => {
       const text = evt.target.value
+      // eslint-disable-next-line no-unused-vars
       const newQuery = qs.stringify({ q: text }, { format: 'RFC1738' })
       const results = this.getHits(text)
 

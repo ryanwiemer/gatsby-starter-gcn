@@ -1,4 +1,3 @@
-import React from 'react'
 import styled, { css } from 'styled-components'
 
 const sharedStyles = css`
@@ -30,9 +29,3 @@ export const PageTitleSmall = styled.h2`
   font-size: 2em;
   margin: 1rem 0 2rem 0;
 `
-
-// const PageTitle = props => {
-//   return <Title small={props.small}>{props.children}</Title>
-// }
-//
-// export default PageTitle

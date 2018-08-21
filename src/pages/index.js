@@ -24,9 +24,13 @@ class IndexPage extends React.Component {
     const posts = data.allContentfulPost.edges
     var searchCount = 'All Posts'
     if (results && results.length > 0) {
-      this.searchCount = results.length + ' search results'
+      if (results.length > 1) {
+        searchCount = results.length + ' Search Results'
+      } else {
+        searchCount = results.length + ' Search Result'
+      }
     } else {
-      this.searchCount = 'All Posts'
+      searchCount = 'All Posts'
     }
 
     return (
@@ -60,16 +64,15 @@ class IndexPage extends React.Component {
             </a>{' '}
             <span>🎉</span>
           </PageTitle>
-          <PageTitleSmall>{this.searchCount}</PageTitleSmall>
+          <PageTitleSmall>{searchCount}</PageTitleSmall>
 
           <CardList>
             {posts
               .filter(
                 ({ node }) =>
-                  !this.props.results ||
-                  this.props.results.length === 0 ||
-                  this.props.results.filter(hit => hit.id === node.id).length >
-                    0
+                  !results ||
+                  results.length === 0 ||
+                  results.filter(hit => hit.id === node.id).length > 0
               )
               .map(({ node: post }, index) => (
                 <Card

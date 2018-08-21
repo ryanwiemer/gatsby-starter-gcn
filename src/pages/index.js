@@ -1,7 +1,7 @@
 import React from 'react'
 import CardList from '../components/CardList'
 import Container from '../components/Container'
-import PageTitle from '../components/PageTitle'
+import PageTitle, { PageTitleSmall } from '../components/PageTitle'
 import SEO from '../components/SEO'
 import Search from '../components/Search'
 
@@ -21,13 +21,19 @@ class IndexPage extends React.Component {
     const results = this.state.results
     const data = this.props.data
     const posts = data.allContentfulPost.edges
+    var searchCount = 'All Posts'
+    if (results && results.length > 0) {
+      this.searchCount = results.length + ' search results'
+    } else {
+      this.searchCount = 'All Posts'
+    }
 
     return (
       <div>
         <SEO />
         <Search data={data.siteSearchIndex} onSearch={this.onSearch} />
         <Container>
-          <PageTitle small>
+          <PageTitle>
             <a
               href="https://www.gatsbyjs.org/"
               target="_blank"
@@ -58,6 +64,7 @@ class IndexPage extends React.Component {
             searchData={data.siteSearchIndex}
             results={results}
           />
+          <PageTitleSmall>{this.searchCount}</PageTitleSmall>
         </Container>
       </div>
     )

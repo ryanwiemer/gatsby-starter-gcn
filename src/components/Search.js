@@ -1,7 +1,26 @@
+import React, { Component } from 'react'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import qs from 'qs'
-import React, { Component } from 'react'
 import { Index } from 'elasticlunr'
+
+const SearchBar = styled.input`
+  width: 100%;
+  text-align: center;
+  line-height: 1.6;
+
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    width: 30vw;
+    font-size: 1rem;
+    background: #2d2d2d;
+    color: white;
+    border: 1px solid ${props => props.theme.colors.secondary};
+    border-radius: 4px;
+    position: absolute;
+    top: 1rem;
+    margin-left: 35vw;
+  }
+`
 
 const getSearch = ({ location }) => {
   if (!location) return ''
@@ -58,16 +77,12 @@ export default class Search extends Component {
 
     return (
       <div role="search">
-        <input
+        <SearchBar
           onChange={this.updateQuery}
           placeholder="search posts"
-          style={{
-            width: '100%',
-          }}
           type="search"
           value={query}
         />
-        {results.length} search results
       </div>
     )
   }

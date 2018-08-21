@@ -1,5 +1,6 @@
 import React from 'react'
 import CardList from '../components/CardList'
+import Card from '../components/Card'
 import Container from '../components/Container'
 import PageTitle, { PageTitleSmall } from '../components/PageTitle'
 import SEO from '../components/SEO'
@@ -59,12 +60,28 @@ class IndexPage extends React.Component {
             </a>{' '}
             <span>🎉</span>
           </PageTitle>
-          <CardList
-            posts={posts}
-            searchData={data.siteSearchIndex}
-            results={results}
-          />
           <PageTitleSmall>{this.searchCount}</PageTitleSmall>
+
+          <CardList>
+            {posts
+              .filter(
+                ({ node }) =>
+                  !this.props.results ||
+                  this.props.results.length === 0 ||
+                  this.props.results.filter(hit => hit.id === node.id).length >
+                    0
+              )
+              .map(({ node: post }, index) => (
+                <Card
+                  key={post.id}
+                  slug={post.slug}
+                  image={post.heroImage}
+                  title={post.title}
+                  date={post.publishDate}
+                  excerpt={post.body}
+                />
+              ))}
+          </CardList>
         </Container>
       </div>
     )

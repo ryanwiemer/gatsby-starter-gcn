@@ -1,4 +1,6 @@
 import React from 'react'
+import { graphql } from 'gatsby'
+import Layout from '../components/Layout'
 import CardList from '../components/CardList'
 import Card from '../components/Card'
 import Container from '../components/Container'
@@ -9,7 +11,7 @@ const Index = ({ data }) => {
   const posts = data.allContentfulPost.edges
 
   return (
-    <div>
+    <Layout>
       <SEO />
       <Container>
         <PageTitle small>
@@ -50,12 +52,12 @@ const Index = ({ data }) => {
           ))}
         </CardList>
       </Container>
-    </div>
+    </Layout>
   )
 }
 
 export const query = graphql`
-  query indexQuery {
+  query{
     allContentfulPost(
       limit: 1000
       sort: { fields: [publishDate], order: DESC }
@@ -68,8 +70,8 @@ export const query = graphql`
           publishDate(formatString: "MMMM DD, YYYY")
           heroImage {
             title
-            sizes(maxWidth: 1800) {
-              ...GatsbyContentfulSizes_withWebp_noBase64
+            fluid(maxWidth: 1800) {
+              ...GatsbyContentfulFluid_withWebp_noBase64
             }
           }
           body {

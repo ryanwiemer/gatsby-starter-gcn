@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 import styled from 'styled-components'
 
 const Header = styled.header`
@@ -50,7 +50,7 @@ const Menu = () => {
       <Nav>
         <ul>
           <li>
-            <Link to="/" exact activeStyle={activeLinkStyle}>
+            <Link to="/" activeStyle={activeLinkStyle}>
               Home
             </Link>
           </li>

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Link from 'gatsby-link'
+import {Link} from 'gatsby'
 
 const List = styled.ul`
   margin: 0 auto 2em auto;

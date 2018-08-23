@@ -1,7 +1,9 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import sortBy from 'lodash/sortBy'
 import Helmet from 'react-helmet'
 import config from '../utils/siteConfig'
+import Layout from '../components/Layout'
 import Card from '../components/Card'
 import CardList from '../components/CardList'
 import PageTitle from '../components/PageTitle'
@@ -13,7 +15,7 @@ const TagTemplate = ({ data }) => {
   const posts = sortBy(data.contentfulTag.post, 'publishDate').reverse()
 
   return (
-    <div>
+    <Layout>
       <Helmet>
         <title>{`Tag: ${title} - ${config.siteTitle}`}</title>
         <meta
@@ -39,12 +41,12 @@ const TagTemplate = ({ data }) => {
           ))}
         </CardList>
       </Container>
-    </div>
+    </Layout>
   )
 }
 
 export const query = graphql`
-  query tagQuery($slug: String!) {
+  query($slug: String!) {
     contentfulTag(slug: { eq: $slug }) {
       title
       id
@@ -56,8 +58,8 @@ export const query = graphql`
         publishDate(formatString: "MMMM DD, YYYY")
         heroImage {
           title
-          sizes(maxWidth: 1800) {
-            ...GatsbyContentfulSizes_withWebp_noBase64
+          fluid(maxWidth: 1800) {
+            ...GatsbyContentfulFluid_withWebp_noBase64
           }
         }
         body {

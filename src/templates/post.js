@@ -1,7 +1,9 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import find from 'lodash/find'
 import Helmet from 'react-helmet'
 import config from '../utils/siteConfig'
+import Layout from '../components/Layout'
 import Hero from '../components/Hero'
 import Container from '../components/Container'
 import PageBody from '../components/PageBody'
@@ -28,7 +30,7 @@ const PostTemplate = ({ data }) => {
   )
 
   return (
-    <div>
+    <Layout>
       <Helmet>
         <title>{`${title} - ${config.siteTitle}`}</title>
       </Helmet>
@@ -42,12 +44,12 @@ const PostTemplate = ({ data }) => {
         <PageBody body={body} />
         <PostLinks previous={postIndex.previous} next={postIndex.next} />
       </Container>
-    </div>
+    </Layout>
   )
 }
 
 export const query = graphql`
-  query postQuery($slug: String!) {
+  query($slug: String!) {
     contentfulPost(slug: { eq: $slug }) {
       title
       id
@@ -66,8 +68,8 @@ export const query = graphql`
       }
       heroImage {
         title
-        sizes(maxWidth: 1800) {
-          ...GatsbyContentfulSizes_withWebp_noBase64
+        fluid(maxWidth: 1800) {
+          ...GatsbyContentfulFluid_withWebp_noBase64
         }
         ogimg: resize(width: 1800) {
           src

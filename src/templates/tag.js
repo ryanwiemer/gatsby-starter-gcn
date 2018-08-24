@@ -26,7 +26,11 @@ const TagTemplate = ({ data }) => {
       </Helmet>
 
       <Container>
-        <PageTitle small>Tag: &ldquo;{title}&rdquo;</PageTitle>
+        <PageTitle small>
+          Tag: &ldquo;
+          {title}
+          &rdquo;
+        </PageTitle>
 
         <CardList>
           {posts.map(post => (

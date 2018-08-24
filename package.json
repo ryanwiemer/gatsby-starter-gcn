@@ -25,14 +25,14 @@
     "gatsby-source-contentful": "next",
     "gatsby-source-filesystem": "next",
     "gatsby-transformer-remark": "next",
-    "inquirer": "^6.1.0",
+    "inquirer": "^6.2.0",
     "lodash": "^4.17.10",
     "path": "^0.12.7",
     "prismjs": "^1.15.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-helmet": "^5.2.0",
-    "styled-components": "^3.4.4",
+    "styled-components": "^3.4.5",
     "whatwg-fetch": "^2.0.4"
   },
   "keywords": [
@@ -52,7 +52,7 @@
     "format": "prettier --write \"src/**/*.js\""
   },
   "devDependencies": {
-    "eslint": "^5.4.0",
+    "eslint": "^4.19.1",
     "eslint-config-gatsby-standard": "^1.2.2",
     "prettier": "^1.14.2",
     "stylelint": "9.5.0",

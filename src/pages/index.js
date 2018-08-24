@@ -21,7 +21,8 @@ const Index = ({ data }) => {
             rel="noopener noreferrer"
           >
             Gatsby
-          </a>,{' '}
+          </a>
+          ,{' '}
           <a
             href="https://www.contentful.com/"
             target="_blank"
@@ -57,7 +58,7 @@ const Index = ({ data }) => {
 }
 
 export const query = graphql`
-  query{
+  query {
     allContentfulPost(
       limit: 1000
       sort: { fields: [publishDate], order: DESC }

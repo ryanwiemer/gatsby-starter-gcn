@@ -52,8 +52,8 @@
     "format": "prettier --write \"src/**/*.js\""
   },
   "devDependencies": {
-    "eslint": "^4.19.1",
-    "eslint-config-gatsby-standard": "^1.2.2",
+    "eslint": "^5.5.0",
+    "eslint-config-gatsby-standard": "^2.0.0",
     "prettier": "^1.14.2",
     "stylelint": "9.5.0",
     "stylelint-config-prettier": "^4.0.0",

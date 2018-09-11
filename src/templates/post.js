@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import find from 'lodash/find'
 import Helmet from 'react-helmet'
 import config from '../utils/siteConfig'
 import Layout from '../components/Layout'
@@ -12,11 +11,10 @@ import PostLinks from '../components/PostLinks'
 import PostDate from '../components/PostDate'
 import SEO from '../components/SEO'
 
-const PostTemplate = ({ data }) => {
+const PostTemplate = ({ data, pageContext }) => {
   const {
     title,
     slug,
-    id,
     heroImage,
     body,
     publishDate,
@@ -24,10 +22,8 @@ const PostTemplate = ({ data }) => {
   } = data.contentfulPost
   const postNode = data.contentfulPost
 
-  const postIndex = find(
-    data.allContentfulPost.edges,
-    ({ node: post }) => post.id === id
-  )
+  const previous = pageContext.prev
+  const next = pageContext.next
 
   return (
     <Layout>
@@ -42,7 +38,7 @@ const PostTemplate = ({ data }) => {
         {tags && <TagList tags={tags} />}
         <PostDate date={publishDate} />
         <PageBody body={body} />
-        <PostLinks previous={postIndex.previous} next={postIndex.next} />
+        <PostLinks previous={previous} next={next} />
       </Container>
     </Layout>
   )
@@ -52,7 +48,6 @@ export const query = graphql`
   query($slug: String!) {
     contentfulPost(slug: { eq: $slug }) {
       title
-      id
       slug
       metaDescription {
         internal {
@@ -81,22 +76,6 @@ export const query = graphql`
         childMarkdownRemark {
           html
           excerpt(pruneLength: 320)
-        }
-      }
-    }
-    allContentfulPost(
-      limit: 1000
-      sort: { fields: [publishDate], order: DESC }
-    ) {
-      edges {
-        node {
-          id
-        }
-        previous {
-          slug
-        }
-        next {
-          slug
         }
       }
     }

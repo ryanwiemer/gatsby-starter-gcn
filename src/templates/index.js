@@ -5,41 +5,47 @@ import CardList from '../components/CardList'
 import Card from '../components/Card'
 import Container from '../components/Container'
 import PageTitle from '../components/PageTitle'
+import Pagination from '../components/Pagination'
 import SEO from '../components/SEO'
 
-const Index = ({ data }) => {
+const Index = ({ data, pageContext }) => {
   const posts = data.allContentfulPost.edges
+  const { numPages, currentPage } = pageContext
+  const isFirst = currentPage === 1
+  // const isLast = currentPage === numPages
 
   return (
     <Layout>
       <SEO />
       <Container>
-        <PageTitle small>
-          <a
-            href="https://www.gatsbyjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Gatsby
-          </a>
-          ,{' '}
-          <a
-            href="https://www.contentful.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Contentful
-          </a>{' '}
-          and{' '}
-          <a
-            href="https://www.netlify.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Netlify
-          </a>{' '}
-          <span>🎉</span>
-        </PageTitle>
+        {isFirst && (
+          <PageTitle small>
+            <a
+              href="https://www.gatsbyjs.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Gatsby
+            </a>
+            ,{' '}
+            <a
+              href="https://www.contentful.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Contentful
+            </a>{' '}
+            and{' '}
+            <a
+              href="https://www.netlify.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Netlify
+            </a>{' '}
+            <span>🎉</span>
+          </PageTitle>
+        )}
         <CardList>
           {posts.map(({ node: post }) => (
             <Card
@@ -52,16 +58,18 @@ const Index = ({ data }) => {
             />
           ))}
         </CardList>
+        <Pagination context={pageContext}/>
       </Container>
     </Layout>
   )
 }
 
 export const query = graphql`
-  query {
+  query($skip: Int!, $limit: Int!) {
     allContentfulPost(
-      limit: 1000
       sort: { fields: [publishDate], order: DESC }
+      limit: $limit
+      skip: $skip
     ) {
       edges {
         node {

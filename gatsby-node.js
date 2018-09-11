@@ -6,46 +6,49 @@ exports.createPages = ({ graphql, actions }) => {
   const loadPosts = new Promise((resolve, reject) => {
     graphql(`
       {
-        allContentfulPost {
+        allContentfulPost(
+          sort: { fields: [publishDate], order: DESC }
+          limit: 10000
+        ) {
           edges {
             node {
               slug
+              publishDate
             }
           }
         }
       }
     `).then(result => {
-      result.data.allContentfulPost.edges.map(({ node }) => {
+      const postsPerPage = 2 // Number of posts shown per index page
+      const posts = result.data.allContentfulPost.edges // Array of posts from Contentful
+      const postTemplate = path.resolve(`./src/templates/index.js`) // Template used for Index
+      const numPages = Math.ceil(posts.length / postsPerPage)
+
+      // Create paginated index
+      Array.from({ length: numPages }).forEach((_, i) => {
         createPage({
-          path: `${node.slug}/`,
-          component: path.resolve(`./src/templates/post.js`),
+          path: i === 0 ? `/` : `/${i + 1}`,
+          component: postTemplate,
           context: {
-            slug: node.slug,
+            limit: postsPerPage,
+            skip: i * postsPerPage,
+            numPages,
+            currentPage: i + 1,
           },
         })
       })
-      resolve()
-    })
-  })
 
-  const loadPages = new Promise((resolve, reject) => {
-    graphql(`
-      {
-        allContentfulPage {
-          edges {
-            node {
-              slug
-            }
-          }
-        }
-      }
-    `).then(result => {
-      result.data.allContentfulPage.edges.map(({ node }) => {
+      // Create each individual post
+      posts.forEach((edge, index) => {
+        const prev = index === 0 ? null : posts[index - 1].node
+        const next = index === posts.length - 1 ? null : posts[index + 1].node
         createPage({
-          path: `${node.slug}/`,
-          component: path.resolve(`./src/templates/page.js`),
+          path: `${edge.node.slug}/`,
+          component: path.resolve(`./src/templates/post.js`),
           context: {
-            slug: node.slug,
+            slug: edge.node.slug,
+            prev,
+            next,
           },
         })
       })
@@ -78,5 +81,31 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-  return Promise.all([loadPosts, loadPages, loadTags])
+  const loadPages = new Promise((resolve, reject) => {
+    graphql(`
+      {
+        allContentfulPage {
+          edges {
+            node {
+              slug
+            }
+          }
+        }
+      }
+    `).then(result => {
+      const pages = result.data.allContentfulPage.edges
+      pages.map(({ node }) => {
+        createPage({
+          path: `${node.slug}/`,
+          component: path.resolve(`./src/templates/page.js`),
+          context: {
+            slug: node.slug,
+          },
+        })
+      })
+      resolve()
+    })
+  })
+
+  return Promise.all([loadPosts, loadTags, loadPages])
 }

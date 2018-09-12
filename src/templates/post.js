@@ -56,11 +56,7 @@ export const query = graphql`
       }
       publishDate(formatString: "MMMM DD, YYYY")
       publishDateISO: publishDate(formatString: "YYYY-MM-DD")
-      tags {
-        title
-        id
-        slug
-      }
+      tags
       heroImage {
         title
         fluid(maxWidth: 1800) {

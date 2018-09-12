@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import sortBy from 'lodash/sortBy'
 import Helmet from 'react-helmet'
 import config from '../utils/siteConfig'
 import Layout from '../components/Layout'
@@ -8,32 +7,32 @@ import Card from '../components/Card'
 import CardList from '../components/CardList'
 import PageTitle from '../components/PageTitle'
 import Container from '../components/Container'
+import kebabCase from 'lodash/kebabCase'
 
-const TagTemplate = ({ data }) => {
-  const { title, slug } = data.contentfulTag
-
-  const posts = sortBy(data.contentfulTag.post, 'publishDate').reverse()
+const TagTemplate = ({ pageContext, data }) => {
+  const { tag } = pageContext
+  const posts = data.allContentfulPost.edges
 
   return (
     <Layout>
       <Helmet>
-        <title>{`Tag: ${title} - ${config.siteTitle}`}</title>
+        <title>{`Tag: ${tag} - ${config.siteTitle}`}</title>
         <meta
           property="og:title"
-          content={`Tag: ${title} - ${config.siteTitle}`}
+          content={`Tag: ${tag} - ${config.siteTitle}`}
         />
-        <meta property="og:url" content={`${config.siteUrl}/tag/${slug}/`} />
+        <meta property="og:url" content={`${config.siteUrl}/tag/${kebabCase(tag.toLowerCase())}/`} />
       </Helmet>
 
       <Container>
         <PageTitle small>
           Tag: &ldquo;
-          {title}
+          {tag}
           &rdquo;
         </PageTitle>
 
         <CardList>
-          {posts.map(post => (
+          {posts.map(({ node: post }) => (
             <Card
               key={post.id}
               slug={post.slug}
@@ -50,15 +49,18 @@ const TagTemplate = ({ data }) => {
 }
 
 export const query = graphql`
-  query($slug: String!) {
-    contentfulTag(slug: { eq: $slug }) {
-      title
-      id
-      slug
-      post {
-        id
+query ($tag: String) {
+  allContentfulPost(
+    sort: { fields: [publishDate], order: DESC }
+    filter: { tags: { in: [$tag] } }
+  ) {
+    totalCount
+    edges {
+      node {
         title
+        id
         slug
+        tags
         publishDate(formatString: "MMMM DD, YYYY")
         heroImage {
           title
@@ -75,6 +77,7 @@ export const query = graphql`
       }
     }
   }
+}
 `
 
 export default TagTemplate

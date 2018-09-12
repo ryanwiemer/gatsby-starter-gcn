@@ -1,4 +1,6 @@
 const path = require(`path`)
+const _ = require ('lodash')
+
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
@@ -14,21 +16,26 @@ exports.createPages = ({ graphql, actions }) => {
             node {
               slug
               publishDate
+              tags
             }
           }
         }
       }
     `).then(result => {
-      const postsPerPage = 2 // Number of posts shown per index page
+
+
       const posts = result.data.allContentfulPost.edges // Array of posts from Contentful
-      const postTemplate = path.resolve(`./src/templates/index.js`) // Template used for Index
+      const postsPerPage = 1 // Number of posts shown per page
       const numPages = Math.ceil(posts.length / postsPerPage)
 
-      // Create paginated index
+
+      const indexTemplate = path.resolve(`./src/templates/index.js`) // Template used for index
+      const tagTemplate = path.resolve(`./src/templates/tag.js`) // Template used for tag
+
       Array.from({ length: numPages }).forEach((_, i) => {
         createPage({
           path: i === 0 ? `/` : `/${i + 1}`,
-          component: postTemplate,
+          component: indexTemplate,
           context: {
             limit: postsPerPage,
             skip: i * postsPerPage,
@@ -52,31 +59,38 @@ exports.createPages = ({ graphql, actions }) => {
           },
         })
       })
-      resolve()
-    })
-  })
 
-  const loadTags = new Promise((resolve, reject) => {
-    graphql(`
-      {
-        allContentfulTag {
-          edges {
-            node {
-              slug
-            }
+
+
+
+
+
+
+
+
+      // Create each tag
+        let tags = [];
+        // Iterate through each post, putting all found tags into `tags`
+        posts.forEach((edge, index) => {
+          if (_.get(edge, "node.tags")) {
+            tags = tags.concat(edge.node.tags);
           }
-        }
-      }
-    `).then(result => {
-      result.data.allContentfulTag.edges.map(({ node }) => {
-        createPage({
-          path: `tag/${node.slug}/`,
-          component: path.resolve(`./src/templates/tag.js`),
-          context: {
-            slug: node.slug,
-          },
+        });
+        // Eliminate duplicate tags
+        tags = _.uniq(tags);
+
+        // Make tag pages
+        tags.forEach(tag => {
+          createPage({
+            path: `/tag/${_.kebabCase(tag.toLowerCase())}/`,
+            component: tagTemplate,
+            context: {
+              tag,
+            },
+          })
         })
-      })
+
+
       resolve()
     })
   })
@@ -107,5 +121,5 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-  return Promise.all([loadPosts, loadTags, loadPages])
+  return Promise.all([loadPosts, loadPages])
 }

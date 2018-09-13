@@ -5,7 +5,7 @@
   "repository": "https://github.com/ryanwiemer/gatsby-starter-gcn",
   "author": "Ryan Wiemer <ryan@ryanwiemer.com>",
   "dependencies": {
-    "babel-plugin-styled-components": "^1.7.1",
+    "babel-plugin-styled-components": "^1.6.4",
     "chalk": "^2.4.1",
     "contentful-import": "^7.4.0",
     "gatsby": "next",
@@ -26,7 +26,7 @@
     "gatsby-source-filesystem": "next",
     "gatsby-transformer-remark": "next",
     "inquirer": "^6.2.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.10",
     "path": "^0.12.7",
     "prismjs": "^1.15.0",
     "react": "^16.5.0",

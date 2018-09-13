@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import kebabCase from 'lodash/kebabCase'
 
 const List = styled.ul`
   margin: 0 auto 2em auto;
@@ -29,9 +28,9 @@ const Tag = styled.li`
 const TagList = props => {
   return (
     <List>
-      {props.tags.map((tag, index) => (
-        <Tag key={index}>
-          <Link to={`/tag/${kebabCase(tag.toLowerCase())}/`}>{tag}</Link>
+      {props.tags.map(tag => (
+        <Tag key={tag.id}>
+          <Link to={`/tag/${tag.slug}/`}>{tag.title}</Link>
         </Tag>
       ))}
     </List>

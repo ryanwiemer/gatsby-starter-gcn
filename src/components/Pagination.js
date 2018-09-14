@@ -37,8 +37,8 @@ class Pagination extends React.Component {
     const isLast = currentPage === numPages
     const prevPageNum = currentPage - 1 === 1 ? `` : (currentPage - 1).toString()
     const nextPageNum = (currentPage + 1).toString()
-    const prevPageLink = isFirst ? null : `/${prevPageNum}`
-    const nextPageLink = isLast ? null : `/${nextPageNum}`
+    const prevPageLink = isFirst ? null : `/${prevPageNum}/`
+    const nextPageLink = isLast ? null : `/${nextPageNum}/`
 
     return (
       <Wrapper>

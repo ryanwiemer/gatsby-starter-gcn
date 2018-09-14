@@ -37,13 +37,13 @@ class TagTemplate extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      visible: 6
+      visible: config.postsPerPage
     }
   }
 
   loadMore = () => {
    this.setState((prev) => {
-     return {visible: prev.visible + 6}
+     return {visible: prev.visible + config.postsPerPage}
    })
  }
 

@@ -1,3 +1,4 @@
+const config = require('./src/utils/siteConfig')
 const path = require(`path`)
 
 exports.createPages = ({ graphql, actions }) => {
@@ -20,29 +21,41 @@ exports.createPages = ({ graphql, actions }) => {
       }
     `).then(result => {
 
-      const postsPerPage = 7 // Number of posts shown per index page
-      const posts = result.data.allContentfulPost.edges // Array of posts from Contentful
-      const postTemplate = path.resolve(`./src/templates/index.js`) // Template used for Index
-      const numPages = Math.ceil(posts.length / postsPerPage)
+      const posts = result.data.allContentfulPost.edges // Get all Posts
+      const postsPerFirstPage = config.postsPerFirstPage // Number of posts on the main index page (7)
+      const postsPerPage = config.postsPerPage // Number of posts paginated pages (6)
+      const numPages = Math.ceil(posts.slice(postsPerFirstPage).length / postsPerPage)
 
-      // Create paginated index
+    // Create main index page
+      createPage({
+        path: `/`,
+        component: path.resolve(`./src/templates/index.js`),
+        context: {
+          limit: postsPerFirstPage,
+          skip: 0,
+          numPages: numPages + 1,
+          currentPage: 1,
+        },
+      })
+
+    // Create additional pagination if needed
       Array.from({ length: numPages }).forEach((_, i) => {
         createPage({
-          path: i === 0 ? `/` : `/${i + 1}`,
-          component: postTemplate,
+          path: `/${i + 2}/`,
+          component: path.resolve(`./src/templates/index.js`),
           context: {
             limit: postsPerPage,
-            skip: i * postsPerPage,
-            numPages,
-            currentPage: i + 1,
+            skip: i * postsPerPage + postsPerFirstPage,
+            numPages: numPages + 1,
+            currentPage: i + 2,
           },
         })
       })
 
       // Create each individual post
-      posts.forEach((edge, index) => {
-        const prev = index === 0 ? null : posts[index - 1].node
-        const next = index === posts.length - 1 ? null : posts[index + 1].node
+      posts.forEach((edge, i) => {
+        const prev = i === 0 ? null : posts[i - 1].node
+        const next = i === posts.length - 1 ? null : posts[i + 1].node
         createPage({
           path: `${edge.node.slug}/`,
           component: path.resolve(`./src/templates/post.js`),

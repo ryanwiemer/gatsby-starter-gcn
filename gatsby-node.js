@@ -19,7 +19,8 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     `).then(result => {
-      const postsPerPage = 2 // Number of posts shown per index page
+
+      const postsPerPage = 7 // Number of posts shown per index page
       const posts = result.data.allContentfulPost.edges // Array of posts from Contentful
       const postTemplate = path.resolve(`./src/templates/index.js`) // Template used for Index
       const numPages = Math.ceil(posts.length / postsPerPage)

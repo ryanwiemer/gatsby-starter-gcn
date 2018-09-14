@@ -4,17 +4,18 @@ import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 
 const Post = styled.li`
+  position: relative;
   border: 1px solid ${props => props.theme.colors.secondary};
   border-radius: 2px;
   margin: 0 0 1em 0;
   width: 100%;
   transition: background 0.2s;
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
-    flex: 0 0 49%;
+    flex: ${props => (props.featured ? '0 0 100%' : '0 0 49%')};
     margin: 0 0 2vw 0;
   }
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
-    flex: 0 0 32%;
+    flex: ${props => (props.featured ? '0 0 100%' : '0 0 32%')};
   }
   &:hover {
     background: ${props => props.theme.colors.tertiary};
@@ -29,6 +30,9 @@ const Post = styled.li`
     .gatsby-image-wrapper {
       height: 0;
       padding-bottom: 60%;
+      @media screen and (min-width: ${props => props.theme.responsive.small}) {
+        padding-bottom: ${props => (props.featured ? '40%' : '60%')};
+      }
     }
   }
 `
@@ -52,9 +56,9 @@ const Excerpt = styled.p`
 
 const Card = props => {
   return (
-    <Post>
+    <Post featured={props.featured}>
       <Link to={`/${props.slug}/`}>
-        <Img fluid={props.image.fluid} backgroundColor={'#eeeeee'} />
+        <Img fluid={props.image.fluid} backgroundColor={'#eeeeee'}/>
         <Title>{props.title}</Title>
         <Date>{props.date}</Date>
         <Excerpt

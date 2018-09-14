@@ -43,10 +43,10 @@ class Pagination extends React.Component {
     return (
       <Wrapper>
         {!isFirst && (
-          <PreviousLink to={prevPageLink}>Newer Posts</PreviousLink>
+          <PreviousLink to={prevPageLink}>&#8592; Prev Page</PreviousLink>
         )}
         {!isLast && (
-          <NextLink to={nextPageLink}>Older Posts</NextLink>
+          <NextLink to={nextPageLink}>Next Page &#8594;</NextLink>
         )}
       </Wrapper>
     )

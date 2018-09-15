@@ -20,13 +20,14 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     `).then(result => {
-
       const posts = result.data.allContentfulPost.edges // Get all Posts
       const postsPerFirstPage = config.postsPerFirstPage // Number of posts on the main index page (7)
       const postsPerPage = config.postsPerPage // Number of posts paginated pages (6)
-      const numPages = Math.ceil(posts.slice(postsPerFirstPage).length / postsPerPage)
+      const numPages = Math.ceil(
+        posts.slice(postsPerFirstPage).length / postsPerPage
+      )
 
-    // Create main index page
+      // Create main index page
       createPage({
         path: `/`,
         component: path.resolve(`./src/templates/index.js`),
@@ -38,7 +39,7 @@ exports.createPages = ({ graphql, actions }) => {
         },
       })
 
-    // Create additional pagination if needed
+      // Create additional pagination if needed
       Array.from({ length: numPages }).forEach((_, i) => {
         createPage({
           path: `/${i + 2}/`,

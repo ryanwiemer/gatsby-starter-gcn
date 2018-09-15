@@ -58,7 +58,7 @@ const Card = props => {
   return (
     <Post featured={props.featured}>
       <Link to={`/${props.slug}/`}>
-        <Img fluid={props.image.fluid} backgroundColor={'#eeeeee'}/>
+        <Img fluid={props.image.fluid} backgroundColor={'#eeeeee'} />
         <Title>{props.title}</Title>
         <Date>{props.date}</Date>
         <Excerpt

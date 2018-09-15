@@ -31,11 +31,11 @@ const NextLink = styled(Link)`
 
 class Pagination extends React.Component {
   render() {
-
     const { numPages, currentPage } = this.props.context
     const isFirst = currentPage === 1
     const isLast = currentPage === numPages
-    const prevPageNum = currentPage - 1 === 1 ? `` : (currentPage - 1).toString()
+    const prevPageNum =
+      currentPage - 1 === 1 ? `` : (currentPage - 1).toString()
     const nextPageNum = (currentPage + 1).toString()
     const prevPageLink = isFirst ? null : `/${prevPageNum}/`
     const nextPageLink = isLast ? null : `/${nextPageNum}/`
@@ -45,9 +45,7 @@ class Pagination extends React.Component {
         {!isFirst && (
           <PreviousLink to={prevPageLink}>&#8592; Prev Page</PreviousLink>
         )}
-        {!isLast && (
-          <NextLink to={nextPageLink}>Next Page &#8594;</NextLink>
-        )}
+        {!isLast && <NextLink to={nextPageLink}>Next Page &#8594;</NextLink>}
       </Wrapper>
     )
   }

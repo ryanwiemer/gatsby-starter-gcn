@@ -25,7 +25,7 @@ const LoadButton = styled.div`
   }
 
   svg {
-    margin: 0 0 0 .5rem;
+    margin: 0 0 0 0.5rem;
     fill: white;
     border: 1px solid white;
     border-radius: 50%;
@@ -33,24 +33,25 @@ const LoadButton = styled.div`
 `
 
 class TagTemplate extends React.Component {
-
   constructor(props) {
     super(props)
     this.state = {
-      visible: config.postsPerPage
+      visible: config.postsPerPage,
     }
   }
 
   loadMore = () => {
-   this.setState((prev) => {
-     return {visible: prev.visible + config.postsPerPage}
-   })
- }
+    this.setState(prev => {
+      return { visible: prev.visible + config.postsPerPage }
+    })
+  }
 
   render() {
-
     const { title, slug } = this.props.data.contentfulTag
-    const posts = sortBy(this.props.data.contentfulTag.post, 'publishDate').reverse()
+    const posts = sortBy(
+      this.props.data.contentfulTag.post,
+      'publishDate'
+    ).reverse()
     const numberOfPosts = posts.length
 
     return (
@@ -84,7 +85,7 @@ class TagTemplate extends React.Component {
             ))}
           </CardList>
           {this.state.visible < numberOfPosts && (
-            <div style={{textAlign: 'center'}}>
+            <div style={{ textAlign: 'center' }}>
               <LoadButton onClick={this.loadMore}>
                 Load More Posts...
               </LoadButton>

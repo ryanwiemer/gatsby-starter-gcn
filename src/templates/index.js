@@ -25,28 +25,28 @@ const Index = ({ data, pageContext }) => {
       )}
       <Container>
         {isFirstPage ? (
-            <CardList>
+          <CardList>
+            <Card
+              featured
+              height={'200px'}
+              key={featuredPost.id}
+              slug={featuredPost.slug}
+              image={featuredPost.heroImage}
+              title={featuredPost.title}
+              date={featuredPost.publishDate}
+              excerpt={featuredPost.body}
+            />
+            {posts.slice(1).map(({ node: post }) => (
               <Card
-                featured
-                height={'200px'}
-                key={featuredPost.id}
-                slug={featuredPost.slug}
-                image={featuredPost.heroImage}
-                title={featuredPost.title}
-                date={featuredPost.publishDate}
-                excerpt={featuredPost.body}
+                key={post.id}
+                slug={post.slug}
+                image={post.heroImage}
+                title={post.title}
+                date={post.publishDate}
+                excerpt={post.body}
               />
-              {posts.slice(1).map(({ node: post }) => (
-                <Card
-                  key={post.id}
-                  slug={post.slug}
-                  image={post.heroImage}
-                  title={post.title}
-                  date={post.publishDate}
-                  excerpt={post.body}
-                />
-              ))}
-            </CardList>
+            ))}
+          </CardList>
         ) : (
           <CardList>
             {posts.map(({ node: post }) => (
@@ -61,7 +61,7 @@ const Index = ({ data, pageContext }) => {
             ))}
           </CardList>
         )}
-        <Pagination context={pageContext}/>
+        <Pagination context={pageContext} />
       </Container>
     </Layout>
   )

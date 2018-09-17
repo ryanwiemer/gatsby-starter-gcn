@@ -28,7 +28,6 @@ const Index = ({ data, pageContext }) => {
           <CardList>
             <Card
               featured
-              height={'200px'}
               key={featuredPost.id}
               slug={featuredPost.slug}
               image={featuredPost.heroImage}

@@ -7,6 +7,7 @@ A starter template to build amazing static websites with Gatsby, Contentful and 
 - Contentful integration with ready to go placeholder content
 - Netlify integration including a pre-built contact form
 - Minimal responsive design - made to customize or tear apart
+- Pagination logic
 - Styled components
 - SEO Friendly Component
   - JSON-LD Schema
@@ -62,6 +63,8 @@ module.exports = {
   siteDescription:
     'A starter template to build amazing static websites with Gatsby, Contentful and Netlify',
   siteUrl: 'https://gcn.netlify.com',
+  postsPerFirstPage: 7,
+  postsPerPage: 6,
   author: 'GCN User',
   authorUrl: 'https://gcn.netlify.com/about/',
   userTwitter: '@twitter',

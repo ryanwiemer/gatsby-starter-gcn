@@ -2,7 +2,6 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import sortBy from 'lodash/sortBy'
 import Helmet from 'react-helmet'
-import styled from 'styled-components'
 import config from '../utils/siteConfig'
 import Layout from '../components/Layout'
 import Card from '../components/Card'
@@ -10,41 +9,7 @@ import CardList from '../components/CardList'
 import PageTitle from '../components/PageTitle'
 import Container from '../components/Container'
 
-const LoadButton = styled.div`
-  margin: 0 auto;
-  display: inline-flex;
-  cursor: pointer;
-  background: ${props => props.theme.colors.base};
-  color: white;
-  padding: 1em;
-  border-radius: 2px;
-  text-decoration: none;
-  transition: 0.2s;
-  &:hover {
-    background: ${props => props.theme.colors.highlight};
-  }
-
-  svg {
-    margin: 0 0 0 0.5rem;
-    fill: white;
-    border: 1px solid white;
-    border-radius: 50%;
-  }
-`
-
 class TagTemplate extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      visible: config.postsPerPage,
-    }
-  }
-
-  loadMore = () => {
-    this.setState(prev => {
-      return { visible: prev.visible + config.postsPerPage }
-    })
-  }
 
   render() {
     const { title, slug } = this.props.data.contentfulTag
@@ -53,6 +18,12 @@ class TagTemplate extends React.Component {
       'publishDate'
     ).reverse()
     const numberOfPosts = posts.length
+
+    const skip = this.props.pageContext.skip
+    const limit = this.props.pageContext.limit
+    const currentPage = this.props.pageContext.currentPage
+
+    console.log(this.props.pageContext)
 
     return (
       <Layout>
@@ -73,7 +44,7 @@ class TagTemplate extends React.Component {
           </PageTitle>
 
           <CardList>
-            {posts.slice(0, this.state.visible).map(post => (
+            {posts.slice(skip, limit * currentPage).map(post => (
               <Card
                 key={post.id}
                 slug={post.slug}
@@ -84,13 +55,6 @@ class TagTemplate extends React.Component {
               />
             ))}
           </CardList>
-          {this.state.visible < numberOfPosts && (
-            <div style={{ textAlign: 'center' }}>
-              <LoadButton onClick={this.loadMore}>
-                Load More Posts...
-              </LoadButton>
-            </div>
-          )}
         </Container>
       </Layout>
     )

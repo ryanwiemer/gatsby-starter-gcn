@@ -20,9 +20,13 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     `).then(result => {
+
       const posts = result.data.allContentfulPost.edges // Get all Posts
       const postsPerFirstPage = config.postsPerFirstPage // Number of posts on the main index page (7)
       const postsPerPage = config.postsPerPage // Number of posts paginated pages (6)
+
+
+
       const numPages = Math.ceil(
         posts.slice(postsPerFirstPage).length / postsPerPage
       )
@@ -71,6 +75,10 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
+
+
+
+
   const loadTags = new Promise((resolve, reject) => {
     graphql(`
       {
@@ -78,23 +86,53 @@ exports.createPages = ({ graphql, actions }) => {
           edges {
             node {
               slug
+              post {
+                id
+              }
             }
           }
         }
       }
     `).then(result => {
-      result.data.allContentfulTag.edges.map(({ node }) => {
-        createPage({
-          path: `tag/${node.slug}/`,
-          component: path.resolve(`./src/templates/tag.js`),
-          context: {
-            slug: node.slug,
-          },
+
+      const tags = result.data.allContentfulTag.edges // Get all Tags
+      const postsPerPage = config.postsPerPage // Number of posts paginated pages (6)
+
+      tags.map(({ node }) => {
+
+        const totalPosts = node.post.length
+        const numPages = Math.ceil(totalPosts / postsPerPage)
+
+        Array.from({ length: numPages }).forEach((_, i) => {
+          createPage({
+            path: i === 0 ? `/tag/${node.slug}/` : `/tag/${node.slug}/${i + 1}/`,
+            component: path.resolve(`./src/templates/tag.js`),
+            context: {
+              slug: node.slug,
+              limit: postsPerPage,
+              skip: i * postsPerPage,
+              numPages: numPages,
+              currentPage: i + 1,
+            },
+          })
+
+
         })
       })
       resolve()
     })
   })
+
+
+
+
+
+
+
+
+
+
+
 
   const loadPages = new Promise((resolve, reject) => {
     graphql(`

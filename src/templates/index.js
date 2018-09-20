@@ -15,6 +15,8 @@ const Index = ({ data, pageContext }) => {
   const { currentPage } = pageContext
   const isFirstPage = currentPage === 1
 
+  console.log(pageContext)
+
   return (
     <Layout>
       <SEO />

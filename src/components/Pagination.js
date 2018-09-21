@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 
 const Wrapper = styled.div`
+  position: relative;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
@@ -26,28 +27,40 @@ const PreviousLink = styled(Link)`
 
 const NextLink = styled(Link)`
   margin-left: auto;
-  order: 2;
+  order: 3;
+`
+
+const PageIndicator = styled.span`
+  color: gray;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  padding: 1em 0;
+  z-index: -1;
+  opacity: .7;
 `
 
 class Pagination extends React.Component {
   render() {
-    const { numPages, currentPage } = this.props.context
+    const { numPages, currentPage, slug } = this.props.context
     const isFirst = currentPage === 1
     const isLast = currentPage === numPages
+    const isNotPaginated = isFirst & isLast
 
-    const prevPageNum =
-      currentPage - 1 === 1 ? `` : (currentPage - 1).toString()
-    const nextPageNum = (currentPage + 1).toString()
+    const prevPageNum = currentPage - 1 === 1 ? `` : (currentPage - 1)
+    const nextPageNum = (currentPage + 1)
 
-    const prevPageLink = isFirst ? null : `/${prevPageNum}/`
-    const nextPageLink = isLast ? null : `/${nextPageNum}/`
-
-    
+    const pathPrefix = typeof slug === 'string' ? `/tag/${slug}` : ''
+    const prevPageLink = isFirst ? null : `${pathPrefix}/${prevPageNum}/`
+    const nextPageLink = isLast ? null : `${pathPrefix}/${nextPageNum}/`
 
     return (
       <Wrapper>
         {!isFirst && (
           <PreviousLink to={prevPageLink}>&#8592; Prev Page</PreviousLink>
+        )}
+        {!isNotPaginated && (
+          <PageIndicator>{currentPage}/{numPages}</PageIndicator>
         )}
         {!isLast && <NextLink to={nextPageLink}>Next Page &#8594;</NextLink>}
       </Wrapper>

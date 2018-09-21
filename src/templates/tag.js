@@ -7,6 +7,7 @@ import Layout from '../components/Layout'
 import Card from '../components/Card'
 import CardList from '../components/CardList'
 import PageTitle from '../components/PageTitle'
+import Pagination from '../components/Pagination'
 import Container from '../components/Container'
 
 class TagTemplate extends React.Component {
@@ -55,6 +56,7 @@ class TagTemplate extends React.Component {
               />
             ))}
           </CardList>
+          <Pagination context={this.props.pageContext} />
         </Container>
       </Layout>
     )

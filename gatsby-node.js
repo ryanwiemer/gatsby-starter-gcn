@@ -20,18 +20,14 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     `).then(result => {
-
-      const posts = result.data.allContentfulPost.edges // Get all Posts
-      const postsPerFirstPage = config.postsPerFirstPage // Number of posts on the main index page (7)
-      const postsPerPage = config.postsPerPage // Number of posts paginated pages (6)
-
-
-
+      const posts = result.data.allContentfulPost.edges
+      const postsPerFirstPage = config.postsPerHomePage
+      const postsPerPage = config.postsPerPage
       const numPages = Math.ceil(
         posts.slice(postsPerFirstPage).length / postsPerPage
       )
 
-      // Create main index page
+      // Create main home page
       createPage({
         path: `/`,
         component: path.resolve(`./src/templates/index.js`),
@@ -43,7 +39,7 @@ exports.createPages = ({ graphql, actions }) => {
         },
       })
 
-      // Create additional pagination if needed
+      // Create additional pagination on home page if needed
       Array.from({ length: numPages }).forEach((_, i) => {
         createPage({
           path: `/${i + 2}/`,
@@ -75,10 +71,6 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-
-
-
-
   const loadTags = new Promise((resolve, reject) => {
     graphql(`
       {
@@ -94,15 +86,13 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     `).then(result => {
+      const tags = result.data.allContentfulTag.edges
+      const postsPerPage = config.postsPerPage
 
-      const tags = result.data.allContentfulTag.edges // Get all Tags
-      const postsPerPage = config.postsPerPage // Number of posts paginated pages (6)
-
+      // Create tag pages with pagination if needed
       tags.map(({ node }) => {
-
         const totalPosts = node.post.length
         const numPages = Math.ceil(totalPosts / postsPerPage)
-
         Array.from({ length: numPages }).forEach((_, i) => {
           createPage({
             path: i === 0 ? `/tag/${node.slug}/` : `/tag/${node.slug}/${i + 1}/`,
@@ -116,23 +106,11 @@ exports.createPages = ({ graphql, actions }) => {
             },
           })
 
-
         })
       })
       resolve()
     })
   })
-
-
-
-
-
-
-
-
-
-
-
 
   const loadPages = new Promise((resolve, reject) => {
     graphql(`

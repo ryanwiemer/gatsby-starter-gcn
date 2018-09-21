@@ -54,16 +54,16 @@ const Excerpt = styled.p`
   line-height: 1.6;
 `
 
-const Card = props => {
+const Card = ({ slug, heroImage, title, publishDate, body, ...props }) => {
   return (
     <Post featured={props.featured}>
-      <Link to={`/${props.slug}/`}>
-        <Img fluid={props.image.fluid} backgroundColor={'#eeeeee'} />
-        <Title>{props.title}</Title>
-        <Date>{props.date}</Date>
+      <Link to={`/${slug}/`}>
+        <Img fluid={heroImage.fluid} backgroundColor={'#eeeeee'} />
+        <Title>{title}</Title>
+        <Date>{publishDate}</Date>
         <Excerpt
           dangerouslySetInnerHTML={{
-            __html: props.excerpt.childMarkdownRemark.excerpt,
+            __html: body.childMarkdownRemark.excerpt,
           }}
         />
       </Link>

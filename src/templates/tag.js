@@ -20,6 +20,8 @@ const TagTemplate = ({ data, pageContext }) => {
   const currentPage = pageContext.currentPage
   const isFirstPage = currentPage === 1
 
+  console.log(posts)
+
   return (
     <Layout>
       {isFirstPage ? (
@@ -55,14 +57,7 @@ const TagTemplate = ({ data, pageContext }) => {
 
         <CardList>
           {posts.slice(skip, limit * currentPage).map(post => (
-            <Card
-              key={post.id}
-              slug={post.slug}
-              image={post.heroImage}
-              title={post.title}
-              date={post.publishDate}
-              excerpt={post.body}
-            />
+            <Card {...post} key={post.id} />
           ))}
         </CardList>
         <Pagination context={pageContext} />

@@ -37,7 +37,7 @@ const PageIndicator = styled.span`
   text-align: center;
   padding: 1em 0;
   z-index: -1;
-  opacity: .7;
+  opacity: 0.7;
 `
 
 class Pagination extends React.Component {
@@ -47,8 +47,8 @@ class Pagination extends React.Component {
     const isLast = currentPage === numPages
     const isNotPaginated = isFirst & isLast
 
-    const prevPageNum = currentPage - 1 === 1 ? `` : (currentPage - 1)
-    const nextPageNum = (currentPage + 1)
+    const prevPageNum = currentPage - 1 === 1 ? `` : currentPage - 1
+    const nextPageNum = currentPage + 1
 
     const pathPrefix = typeof slug === 'string' ? `/tag/${slug}` : ''
     const prevPageLink = isFirst ? null : `${pathPrefix}/${prevPageNum}/`
@@ -60,7 +60,9 @@ class Pagination extends React.Component {
           <PreviousLink to={prevPageLink}>&#8592; Prev Page</PreviousLink>
         )}
         {!isNotPaginated && (
-          <PageIndicator>{currentPage}/{numPages}</PageIndicator>
+          <PageIndicator>
+            {currentPage}/{numPages}
+          </PageIndicator>
         )}
         {!isLast && <NextLink to={nextPageLink}>Next Page &#8594;</NextLink>}
       </Wrapper>

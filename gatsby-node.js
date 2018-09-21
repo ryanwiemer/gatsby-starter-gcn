@@ -95,7 +95,8 @@ exports.createPages = ({ graphql, actions }) => {
         const numPages = Math.ceil(totalPosts / postsPerPage)
         Array.from({ length: numPages }).forEach((_, i) => {
           createPage({
-            path: i === 0 ? `/tag/${node.slug}/` : `/tag/${node.slug}/${i + 1}/`,
+            path:
+              i === 0 ? `/tag/${node.slug}/` : `/tag/${node.slug}/${i + 1}/`,
             component: path.resolve(`./src/templates/tag.js`),
             context: {
               slug: node.slug,
@@ -105,7 +106,6 @@ exports.createPages = ({ graphql, actions }) => {
               currentPage: i + 1,
             },
           })
-
         })
       })
       resolve()

@@ -1,12 +1,12 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import { ThemeProvider } from 'styled-components'
-import config from '../utils/siteConfig'
+import Helmet from 'react-helmet'
+import favicon from '../images/favicon.ico'
 import '../styles/global'
 import theme from '../styles/theme'
+import config from '../utils/siteConfig'
 import Menu from '../components/Menu'
 import Footer from '../components/Footer'
-import favicon from '../images/favicon.ico'
 
 const Template = ({ children }) => {
   return (
@@ -25,14 +25,13 @@ const Template = ({ children }) => {
       </Helmet>
 
       <ThemeProvider theme={theme}>
-        <div className="siteContent">
-          <Menu />
-          {children()}
-        </div>
-      </ThemeProvider>
-      {/* Footer placed in seperate ThemeProvider to avoid Rendering an extra DIV in HTML output  */}
-      <ThemeProvider theme={theme}>
-        <Footer />
+        <>
+          <div className="siteContent">
+            <Menu />
+            {children}
+          </div>
+          <Footer />
+        </>
       </ThemeProvider>
     </div>
   )

@@ -2,11 +2,14 @@
 
 A starter template to build amazing static websites with Gatsby, Contentful and Netlify. Inspired by [gatsby-contentful-starter](https://github.com/contentful-userland/gatsby-contentful-starter).
 
+For Gatsby `v1` please use the [v1 branch](https://github.com/ryanwiemer/gatsby-starter-gcn/tree/v1)
+
 ## Features
 
 - Contentful integration with ready to go placeholder content
 - Netlify integration including a pre-built contact form
 - Minimal responsive design - made to customize or tear apart
+- Pagination logic
 - Styled components
 - SEO Friendly Component
   - JSON-LD Schema
@@ -52,7 +55,7 @@ gatsby new gatsby-starter-gcn https://github.com/ryanwiemer/gatsby-starter-gcn.g
 
 ### Website Data
 
-Edit `/src/utils/siteConfig.js`
+Edit [`/src/utils/siteConfig.js`](https://github.com/ryanwiemer/gatsby-starter-gcn/blob/master/src/utils/siteConfig.js)
 
 ```js
 module.exports = {
@@ -62,6 +65,8 @@ module.exports = {
   siteDescription:
     'A starter template to build amazing static websites with Gatsby, Contentful and Netlify',
   siteUrl: 'https://gcn.netlify.com',
+  postsPerHomePage: 7,
+  postsPerPage: 6,
   author: 'GCN User',
   authorUrl: 'https://gcn.netlify.com/about/',
   userTwitter: '@twitter',
@@ -76,9 +81,11 @@ module.exports = {
 }
 ```
 
+**Note:** If you do not see your changes reflected when developing locally you may need to delete the `.cache` folder and restart the development server.
+
 ### Theme
 
-Edit `/src/styles/theme.js`
+Edit [`/src/styles/theme.js`](https://github.com/ryanwiemer/gatsby-starter-gcn/blob/master/src/styles/theme.js)
 
 ```js
 const theme = {

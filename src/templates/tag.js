@@ -1,50 +1,73 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import sortBy from 'lodash/sortBy'
 import Helmet from 'react-helmet'
 import config from '../utils/siteConfig'
+import Layout from '../components/Layout'
 import Card from '../components/Card'
 import CardList from '../components/CardList'
 import PageTitle from '../components/PageTitle'
+import Pagination from '../components/Pagination'
 import Container from '../components/Container'
 
-const TagTemplate = ({ data }) => {
-  const { title, slug } = data.contentfulTag
-
+const TagTemplate = ({ data, pageContext }) => {
   const posts = sortBy(data.contentfulTag.post, 'publishDate').reverse()
 
+  const { title, slug } = data.contentfulTag
+  const numberOfPosts = posts.length
+  const skip = pageContext.skip
+  const limit = pageContext.limit
+  const currentPage = pageContext.currentPage
+  const isFirstPage = currentPage === 1
+
+  console.log(posts)
+
   return (
-    <div>
-      <Helmet>
-        <title>{`Tag: ${title} - ${config.siteTitle}`}</title>
-        <meta
-          property="og:title"
-          content={`Tag: ${title} - ${config.siteTitle}`}
-        />
-        <meta property="og:url" content={`${config.siteUrl}/tag/${slug}/`} />
-      </Helmet>
+    <Layout>
+      {isFirstPage ? (
+        <Helmet>
+          <title>{`Tag: ${title} - ${config.siteTitle}`}</title>
+          <meta
+            property="og:title"
+            content={`Tag: ${title} - ${config.siteTitle}`}
+          />
+          <meta property="og:url" content={`${config.siteUrl}/tag/${slug}/`} />
+        </Helmet>
+      ) : (
+        <Helmet>
+          <title>{`Tag: ${title} - Page ${currentPage} - ${
+            config.siteTitle
+          }`}</title>
+          <meta
+            property="og:title"
+            content={`Tag: ${title} - Page ${currentPage} - ${
+              config.siteTitle
+            }`}
+          />
+          <meta property="og:url" content={`${config.siteUrl}/tag/${slug}/`} />
+        </Helmet>
+      )}
 
       <Container>
-        <PageTitle small>Tag: &ldquo;{title}&rdquo;</PageTitle>
+        <PageTitle small>
+          {numberOfPosts} Posts Tagged: &ldquo;
+          {title}
+          &rdquo;
+        </PageTitle>
 
         <CardList>
-          {posts.map(post => (
-            <Card
-              key={post.id}
-              slug={post.slug}
-              image={post.heroImage}
-              title={post.title}
-              date={post.publishDate}
-              excerpt={post.body}
-            />
+          {posts.slice(skip, limit * currentPage).map(post => (
+            <Card {...post} key={post.id} />
           ))}
         </CardList>
+        <Pagination context={pageContext} />
       </Container>
-    </div>
+    </Layout>
   )
 }
 
 export const query = graphql`
-  query tagQuery($slug: String!) {
+  query($slug: String!) {
     contentfulTag(slug: { eq: $slug }) {
       title
       id
@@ -56,8 +79,8 @@ export const query = graphql`
         publishDate(formatString: "MMMM DD, YYYY")
         heroImage {
           title
-          sizes(maxWidth: 1800) {
-            ...GatsbyContentfulSizes_withWebp_noBase64
+          fluid(maxWidth: 1800) {
+            ...GatsbyContentfulFluid_withWebp_noBase64
           }
         }
         body {

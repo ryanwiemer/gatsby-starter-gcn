@@ -56,7 +56,7 @@ injectGlobal`
     }
   }
 
-  ol, ul {
+  ol, ul, li {
     list-style: none;
   }
 

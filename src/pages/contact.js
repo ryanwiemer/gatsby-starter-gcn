@@ -1,6 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import config from '../utils/siteConfig'
+import Layout from '../components/Layout'
 import Container from '../components/Container'
 import PageTitle from '../components/PageTitle'
 import ContactForm from '../components/ContactForm'
@@ -12,7 +13,7 @@ const Contact = ({ data }) => {
   }
 
   return (
-    <div>
+    <Layout>
       <Helmet>
         <title>{`Contact - ${config.siteTitle}`}</title>
       </Helmet>
@@ -22,7 +23,7 @@ const Contact = ({ data }) => {
         <PageTitle>Contact</PageTitle>
         <ContactForm />
       </Container>
-    </div>
+    </Layout>
   )
 }
 

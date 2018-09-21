@@ -1,6 +1,8 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import config from '../utils/siteConfig'
+import Layout from '../components/Layout'
 import Container from '../components/Container'
 import PageTitle from '../components/PageTitle'
 import PageBody from '../components/PageBody'
@@ -11,7 +13,7 @@ const PageTemplate = ({ data }) => {
   const postNode = data.contentfulPage
 
   return (
-    <div>
+    <Layout>
       <Helmet>
         <title>{`${title} - ${config.siteTitle}`}</title>
       </Helmet>
@@ -21,12 +23,12 @@ const PageTemplate = ({ data }) => {
         <PageTitle>{title}</PageTitle>
         <PageBody body={body} />
       </Container>
-    </div>
+    </Layout>
   )
 }
 
 export const query = graphql`
-  query pageQuery($slug: String!) {
+  query($slug: String!) {
     contentfulPage(slug: { eq: $slug }) {
       title
       slug

@@ -81,6 +81,8 @@ module.exports = {
 }
 ```
 
+**Note:** If you do not see your changes reflected when developing locally you may need to delete the `.cache` folder and restart the development server.
+
 ### Theme
 
 Edit [`/src/styles/theme.js`](https://github.com/ryanwiemer/gatsby-starter-gcn/blob/master/src/styles/theme.js)

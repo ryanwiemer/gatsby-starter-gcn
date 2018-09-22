@@ -26,7 +26,7 @@ For Gatsby `v1` please use the [v1 branch](https://github.com/ryanwiemer/gatsby-
 
 https://gcn.netlify.com/
 
-![](screenshots/demo.jpg)
+![](extras/screenshots/demo.jpg)
 
 ## Getting Started
 
@@ -140,7 +140,7 @@ SPACE_ID
 GOOGLE_ANALYTICS
 ```
 
-![](screenshots/netlify-build-environment-variables.jpg)
+![](extras/screenshots/netlify-build-environment-variables.jpg)
 
 4.  Navigate to Netlify: **Deploys**. Click `Trigger deploy` to manually trigger a deploy to confirm the website is building successfully using your build environment variables. At this point be aware that every time you push to `master` a deploy will automatically start and be published to production.
 
@@ -156,7 +156,7 @@ GOOGLE_ANALYTICS
     **app.contentful.com** → **Space Settings** → **Webhooks**. Create a webhook using the Netlify build URL that you just created
     and configure which events should trigger the build on production. For example the following will rebuild the production website every time a post or page is published, unpublished or deleted:
 
-![](screenshots/contentful-webhook-selected-events.jpg)
+![](extras/screenshots/contentful-webhook-selected-events.jpg)
 
 ### Netlify Form Notifications (Optional)
 
@@ -165,7 +165,7 @@ GOOGLE_ANALYTICS
 
 2.  Click the add notification dropdown and select your desired notification method.
 
-![](screenshots/netlify-form-notifcations.jpg)
+![](extras/screenshots/netlify-form-notifcations.jpg)
 
 ## Useful Tips
 

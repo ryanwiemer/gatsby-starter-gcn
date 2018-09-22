@@ -1,0 +1,502 @@
+/* GCN Typora Stylesheet
+   v1.0 | MIT License (c) Brandon Kalinowski
+
+   This is a standard CSS port of the typography styles present in this gatsby starter project source. It is useful for use with mardown editors that support themes such as Typora. To use, create a symbolic link or copy this file to ~/Library/Application Support/abnerworks.Typora/themes.
+*/
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+
+/* Add fluid typography code */
+html {
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+  font-size: 18px;
+}
+
+body {
+  font-weight: 400;
+  word-wrap: break-word;
+  font-kerning: normal;
+  font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+
+  /* Set Font Size for Root of Page Body: */
+  font: 100%/1.78 BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+  content: '';
+  content: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* End CSS Reset */
+
+/* Casper Typography Default Styles Below /
+  /* These Settings are Modified in PageBody.js but must be specified here first */
+
+p {
+  margin: 0 0 1rem;
+  line-height: 1.78;
+}
+
+/* End Default Typography Code */
+
+/* PageBody Styles */
+
+#write {
+  margin: 0 auto;
+  max-width: 775px;
+  padding-top: 20px;
+
+  /* Remove Top Margin when post starts with a header */
+  & > :first-child {
+    margin-top: 0;
+  }
+}
+
+a {
+  transition: 0.2s;
+  color: inherit;
+
+  /* &:hover {
+    color: #5b8bf7;
+  } */
+}
+
+em {
+  font-style: italic;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+/* Add typography code below */
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin: 0 0 1em;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #2e2e2e;
+  text-rendering: geometricPrecision;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 1em;
+  padding: 0;
+}
+
+h1 {
+  letter-spacing: -2px;
+  text-indent: -3px;
+  font-size: 2em;
+}
+
+h2 {
+  letter-spacing: -1px;
+
+  @media screen and (max-width: 35em) {
+    font-size: 1.92rem;
+  }
+
+  font-size: 1.51572em;
+}
+
+h3 {
+  font-size: 1.31951em;
+}
+
+h4 {
+  font-size: 1em;
+}
+
+h5 {
+  font-size: 0.87055em;
+}
+
+h6 {
+  font-size: 0.81225em;
+}
+
+pre {
+  font-size: 0.88em;
+  line-height: 1.78em;
+  margin: 0 0 1.78em;
+  padding: 0;
+}
+
+table {
+  border-spacing: 0;
+  font-size: 1em;
+  line-height: 1.78em;
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0 0 1.78em;
+  padding: 0;
+}
+
+blockquote {
+  margin: 0 1.78em 1.78em 0;
+  padding: 0 0 0 1.78em;
+  border-left: 0.4em solid #4a4a4a;
+}
+
+hr {
+  background: #e9e9e9;
+  border: none;
+  height: 6px;
+  margin: 0 0 calc(1.78em - 6px);
+  padding: 0;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted hsla(0, 0%, 0%, 0.5);
+  cursor: help;
+  text-decoration: none;
+}
+
+thead {
+  text-align: left;
+}
+
+td,
+th {
+  text-align: left;
+  border-bottom: 1px solid hsla(0, 0%, 0%, 0.12);
+  font-feature-settings: 'tnum';
+  padding: 0.89em 1.18667em calc(0.89em - 1px);
+}
+
+b,
+strong,
+dt,
+th {
+  font-weight: 700;
+}
+
+th:last-child,
+td:last-child {
+  padding-right: 0;
+}
+
+hgroup,
+dl,
+dd,
+p,
+figure,
+fieldset,
+form,
+noscript,
+iframe,
+address {
+  margin: 0 0 1.78em;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style-position: outside;
+  list-style-image: none;
+  margin: 0 0 1.78em 1.78em;
+  padding: 0;
+
+  /* Add code to make this work */
+  list-style: disc outside none;
+}
+
+ol {
+  /* Add code to make this work */
+  list-style-type: decimal;
+}
+
+li,
+li > p {
+  margin-bottom: calc(1.78em / 2);
+}
+
+ol li,
+ul li,
+th:first-child,
+td:first-child {
+  padding-left: 0;
+}
+
+li > ol,
+li > ul {
+  margin-left: 1.78em;
+  margin-bottom: calc(1.78em / 2);
+  margin-top: calc(1.78em / 2);
+}
+
+blockquote :last-child,
+li :last-child,
+p :last-child {
+  margin-bottom: 0;
+}
+
+abbr,
+acronym {
+  border-bottom: 1px dotted hsla(0, 0%, 0%, 0.5);
+  cursor: help;
+}
+
+/*
+==============================
+Style Code blocks
+==============================
+ */
+
+.md-fences,
+code,
+tt {
+  font-size: 0.88em;
+  line-height: 1.78em;
+  color: #fff;
+  background: #212121;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  tab-size: 4;
+  hyphens: none;
+  font-weight: 600;
+}
+
+.md-fences {
+  margin-bottom: 15px;
+  margin-top: 15px;
+  padding: 1em;
+  margin: 0.5em 0;
+}
+
+/* Inline code */
+:not(pre) code {
+  padding: 0.1em;
+  border-radius: 0.3em;
+  white-space: normal;
+}
+
+/**
+ * prism.js brandonkal theme for brandonkalinowski.com
+ * This theme is heavily customized to replicate Atom One Dark theme with my
+ * own tweaks and was initially based on the tomorrow night theme.
+ * @author Brandon Kalinowski
+ */
+
+.cm-s-inner.CodeMirror {
+  background: #212121;
+  color: #fff;
+}
+.cm-s-inner div.CodeMirror-selected {
+  background: #424242;
+}
+.cm-s-inner .CodeMirror-gutters {
+  border-right: 0;
+}
+.cm-s-inner .CodeMirror-guttermarker {
+  color: #e78c45;
+}
+.cm-s-inner .CodeMirror-guttermarker-subtle {
+  color: #777;
+}
+.cm-s-inner .CodeMirror-linenumber {
+  color: #424242;
+}
+.cm-s-inner .CodeMirror-cursor {
+  border-left: 1px solid #6a6a6a;
+}
+
+.cm-s-inner .cm-comment {
+  color: #8f8f8f;
+  font-style: italic;
+}
+.cm-s-inner .cm-atom {
+  color: #c678dd;
+}
+.cm-s-inner .cm-number {
+  color: #f08d49;
+}
+
+.cm-s-inner .cm-qualifier,
+.cm-s-inner .cm-number {
+  color: #d19866;
+}
+
+.cm-s-inner .cm-builtin {
+  color: #fff;
+}
+
+.cm-s-inner .cm-property,
+.cm-s-inner .cm-attribute,
+.cm-s-inner .cm-variable-2 {
+  color: #f96262;
+}
+.cm-s-inner .cm-keyword {
+  color: #c678dd;
+}
+.cm-s-inner .cm-string {
+  color: #fff;
+}
+
+.cm-s-inner .cm-variable {
+  color: #fff;
+}
+
+.cm-s-inner .cm-def {
+  color: #fff;
+}
+.cm-s-inner .cm-bracket {
+  color: #eaeaea;
+}
+.cm-s-inner .cm-tag {
+  color: #d54e53;
+}
+.cm-s-inner .cm-link {
+  color: #a16a94;
+}
+.cm-s-inner .cm-error {
+  background: #d54e53;
+  color: #6a6a6a;
+}
+
+.cm-s-inner .CodeMirror-activeline-background {
+  background: #2a2a2a;
+}
+.cm-s-inner .CodeMirror-matchingbracket {
+  text-decoration: underline;
+  color: white !important;
+}
+
+.cm-s-inner .cm-operator {
+  color: #67cdcc;
+}
+
+.cm-s-inner .cm-string-2 {
+  color: #fff;
+}
+.cm-s-inner .cm-meta {
+  color: #d27b53;
+}
+
+.cm-s-inner .cm-attribute {
+  font-style: italic;
+  color: #f5c94c;
+}
+.cm-s-inner .cm-header {
+  color: #ff6400;
+}
+.cm-s-inner .cm-hr {
+  color: #aeaeae;
+}

@@ -40,7 +40,6 @@ const Post = styled.li`
 const Title = styled.h2`
   font-size: 1.5em;
   font-weight: 600;
-  text-transform: capitalize;
   margin: 1rem 1rem 0.5rem 1rem;
 `
 

@@ -1,0 +1,147 @@
+/**
+ * prism.js brandonkal theme for brandonkalinowski.com
+ * This theme is heavily customized to replicate Atom One Dark theme with my
+ * own tweaks and was initially based on the tomorrow night theme.
+ * @author Brandon Kalinowski
+ * @License MIT
+ */
+
+code[class*='language-'],
+pre[class*='language-'] {
+  color: #fff;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*='language-'] {
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+}
+
+:not(pre) > code[class*='language-'],
+pre[class*='language-'] {
+  background: #212121;
+}
+
+/* Inline code */
+:not(pre) > code[class*='language-'] {
+  padding: 0.1em;
+  border-radius: 0.3em;
+  white-space: normal;
+}
+
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #d27b53;
+}
+
+.token.comment,
+.token.block-comment {
+  color: #8f8f8f;
+  font-style: italic;
+}
+
+.token.punctuation {
+  color: #ccc;
+}
+
+pre[class='language-json'] .token.punctuation {
+  color: #fff;
+}
+
+.token.tag,
+.token.attr-name,
+.token.namespace,
+.token.deleted,
+pre[class='language-css'] .token.selector,
+.token.property,
+.token.class-name,
+.token.symbol,
+.token.interpolation {
+  color: #f96262;
+}
+
+.token.function-name {
+  color: #6196cc;
+}
+
+.token.boolean,
+.token.number,
+.token.function {
+  color: #f08d49;
+}
+
+.token.constant {
+  color: #fd7f1f;
+}
+
+pre[class='language-css'] .token.property {
+  color: #d19866;
+}
+
+.token.important,
+.token.atrule,
+.token.keyword,
+.token.builtin {
+  color: #c678dd;
+}
+
+.token.attr-name {
+  font-style: italic;
+  color: #f5c94c;
+}
+
+.token.selector {
+  color: #d19866;
+}
+
+.token.string,
+.token.char,
+.token.attr-value,
+.token.regex,
+.token.variable {
+  color: #98c379;
+}
+
+.token.operator,
+.token.entity,
+.token.url {
+  color: #67cdcc;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.inserted {
+  color: green;
+}
+
+.token.function-variable.function {
+  color: #61adef;
+}

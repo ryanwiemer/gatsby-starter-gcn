@@ -46,6 +46,7 @@ const Title = styled.h2`
 const Date = styled.h3`
   margin: 0 1rem 1.5rem 1rem;
   color: gray;
+  font-weight: normal;
 `
 
 const Excerpt = styled.p`

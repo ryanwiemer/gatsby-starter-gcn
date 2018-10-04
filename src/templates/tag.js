@@ -20,8 +20,6 @@ const TagTemplate = ({ data, pageContext }) => {
   const currentPage = pageContext.currentPage
   const isFirstPage = currentPage === 1
 
-  console.log(posts)
-
   return (
     <Layout>
       {isFirstPage ? (

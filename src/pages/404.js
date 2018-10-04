@@ -1,7 +1,8 @@
 import React from 'react'
+import Layout from '../components/Layout'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 
 const Box = styled.div`
   max-width: 600px;
@@ -69,7 +70,7 @@ const Box = styled.div`
 `
 
 const NotFoundPage = () => (
-  <div>
+  <Layout>
     <Helmet>
       <title>404 - Page Not Found</title>
       <meta name="description" content="Page not found" />
@@ -88,7 +89,7 @@ const NotFoundPage = () => (
         </p>
       </section>
     </Box>
-  </div>
+  </Layout>
 )
 
 export default NotFoundPage

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-require('../styles/prism-brandonkal.css')
+require('prismjs/themes/prism.css')
 
 const Body = styled.article`
   margin: 0 auto;

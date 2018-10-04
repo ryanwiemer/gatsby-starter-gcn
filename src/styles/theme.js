@@ -4,10 +4,11 @@ const theme = {
     secondary: '#e9e9e9', // Medium Gray
     tertiary: '#f3f3f3', // Light Gray
     highlight: '#5b8bf7', // Light Blue
+    codeSelection: '#999ba0',
   },
   sizes: {
     maxWidth: '1050px',
-    maxWidthCentered: '650px',
+    maxWidthCentered: '715px',
   },
   responsive: {
     small: '35em',

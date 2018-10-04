@@ -15,18 +15,21 @@ For Gatsby `v1` please use the [v1 branch](https://github.com/ryanwiemer/gatsby-
   - JSON-LD Schema
   - OpenGraph sharing support
   - Sitemap Generation
+- Responsive YouTube embeds
+- React Router link catching for links in Contentful content
 - Google Analytics
 - Progressive Web app
 - Offline Support
 - RSS Feed
 - [Gatsby Standard module](https://www.npmjs.com/package/eslint-config-gatsby-standard) for linting Javascript with StandardJS
 - Stylelint support for Styled Components to lint the CSS in JS
+- Typora typography theme extra
 
 ## Demo
 
 https://gcn.netlify.com/
 
-![](screenshots/demo.jpg)
+![](extras/screenshots/demo.jpg)
 
 ## Getting Started
 
@@ -90,14 +93,15 @@ Edit [`/src/styles/theme.js`](https://github.com/ryanwiemer/gatsby-starter-gcn/b
 ```js
 const theme = {
   colors: {
-    base: '#121212',
-    secondary: '#e9e9e9',
-    tertiary: '#f3f3f3',
-    highlight: '#5b8bf7',
+    base: '#121212', // Black
+    secondary: '#e9e9e9', // Medium Gray
+    tertiary: '#f3f3f3', // Light Gray
+    highlight: '#5b8bf7', // Light Blue
+    codeSelection: '#999ba0',
   },
   sizes: {
-    maxWidth: '1200px',
-    maxWidthCentered: '650px',
+    maxWidth: '1050px',
+    maxWidthCentered: '715px',
   },
   responsive: {
     small: '35em',
@@ -140,7 +144,7 @@ SPACE_ID
 GOOGLE_ANALYTICS
 ```
 
-![](screenshots/netlify-build-environment-variables.jpg)
+![](extras/screenshots/netlify-build-environment-variables.jpg)
 
 4.  Navigate to Netlify: **Deploys**. Click `Trigger deploy` to manually trigger a deploy to confirm the website is building successfully using your build environment variables. At this point be aware that every time you push to `master` a deploy will automatically start and be published to production.
 
@@ -156,7 +160,7 @@ GOOGLE_ANALYTICS
     **app.contentful.com** → **Space Settings** → **Webhooks**. Create a webhook using the Netlify build URL that you just created
     and configure which events should trigger the build on production. For example the following will rebuild the production website every time a post or page is published, unpublished or deleted:
 
-![](screenshots/contentful-webhook-selected-events.jpg)
+![](extras/screenshots/contentful-webhook-selected-events.jpg)
 
 ### Netlify Form Notifications (Optional)
 
@@ -165,7 +169,11 @@ GOOGLE_ANALYTICS
 
 2.  Click the add notification dropdown and select your desired notification method.
 
-![](screenshots/netlify-form-notifcations.jpg)
+![](extras/screenshots/netlify-form-notifcations.jpg)
+
+### Typora Theme
+
+You may find it useful to initially write content offline before pasting into Contentful. A slick option here is to use the free markdown editor [Typora](https://typora.io/). A Typora theme that matches the typography styles of the GCN starter is included in the extras folder. To use this theme, simply copy `extra/typora-stylesheet.css` to `~/Library/Application Support/abnerworks.Typora/themes/gcn-starter.css` or create a symbolic link.
 
 ## Useful Tips
 

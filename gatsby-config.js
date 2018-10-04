@@ -44,8 +44,19 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: 'gatsby-remark-embed-video',
+            options: {
+              width: 715,
+              ratio: 1.78, // Optional: Defaults to 16/9 = 1.77
+              height: 402, // Optional: Overrides optional.ratio
+              related: true, // Remove related videos from the end of video.
+            },
+          },
+          'gatsby-remark-responsive-iframe',
+          {
             resolve: `gatsby-remark-prismjs`,
           },
+          `gatsby-remark-autolink-headers`,
           {
             resolve: `gatsby-remark-images-contentful`,
             options: {
@@ -57,6 +68,7 @@ module.exports = {
         ],
       },
     },
+    `gatsby-plugin-catch-links`,
     {
       resolve: 'gatsby-source-contentful',
       options:

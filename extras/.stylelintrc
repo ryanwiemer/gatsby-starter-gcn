@@ -1,0 +1,13 @@
+# This file is used by the stylelint CLI to lint CSS files.
+# The .stylelintrc file in the project root directory is configured to lint
+# CSS in JS within Styled Components
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-prettier",
+  ],
+  "rules": {
+    "no-descending-specificity": null,
+    "comment-empty-line-before": null
+  }
+}

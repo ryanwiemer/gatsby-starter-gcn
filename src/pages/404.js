@@ -1,26 +1,17 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
+import PageTitle from '../components/PageTitle'
+import Container from '../components/Container'
 import Layout from '../components/Layout'
-
-const Box = styled.div`
-  margin: 0 auto;
-  padding: 3em 1.5em 2em;
-  text-align: center;
-`
 
 const Text = styled.p`
   text-align: center;
   line-height: 1.6;
-  margin: 0 0 1em 0;
-`
-
-const Title = styled.h1`
-  font-size: 3em;
-  text-transform: capitalize;
-  font-weight: 600;
-  margin: 0 0 3rem 0;
-  line-height: 1.2;
+  a {
+    color: #121212;
+  }
 `
 
 const NotFoundPage = () => (
@@ -30,10 +21,13 @@ const NotFoundPage = () => (
       <meta name="description" content="Page not found" />
     </Helmet>
 
-    <Box>
-      <Title>Error 404</Title>
-      <Text>Sorry, that page can't be found</Text>
-    </Box>
+    <Container>
+      <PageTitle>Page Not Found</PageTitle>
+      <Text>
+        Please return <Link to="/">home</Link> or use the menu to navigate to a
+        different page.
+      </Text>
+    </Container>
   </Layout>
 )
 

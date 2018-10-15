@@ -6,7 +6,10 @@ const Wrapper = styled.div`
   position: relative;
   display: flex;
   justify-content: space-between;
-  margin: 0 auto;
+  margin: -2em auto 0;
+  width: 100%;
+  max-width: ${props => props.theme.sizes.maxWidth};
+  padding: 0 1.5em 2em;
   a {
     background: ${props => props.theme.colors.base};
     color: white;
@@ -33,9 +36,11 @@ const NextLink = styled(Link)`
 const PageIndicator = styled.span`
   color: gray;
   position: absolute;
+  left: 0;
+  right: 0;
   width: 100%;
   text-align: center;
-  padding: 1em 0;
+  padding: 1em 1.5em;
   z-index: -1;
   opacity: 0.7;
 `

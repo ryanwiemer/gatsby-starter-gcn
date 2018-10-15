@@ -3,9 +3,15 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 
 const Wrapper = styled.div`
+  margin: -2em 0 0 0;
+  padding: 0 1.5em 2em;
+`
+
+const Box = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
+  width: 100%;
   max-width: ${props => props.theme.sizes.maxWidthCentered};
   a {
     background: ${props => props.theme.colors.base};
@@ -33,14 +39,16 @@ const NextLink = styled(Link)`
 const PostLinks = props => {
   return (
     <Wrapper>
-      {props.previous && (
-        <PreviousLink to={`/${props.previous.slug}/`}>
-          &#8592; Prev Post
-        </PreviousLink>
-      )}
-      {props.next && (
-        <NextLink to={`/${props.next.slug}/`}>Next Post &#8594;</NextLink>
-      )}
+      <Box>
+        {props.previous && (
+          <PreviousLink to={`/${props.previous.slug}/`}>
+            &#8592; Prev Post
+          </PreviousLink>
+        )}
+        {props.next && (
+          <NextLink to={`/${props.next.slug}/`}>Next Post &#8594;</NextLink>
+        )}
+      </Box>
     </Wrapper>
   )
 }

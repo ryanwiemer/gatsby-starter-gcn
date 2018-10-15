@@ -20,8 +20,6 @@ const TagTemplate = ({ data, pageContext }) => {
   const currentPage = pageContext.currentPage
   const isFirstPage = currentPage === 1
 
-  console.log(posts)
-
   return (
     <Layout>
       {isFirstPage ? (
@@ -60,8 +58,8 @@ const TagTemplate = ({ data, pageContext }) => {
             <Card {...post} key={post.id} />
           ))}
         </CardList>
-        <Pagination context={pageContext} />
       </Container>
+      <Pagination context={pageContext} />
     </Layout>
   )
 }

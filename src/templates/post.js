@@ -38,8 +38,8 @@ const PostTemplate = ({ data, pageContext }) => {
         {tags && <TagList tags={tags} />}
         <PostDate date={publishDate} />
         <PageBody body={body} />
-        <PostLinks previous={previous} next={next} />
       </Container>
+      <PostLinks previous={previous} next={next} />
     </Layout>
   )
 }

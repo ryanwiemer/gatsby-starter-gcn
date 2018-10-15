@@ -38,8 +38,8 @@ const Index = ({ data, pageContext }) => {
             ))}
           </CardList>
         )}
-        <Pagination context={pageContext} />
       </Container>
+      <Pagination context={pageContext} />
     </Layout>
   )
 }

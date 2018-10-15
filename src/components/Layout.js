@@ -2,7 +2,7 @@ import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import Helmet from 'react-helmet'
 import favicon from '../images/favicon.ico'
-import '../styles/global'
+import GlobalStyle from '../styles/global'
 import theme from '../styles/theme'
 import config from '../utils/siteConfig'
 import Menu from '../components/Menu'
@@ -27,6 +27,7 @@ const Template = ({ children }) => {
           <Footer />
         </>
       </ThemeProvider>
+      <GlobalStyle />
     </div>
   )
 }

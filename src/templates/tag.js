@@ -58,8 +58,8 @@ const TagTemplate = ({ data, pageContext }) => {
             <Card {...post} key={post.id} />
           ))}
         </CardList>
-        <Pagination context={pageContext} />
       </Container>
+      <Pagination context={pageContext} />
     </Layout>
   )
 }

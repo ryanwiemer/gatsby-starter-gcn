@@ -1,6 +1,6 @@
-import { injectGlobal } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 
-injectGlobal`
+const GlobalStyle = createGlobalStyle`
   /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -36,6 +36,8 @@ injectGlobal`
     flex-direction: column;
   }
   .siteContent {
+    display: flex;
+    flex-direction: column;
     flex: 1 0 auto;
   }
   footer {
@@ -96,3 +98,4 @@ injectGlobal`
   	height: auto;
   }
 `
+export default GlobalStyle

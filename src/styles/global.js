@@ -98,7 +98,8 @@ const GlobalStyle = createGlobalStyle`
   	height: auto;
   }
 
-  button {
+  button,
+  input {
     font-family: inherit;
     font-size: inherit;
     background: none;

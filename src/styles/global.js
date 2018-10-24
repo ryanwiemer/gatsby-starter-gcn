@@ -97,5 +97,23 @@ const GlobalStyle = createGlobalStyle`
   	width: 100%;
   	height: auto;
   }
+
+  button,
+  input {
+    font-family: inherit;
+    font-size: inherit;
+    background: none;
+    border: none;
+    outline: none;
+    appearance: none;
+    border-radius: 0;
+    resize: none;
+    &:focus {
+      outline: none;
+    }
+    &:invalid {
+      box-shadow: none;
+    }
+  }
 `
 export default GlobalStyle

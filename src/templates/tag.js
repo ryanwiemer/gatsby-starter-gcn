@@ -1,7 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import sortBy from 'lodash/sortBy'
+import orderBy from 'lodash/orderBy'
 import Helmet from 'react-helmet'
+import moment from 'moment'
 import config from '../utils/siteConfig'
 import Layout from '../components/Layout'
 import Card from '../components/Card'
@@ -11,7 +12,12 @@ import Pagination from '../components/Pagination'
 import Container from '../components/Container'
 
 const TagTemplate = ({ data, pageContext }) => {
-  const posts = sortBy(data.contentfulTag.post, 'publishDate').reverse()
+  const posts = orderBy(
+    data.contentfulTag.post,
+    // eslint-disable-next-line
+    [object => new moment(object.publishDateISO)],
+    ['desc']
+  )
 
   const { title, slug } = data.contentfulTag
   const numberOfPosts = posts.length
@@ -75,6 +81,7 @@ export const query = graphql`
         title
         slug
         publishDate(formatString: "MMMM DD, YYYY")
+        publishDateISO: publishDate(formatString: "YYYY-MM-DD")
         heroImage {
           title
           fluid(maxWidth: 1800) {

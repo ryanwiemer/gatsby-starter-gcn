@@ -18,6 +18,7 @@ const PostDate = props => {
     <Wrapper>
       <Date>
         <span>Published:</span> {props.date}
+        <span>{` • ${props.readingtime} min read `}</span>
       </Date>
     </Wrapper>
   )

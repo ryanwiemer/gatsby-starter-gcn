@@ -2,8 +2,6 @@
 
 A starter template to build amazing static websites with Gatsby, Contentful and Netlify. Inspired by [gatsby-contentful-starter](https://github.com/contentful-userland/gatsby-contentful-starter).
 
-For Gatsby `v1` please use the [v1 branch](https://github.com/ryanwiemer/gatsby-starter-gcn/tree/v1)
-
 ## Features
 
 - Contentful integration with ready to go placeholder content
@@ -81,7 +79,7 @@ module.exports = {
 }
 ```
 
-**Note:** If you do not see your changes reflected when developing locally you may need to delete the `.cache` folder and restart the development server.
+**Note:** If you do not see your changes reflected when developing locally you may need to run `npm run clean` and restart the development server.
 
 ### Theme
 

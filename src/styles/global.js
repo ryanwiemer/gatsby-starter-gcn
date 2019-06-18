@@ -22,6 +22,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     border: 0;
     font-size: 100%;
+    /* stylelint-disable-next-line */
     font: inherit;
     vertical-align: baseline;
   }

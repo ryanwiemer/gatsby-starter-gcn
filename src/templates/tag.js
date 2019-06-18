@@ -39,14 +39,10 @@ const TagTemplate = ({ data, pageContext }) => {
         </Helmet>
       ) : (
         <Helmet>
-          <title>{`Tag: ${title} - Page ${currentPage} - ${
-            config.siteTitle
-          }`}</title>
+          <title>{`Tag: ${title} - Page ${currentPage} - ${config.siteTitle}`}</title>
           <meta
             property="og:title"
-            content={`Tag: ${title} - Page ${currentPage} - ${
-              config.siteTitle
-            }`}
+            content={`Tag: ${title} - Page ${currentPage} - ${config.siteTitle}`}
           />
           <meta property="og:url" content={`${config.siteUrl}/tag/${slug}/`} />
         </Helmet>

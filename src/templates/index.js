@@ -11,7 +11,6 @@ import config from '../utils/siteConfig'
 
 const Index = ({ data, pageContext }) => {
   const posts = data.allContentfulPost.edges
-  const featuredPost = posts[0].node
   const { currentPage } = pageContext
   const isFirstPage = currentPage === 1
 
@@ -24,20 +23,11 @@ const Index = ({ data, pageContext }) => {
         </Helmet>
       )}
       <Container>
-        {isFirstPage ? (
-          <CardList>
-            <Card {...featuredPost} featured />
-            {posts.slice(1).map(({ node: post }) => (
-              <Card key={post.id} {...post} />
-            ))}
-          </CardList>
-        ) : (
-          <CardList>
-            {posts.map(({ node: post }) => (
-              <Card key={post.id} {...post} />
-            ))}
-          </CardList>
-        )}
+        <CardList>
+          {posts.map(({ node: post }) => (
+            <Card key={post.id} {...post} />
+          ))}
+        </CardList>
       </Container>
       <Pagination context={pageContext} />
     </Layout>

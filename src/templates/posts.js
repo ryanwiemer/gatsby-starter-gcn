@@ -9,17 +9,17 @@ import Pagination from '../components/Pagination'
 import SEO from '../components/SEO'
 import config from '../utils/siteConfig'
 
-const Index = ({ data, pageContext }) => {
+const Posts = ({ data, pageContext }) => {
   const posts = data.allContentfulPost.edges
-  const { currentPage } = pageContext
-  const isFirstPage = currentPage === 1
+  const { humanPageNumber } = pageContext
+  const isFirstPage = humanPageNumber === 1
 
   return (
     <Layout>
       <SEO />
       {!isFirstPage && (
         <Helmet>
-          <title>{`${config.siteTitle} - Page ${currentPage}`}</title>
+          <title>{`${config.siteTitle} - Page ${humanPageNumber}`}</title>
         </Helmet>
       )}
       <Container>
@@ -66,4 +66,4 @@ export const query = graphql`
   }
 `
 
-export default Index
+export default Posts

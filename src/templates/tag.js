@@ -23,11 +23,11 @@ const TagTemplate = ({ data, pageContext }) => {
   const numberOfPosts = posts.length
   const skip = pageContext.skip
   const limit = pageContext.limit
-  const currentPage = pageContext.currentPage
-  const isFirstPage = currentPage === 1
+  const { humanPageNumber } = pageContext
+  const isFirstPage = humanPageNumber === 1
 
   return (
-    <Layout>
+    <>
       {isFirstPage ? (
         <Helmet>
           <title>{`Tag: ${title} - ${config.siteTitle}`}</title>
@@ -39,30 +39,30 @@ const TagTemplate = ({ data, pageContext }) => {
         </Helmet>
       ) : (
         <Helmet>
-          <title>{`Tag: ${title} - Page ${currentPage} - ${config.siteTitle}`}</title>
+          <title>{`Tag: ${title} - Page ${humanPageNumber} - ${config.siteTitle}`}</title>
           <meta
             property="og:title"
-            content={`Tag: ${title} - Page ${currentPage} - ${config.siteTitle}`}
+            content={`Tag: ${title} - Page ${humanPageNumber} - ${config.siteTitle}`}
           />
           <meta property="og:url" content={`${config.siteUrl}/tag/${slug}/`} />
         </Helmet>
       )}
-
-      <Container>
-        <PageTitle small>
-          {numberOfPosts} Posts Tagged: &ldquo;
-          {title}
-          &rdquo;
-        </PageTitle>
-
-        <CardList>
-          {posts.slice(skip, limit * currentPage).map(post => (
-            <Card {...post} key={post.id} />
-          ))}
-        </CardList>
-      </Container>
-      <Pagination context={pageContext} />
-    </Layout>
+      <Layout>
+        <Container>
+          <PageTitle small>
+            {numberOfPosts} Posts Tagged: &ldquo;
+            {title}
+            &rdquo;
+          </PageTitle>
+          <CardList>
+            {posts.slice(skip, limit * humanPageNumber).map(post => (
+              <Card {...post} key={post.id} />
+            ))}
+          </CardList>
+        </Container>
+        <Pagination context={pageContext} />
+      </Layout>
+    </>
   )
 }
 

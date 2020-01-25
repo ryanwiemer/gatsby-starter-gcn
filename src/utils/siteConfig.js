@@ -17,5 +17,5 @@ module.exports = {
   siteLogo: '/logos/logo-512.png', // Logo used for SEO, RSS, and App manifest
   backgroundColor: '#e9e9e9', // Used for Offline Manifest
   themeColor: '#121212', // Used for Offline Manifest
-  copyright: 'Copyright © 2018 GCN User', // Copyright string for the RSS feed
+  copyright: 'Copyright © 2020 GCN User', // Copyright string for the RSS feed
 }

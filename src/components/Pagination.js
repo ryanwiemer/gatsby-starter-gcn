@@ -1,78 +1,120 @@
 import React from 'react'
+import { navigate, Link } from 'gatsby'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
+import SelectIcon from '../icons/SelectIcon'
 
 const Wrapper = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  margin: -2em auto 0;
   width: 100%;
+  margin: -1.5rem auto 2.5rem;
   max-width: ${props => props.theme.sizes.maxWidth};
-  padding: 0 1.5em 2em;
-  a {
-    background: ${props => props.theme.colors.base};
-    color: white;
-    padding: 1em;
-    border-radius: 2px;
-    text-decoration: none;
-    transition: 0.2s;
-    &:hover {
-      background: ${props => props.theme.colors.highlight};
-    }
+  padding: 0 1.5rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: baseline;
+`
+
+const Button = styled(Link)`
+  background: ${props => props.theme.colors.base};
+  color: white;
+  padding: 1rem;
+  border-radius: 2px;
+  margin: 0 0 0 0.5rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s all;
+  &:hover {
+    background: ${props => props.theme.colors.highlight};
+  }
+  @media (hover: none) {
+    background: ${props => props.theme.colors.base} !important;
   }
 `
 
-const PreviousLink = styled(Link)`
-  margin-right: auto;
-  order: 1;
+const Numbers = styled.div`
+  border: 1px solid ${props => props.theme.colors.secondary};
+  border-radius: 2px;
+  display: inline-block;
+  float: left;
+  color: ${props => props.theme.colors.base};
+  padding: 1rem;
+  background: white;
+  position: relative;
+  transition: 0.3s all;
+  svg {
+    fill: ${props => props.theme.colors.base};
+    margin: 0 0 0 0.25rem;
+    transition: 0.3s all;
+  }
+  &:hover {
+    background: ${props => props.theme.colors.tertiary};
+  }
+  @media (hover: none) {
+    background: white !important;
+  }
 `
 
-const NextLink = styled(Link)`
-  margin-left: auto;
-  order: 3;
-`
-
-const PageIndicator = styled.span`
-  color: gray;
+const Select = styled.select`
+  font-size: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
   position: absolute;
+  width: 100%;
   left: 0;
   right: 0;
-  width: 100%;
-  text-align: center;
-  padding: 1em 1.5em;
-  z-index: -1;
-  opacity: 0.7;
+  bottom: 0;
+  top: 0;
+  color: transparent;
 `
 
-class Pagination extends React.Component {
-  render() {
-    const { numPages, currentPage, slug } = this.props.context
-    const isFirst = currentPage === 1
-    const isLast = currentPage === numPages
-    const isNotPaginated = isFirst & isLast
-
-    const prevPageNum = currentPage - 1 === 1 ? `` : currentPage - 1
-    const nextPageNum = currentPage + 1
-
-    const pathPrefix = typeof slug === 'string' ? `/tag/${slug}` : ''
-    const prevPageLink = isFirst ? null : `${pathPrefix}/${prevPageNum}/`
-    const nextPageLink = isLast ? null : `${pathPrefix}/${nextPageNum}/`
-
-    return (
-      <Wrapper>
-        {!isFirst && (
-          <PreviousLink to={prevPageLink}>&#8592; Prev Page</PreviousLink>
-        )}
-        {!isNotPaginated && (
-          <PageIndicator>
-            {currentPage}/{numPages}
-          </PageIndicator>
-        )}
-        {!isLast && <NextLink to={nextPageLink}>Next Page &#8594;</NextLink>}
-      </Wrapper>
+const Pagination = props => {
+  function changePage(e) {
+    navigate(
+      e.target.value
+        ? `${props.context.paginationPrefix}/${e.target.value}`
+        : `${props.context.paginationPrefix}/`
     )
   }
+
+  return (
+    <>
+      {props.context.numberOfPages > 1 && (
+        <Wrapper>
+          <Numbers>
+            {props.context.humanPageNumber}{' '}
+            <Select
+              value={
+                props.context.humanPageNumber === 1
+                  ? ``
+                  : props.context.humanPageNumber
+              }
+              onChange={changePage}
+            >
+              {Array.from({ length: props.context.numberOfPages }, (_, i) => (
+                <option value={`${i === 0 ? `` : i + 1}`} key={`page${i + 1}`}>
+                  {i + 1}
+                </option>
+              ))}
+            </Select>
+            / {props.context.numberOfPages} <SelectIcon />
+          </Numbers>
+          <div>
+            {props.context.previousPagePath && (
+              <Button to={`${props.context.previousPagePath}`}>
+                <span>&larr;</span> Prev
+              </Button>
+            )}
+            {props.context.nextPagePath && (
+              <Button style={{ order: 3 }} to={`${props.context.nextPagePath}`}>
+                Next <span>&rarr;</span>
+              </Button>
+            )}
+          </div>
+        </Wrapper>
+      )}
+    </>
+  )
 }
 
 export default Pagination

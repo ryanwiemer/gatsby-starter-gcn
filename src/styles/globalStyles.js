@@ -181,20 +181,30 @@ export const globalStyles = css`
   }
 
   button,
-  input {
+  input,
+  textarea,
+  select {
     font-family: inherit;
     font-size: inherit;
     background: none;
     border: none;
-    outline: none;
     appearance: none;
     border-radius: 0;
     resize: none;
-    &:focus {
-      outline: none;
-    }
     &:invalid {
       box-shadow: none;
     }
+    &:focus {
+      outline: 5px auto #5e9ed6;
+      outline: 5px auto -webkit-focus-ring-color;
+    }
+  }
+
+  body:not(.user-is-tabbing) button:focus,
+  body:not(.user-is-tabbing) input:focus,
+  body:not(.user-is-tabbing) select:focus,
+  body:not(.user-is-tabbing) textarea:focus,
+  body:not(.user-is-tabbing) a:focus {
+    outline: none;
   }
 `

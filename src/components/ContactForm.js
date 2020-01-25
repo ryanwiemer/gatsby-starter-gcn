@@ -19,8 +19,6 @@ const Form = styled.form`
   textarea {
     font-family: inherit;
     font-size: inherit;
-    border: none;
-    outline: none;
     background: ${props => props.theme.colors.tertiary};
     color: ${props => props.theme.colors.base};
     border-radius: 2px;
@@ -39,9 +37,6 @@ const Form = styled.form`
     }
     &:required {
       box-shadow: none;
-    }
-    &:focus {
-      outline: none;
     }
   }
   &::before {

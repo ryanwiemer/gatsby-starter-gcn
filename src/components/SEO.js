@@ -10,7 +10,7 @@ const SEO = ({ title, description, image, slug }) => {
           siteMetadata {
             title
             description
-            url
+            siteUrl
             image
             twitter
           }
@@ -19,8 +19,8 @@ const SEO = ({ title, description, image, slug }) => {
     `
   )
 
-  const defaultImage = `${site.siteMetadata.url}/${site.siteMetadata.image}`
-  const defaultUrl = site.siteMetadata.url
+  const defaultImage = `${site.siteMetadata.siteUrl}/${site.siteMetadata.image}`
+  const defaultUrl = site.siteMetadata.siteUrl
   const metaDescription = description || site.siteMetadata.description
   const metaImage = image || defaultImage
   const metaUrl = slug ? `${defaultUrl}/${slug}` : defaultUrl

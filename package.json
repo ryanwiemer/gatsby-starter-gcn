@@ -1,7 +1,7 @@
 {
   "name": "gatsby-starter-gcn",
   "description": "A starter template to build amazing static websites with Gatsby, Contentful and Netlify",
-  "version": "2.0.6",
+  "version": "2.1.0",
   "repository": "https://github.com/ryanwiemer/gatsby-starter-gcn",
   "author": "Ryan Wiemer <ryan@ryanwiemer.com>",
   "dependencies": {
@@ -46,8 +46,8 @@
   "scripts": {
     "develop": "gatsby develop",
     "build": "gatsby build",
-    "serve": "npm run build && gatsby serve",
-    "test": "npm run lint:css && npm run lint:js && npm run check-pretty",
+    "serve": "gatsby serve",
+    "test": "yarn run lint:css && yarn run lint:js && yarn run check-pretty",
     "setup": "node ./bin/setup.js",
     "lint:js": "eslint --ext .js,.jsx .",
     "lint:css": "stylelint 'src/**/*.js'",

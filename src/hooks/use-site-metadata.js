@@ -8,7 +8,7 @@ export const useSiteMetadata = () => {
           siteMetadata {
             title
             description
-            url
+            siteUrl
             twitter
             image
             menuLinks {

@@ -20,7 +20,7 @@ module.exports = {
     title: 'GCN',
     description:
       'A starter template to build amazing static websites with Gatsby, Contentful and Netlify',
-    url: 'https://gcn.netlify.com',
+    siteUrl: 'https://gcn.netlify.com',
     twitter: '',
     image: '/images/share.jpg',
     menuLinks: [

@@ -22,7 +22,7 @@ const Nav = styled.nav`
   li {
     display: inline-block;
     margin-left: 1em;
-    &:first-child {
+    &:first-of-type {
       position: relative;
       margin: 0;
       flex-basis: 100%;

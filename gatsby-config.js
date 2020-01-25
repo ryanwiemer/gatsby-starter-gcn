@@ -37,6 +37,7 @@ module.exports = {
         slug: '/contact/',
       },
     ],
+    postsPerHomepage: 7,
     postsPerPage: 6,
   },
   plugins: [

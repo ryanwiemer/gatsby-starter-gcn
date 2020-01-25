@@ -11,11 +11,11 @@ const Post = styled.li`
   width: 100%;
   transition: background 0.2s;
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
-    flex: 0 0 49%;
+    flex: ${props => (props.featured ? '0 0 100%' : '0 0 49%')};
     margin: 0 0 2vw 0;
   }
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
-    flex: 0 0 32%;
+    flex: ${props => (props.featured ? '0 0 100%' : '0 0 32%')};
   }
   &:hover {
     background: ${props => props.theme.colors.tertiary};
@@ -31,7 +31,7 @@ const Post = styled.li`
       height: 0;
       padding-bottom: 60%;
       @media screen and (min-width: ${props => props.theme.responsive.small}) {
-        padding-bottom: 60%;
+        padding-bottom: ${props => (props.featured ? '40%' : '60%')};
       }
     }
   }
@@ -71,7 +71,7 @@ const Card = ({
   ...props
 }) => {
   return (
-    <Post>
+    <Post featured={props.featured}>
       <Link to={`/${slug}/`}>
         <Img fluid={heroImage.fluid} backgroundColor={'#eeeeee'} />
         <Title>{title}</Title>

@@ -28,6 +28,7 @@ module.exports = async ({ graphql, actions }) => {
     createPage,
     component: path.resolve(`./src/templates/posts.js`),
     items: posts,
+    itemsPerFirstPage: config.siteMetadata.postsPerHomepage,
     itemsPerPage: config.siteMetadata.postsPerPage,
     pathPrefix: '/',
     context: {

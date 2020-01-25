@@ -9,16 +9,28 @@ import SEO from '../components/SEO'
 
 const Posts = ({ data, pageContext }) => {
   const posts = data.allContentfulPost.edges
+  const featuredPost = posts[0].node
+  const { humanPageNumber } = pageContext
+  const isFirstPage = humanPageNumber === 1
 
   return (
     <Layout>
       <SEO title="Home" />
       <Container>
-        <CardList>
-          {posts.map(({ node: post }) => (
-            <Card key={post.id} {...post} />
-          ))}
-        </CardList>
+        {isFirstPage ? (
+          <CardList>
+            <Card {...featuredPost} featured />
+            {posts.slice(1).map(({ node: post }) => (
+              <Card key={post.id} {...post} />
+            ))}
+          </CardList>
+        ) : (
+          <CardList>
+            {posts.map(({ node: post }) => (
+              <Card key={post.id} {...post} />
+            ))}
+          </CardList>
+        )}
       </Container>
       <Pagination context={pageContext} />
     </Layout>

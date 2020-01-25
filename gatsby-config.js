@@ -66,14 +66,14 @@ module.exports = {
         background_color: '#fff',
         theme_color: '#fff',
         display: 'minimal-ui',
-        icon: '',
+        icon: './static/logos/logo-512.png',
       },
     },
     'gatsby-plugin-offline',
     {
       resolve: `gatsby-plugin-schema-snapshot`,
       options: {
-        path: `gatsby/schema/schema.gql`,
+        path: `./src/gatsby/schema/schema.gql`,
         update: process.env.GATSBY_UPDATE_SCHEMA_SNAPSHOT,
       },
     },

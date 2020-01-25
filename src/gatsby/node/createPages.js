@@ -10,8 +10,8 @@ module.exports = async ({ graphql, actions }) => {
   const postsQuery = await graphql(query.data.posts)
   const posts = postsQuery.data.allContentfulPost.edges
   posts.forEach((post, i) => {
-    const prev = i === posts.length - 1 ? null : posts[i + 1].node
-    const next = i === 0 ? null : posts[i - 1].node
+    const next = i === posts.length - 1 ? null : posts[i + 1].node
+    const prev = i === 0 ? null : posts[i - 1].node
     createPage({
       path: `/${post.node.slug}/`,
       component: path.resolve(`./src/templates/post.js`),

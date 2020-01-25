@@ -37,7 +37,7 @@ module.exports = {
         slug: '/contact/',
       },
     ],
-    postsPerPage: 2,
+    postsPerPage: 6,
   },
   plugins: [
     'gatsby-plugin-styled-components',

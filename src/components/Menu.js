@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
+import { useSiteMetadata } from '../hooks/use-site-metadata'
 
 const Header = styled.header`
   background: ${props => props.theme.colors.base};
@@ -45,25 +46,18 @@ const activeLinkStyle = {
 }
 
 const Menu = () => {
+  const { menuLinks } = useSiteMetadata()
   return (
     <Header>
       <Nav>
         <ul>
-          <li>
-            <Link to="/" activeStyle={activeLinkStyle}>
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/about/" activeStyle={activeLinkStyle}>
-              About
-            </Link>
-          </li>
-          <li>
-            <Link to="/contact/" activeStyle={activeLinkStyle}>
-              Contact
-            </Link>
-          </li>
+          {menuLinks.map(link => (
+            <li key={link.name}>
+              <Link to={link.slug} activeStyle={activeLinkStyle}>
+                {link.name}
+              </Link>
+            </li>
+          ))}
         </ul>
       </Nav>
     </Header>

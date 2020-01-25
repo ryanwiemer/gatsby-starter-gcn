@@ -1,4 +1,4 @@
-const config = require('../../../src/utils/siteConfig')
+const config = require('../../../gatsby-config')
 const query = require('../data/query')
 const path = require(`path`)
 const { paginate } = require(`gatsby-awesome-pagination`)
@@ -10,14 +10,14 @@ module.exports = async ({ graphql, actions }) => {
   const postsQuery = await graphql(query.data.posts)
   const posts = postsQuery.data.allContentfulPost.edges
   posts.forEach((post, i) => {
-    const previous = i === posts.length - 1 ? null : posts[i + 1].node
+    const prev = i === posts.length - 1 ? null : posts[i + 1].node
     const next = i === 0 ? null : posts[i - 1].node
     createPage({
       path: `/${post.node.slug}/`,
       component: path.resolve(`./src/templates/post.js`),
       context: {
         slug: post.node.slug,
-        previous,
+        prev,
         next,
       },
     })
@@ -28,8 +28,7 @@ module.exports = async ({ graphql, actions }) => {
     createPage,
     component: path.resolve(`./src/templates/posts.js`),
     items: posts,
-    itemsPerPage: config.postsPerPage,
-    itemsPerFirstPage: config.postsPerHomePage,
+    itemsPerPage: config.siteMetadata.postsPerPage,
     pathPrefix: '/',
     context: {
       paginationPrefix: '/',
@@ -57,7 +56,7 @@ module.exports = async ({ graphql, actions }) => {
       createPage,
       component: path.resolve(`./src/templates/tag.js`),
       items: tag.node.post,
-      itemsPerPage: config.postsPerPage,
+      itemsPerPage: config.siteMetadata.postsPerPage,
       pathPrefix: `tag/${tag.node.slug}`,
       context: {
         slug: tag.node.slug,

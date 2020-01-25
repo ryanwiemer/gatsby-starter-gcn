@@ -1,9 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import orderBy from 'lodash/orderBy'
-import Helmet from 'react-helmet'
+import SEO from '../components/SEO'
 import moment from 'moment'
-import config from '../utils/siteConfig'
 import Layout from '../components/Layout'
 import Card from '../components/Card'
 import CardList from '../components/CardList'
@@ -24,30 +23,16 @@ const TagTemplate = ({ data, pageContext }) => {
   const skip = pageContext.skip
   const limit = pageContext.limit
   const { humanPageNumber } = pageContext
-  const isFirstPage = humanPageNumber === 1
 
   return (
     <>
-      {isFirstPage ? (
-        <Helmet>
-          <title>{`Tag: ${title} - ${config.siteTitle}`}</title>
-          <meta
-            property="og:title"
-            content={`Tag: ${title} - ${config.siteTitle}`}
-          />
-          <meta property="og:url" content={`${config.siteUrl}/tag/${slug}/`} />
-        </Helmet>
-      ) : (
-        <Helmet>
-          <title>{`Tag: ${title} - Page ${humanPageNumber} - ${config.siteTitle}`}</title>
-          <meta
-            property="og:title"
-            content={`Tag: ${title} - Page ${humanPageNumber} - ${config.siteTitle}`}
-          />
-          <meta property="og:url" content={`${config.siteUrl}/tag/${slug}/`} />
-        </Helmet>
-      )}
       <Layout>
+        <SEO
+          title={title}
+          description={title}
+          slug={slug}
+          image={posts[0].heroImage.ogimg.src}
+        />
         <Container>
           <PageTitle small>
             {numberOfPosts} Posts Tagged: &ldquo;
@@ -82,6 +67,11 @@ export const query = graphql`
           title
           fluid(maxWidth: 1800) {
             ...GatsbyContentfulFluid_withWebp_noBase64
+          }
+          ogimg: resize(width: 1800) {
+            src
+            width
+            height
           }
         }
         body {

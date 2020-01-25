@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
-import Helmet from 'react-helmet'
 import PageTitle from '../components/PageTitle'
 import Container from '../components/Container'
 import Layout from '../components/Layout'
+import SEO from '../components/SEO'
 
 const Text = styled.p`
   text-align: center;
@@ -16,11 +16,7 @@ const Text = styled.p`
 
 const NotFoundPage = () => (
   <Layout>
-    <Helmet>
-      <title>404 - Page Not Found</title>
-      <meta name="description" content="Page not found" />
-    </Helmet>
-
+    <SEO title="404" description="Page Not Found" />
     <Container>
       <PageTitle>Page Not Found</PageTitle>
       <Text>

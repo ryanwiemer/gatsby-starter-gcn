@@ -17,7 +17,27 @@ try {
 
 module.exports = {
   siteMetadata: {
-    siteUrl: 'https://gcn.netlify.com',
+    title: 'GCN',
+    description:
+      'A starter template to build amazing static websites with Gatsby, Contentful and Netlify',
+    url: 'https://gcn.netlify.com',
+    twitter: '',
+    image: '/images/share.jpg',
+    menuLinks: [
+      {
+        name: 'Home',
+        slug: '/',
+      },
+      {
+        name: 'About',
+        slug: '/about/',
+      },
+      {
+        name: 'Contact',
+        slug: '/contact/',
+      },
+    ],
+    postsPerPage: 2,
   },
   plugins: [
     'gatsby-plugin-styled-components',
@@ -66,7 +86,7 @@ module.exports = {
         background_color: '#fff',
         theme_color: '#fff',
         display: 'minimal-ui',
-        icon: './static/logos/logo-512.png',
+        icon: './static/images/favicon.png',
       },
     },
     'gatsby-plugin-offline',

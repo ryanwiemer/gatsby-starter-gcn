@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 const Wrapper = styled.section`
   margin: 0 auto auto;

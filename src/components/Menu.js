@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 
 const Header = styled.header`

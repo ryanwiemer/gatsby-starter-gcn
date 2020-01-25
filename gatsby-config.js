@@ -40,7 +40,8 @@ module.exports = {
     postsPerPage: 6,
   },
   plugins: [
-    'gatsby-plugin-styled-components',
+    `gatsby-plugin-emotion`,
+    'gatsby-plugin-theme-ui',
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-transformer-remark`,

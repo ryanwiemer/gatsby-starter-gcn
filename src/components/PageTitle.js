@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 const Title = styled.h1`
   font-size: ${props => (props.small ? '2em' : '3em')};

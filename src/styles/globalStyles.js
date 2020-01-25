@@ -1,23 +1,90 @@
-import { createGlobalStyle } from 'styled-components'
-
-const GlobalStyle = createGlobalStyle`
+import { css } from '@emotion/core'
+export const globalStyles = css`
   /* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-  */
-  html, body, div, span, applet, object, iframe,
-  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-  a, abbr, acronym, address, big, cite, code,
-  del, dfn, em, img, ins, kbd, q, s, samp,
-  small, strike, strong, sub, sup, tt, var,
-  b, u, i, center,
-  dl, dt, dd, ol, ul, li,
-  fieldset, form, label, legend,
-  table, caption, tbody, tfoot, thead, tr, th, td,
-  article, aside, canvas, details, embed,
-  figure, figcaption, footer, header, hgroup,
-  menu, nav, output, ruby, section, summary,
-  time, mark, audio, video {
+ v2.0 | 20110126
+ License: none (public domain)
+*/
+  html,
+  body,
+  div,
+  span,
+  applet,
+  object,
+  iframe,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  blockquote,
+  pre,
+  a,
+  abbr,
+  acronym,
+  address,
+  big,
+  cite,
+  code,
+  del,
+  dfn,
+  em,
+  img,
+  ins,
+  kbd,
+  q,
+  s,
+  samp,
+  small,
+  strike,
+  strong,
+  sub,
+  sup,
+  tt,
+  var,
+  b,
+  u,
+  i,
+  center,
+  dl,
+  dt,
+  dd,
+  ol,
+  ul,
+  li,
+  fieldset,
+  form,
+  label,
+  legend,
+  table,
+  caption,
+  tbody,
+  tfoot,
+  thead,
+  tr,
+  th,
+  td,
+  article,
+  aside,
+  canvas,
+  details,
+  embed,
+  figure,
+  figcaption,
+  footer,
+  header,
+  hgroup,
+  menu,
+  nav,
+  output,
+  ruby,
+  section,
+  summary,
+  time,
+  mark,
+  audio,
+  video {
     margin: 0;
     padding: 0;
     border: 0;
@@ -28,7 +95,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   /* Added to Fix Footer to bottom of viewport */
-  html, body {
+  html,
+  body {
     height: 100%;
   }
   .siteRoot {
@@ -47,8 +115,17 @@ const GlobalStyle = createGlobalStyle`
 
   /* End Fix to Place Footer on Bottom of Viewport */
 
-  article, aside, details, figcaption, figure,
-  footer, header, hgroup, menu, nav, section {
+  article,
+  aside,
+  details,
+  figcaption,
+  figure,
+  footer,
+  header,
+  hgroup,
+  menu,
+  nav,
+  section {
     display: block;
   }
 
@@ -59,16 +136,21 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  ol, ul, li {
+  ol,
+  ul,
+  li {
     list-style: none;
   }
 
-  blockquote, q {
+  blockquote,
+  q {
     quotes: none;
   }
 
-  blockquote::before, blockquote::after,
-  q::before, q::after {
+  blockquote::before,
+  blockquote::after,
+  q::before,
+  q::after {
     content: '';
     content: none;
   }
@@ -88,15 +170,17 @@ const GlobalStyle = createGlobalStyle`
     font-size: 100%;
     font-variant-ligatures: none;
     text-rendering: optimizeLegibility;
-    text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+    text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
     font-weight: 400;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+      Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+      'Segoe UI Symbol';
   }
 
   img {
     display: block;
-  	width: 100%;
-  	height: auto;
+    width: 100%;
+    height: auto;
   }
 
   button,
@@ -117,4 +201,3 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 `
-export default GlobalStyle

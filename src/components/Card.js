@@ -37,6 +37,11 @@ const Post = styled.li`
   }
 `
 
+const StyledImg = styled(Img)`
+  border-top-left-radius: 1px;
+  border-top-right-radius: 1px;
+`
+
 const Title = styled.h2`
   font-size: 1.5em;
   font-weight: 600;
@@ -73,7 +78,7 @@ const Card = ({
   return (
     <Post featured={props.featured}>
       <Link to={`/${slug}/`}>
-        <Img fluid={heroImage.fluid} backgroundColor={'#eeeeee'} />
+        <StyledImg fluid={heroImage.fluid} backgroundColor={'#eeeeee'} />
         <Title>{title}</Title>
         <Date>{publishDate}</Date>
         <ReadingTime>{timeToRead} min read</ReadingTime>

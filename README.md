@@ -51,37 +51,40 @@ gatsby new gatsby-starter-gcn https://github.com/ryanwiemer/gatsby-starter-gcn.g
 
 ### Website Data
 
-Edit [`/src/utils/siteConfig.js`](https://github.com/ryanwiemer/gatsby-starter-gcn/blob/master/src/utils/siteConfig.js)
+Edit siteMeta data in [`/src/gatsby-config.js`](https://github.com/ryanwiemer/gatsby-starter-gcn/blob/master/src/gatsby-config.js)
 
 ```js
-module.exports = {
-  siteTitle: 'GCN',
-  siteTitleAlt: 'GCN Gatsby Starter',
-  publisher: 'Publisher named GCN',
-  siteDescription:
-    'A starter template to build amazing static websites with Gatsby, Contentful and Netlify',
-  siteUrl: 'https://gcn.netlify.com',
-  postsPerHomePage: 7,
-  postsPerPage: 6,
-  author: 'GCN User',
-  authorUrl: 'https://gcn.netlify.com/about/',
-  userTwitter: '@twitter',
-  shortTitle: 'GCN App',
-  shareImage: '/logos/share.jpg',
-  shareImageWidth: 900,
-  shareImageHeight: 600,
-  siteLogo: '/logos/logo-512.png',
-  backgroundColor: '#e9e9e9',
-  themeColor: '#121212',
-  copyright: 'Copyright © 2018 GCN User',
-}
+  siteMetadata: {
+    title: 'GCN', // Title of the website
+    description: // Description of the website
+      'A starter template to build amazing static websites with Gatsby, Contentful and Netlify',
+    siteUrl: 'https://gcn.netlify.com', // Website URL. Do not include trailing slash
+    twitter: '', // Author's twitter username for SEO
+    image: '/images/share.jpg', // Path to default image for SEO
+    menuLinks: [ // The links used in the top menu
+      {
+        name: 'Home',
+        slug: '/',
+      },
+      {
+        name: 'About',
+        slug: '/about/',
+      },
+      {
+        name: 'Contact',
+        slug: '/contact/',
+      },
+    ],
+    postsPerHomepage: 7, // Number of posts on the homepage
+    postsPerPage: 6, // Number of posts used on any other pagination
+  }
 ```
 
 **Note:** If you do not see your changes reflected when developing locally you may need to run `yarn run clean` and restart the development server.
 
 ### Theme UI
 
-Edit [`/src/styles/theme.js`](https://github.com/ryanwiemer/gatsby-starter-gcn/blob/master/src/gatsby-plugin-them-ui/index.js)
+Edit [`/src/gatsby-plugin-theme-ui/index.js`](https://github.com/ryanwiemer/gatsby-starter-gcn/blob/master/src/gatsby-plugin-them-ui/index.js)
 
 ```js
 export default {

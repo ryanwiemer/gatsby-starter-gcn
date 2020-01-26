@@ -6,6 +6,7 @@ import Footer from '../components/Footer'
 import { globalStyles } from '../styles/globalStyles.js'
 
 const Root = styled.div`
+  background: white;
   font-family: ${props => props.theme.fonts.body};
 `
 

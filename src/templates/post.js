@@ -23,6 +23,13 @@ const PostTemplate = ({ data, pageContext }) => {
   const previous = pageContext.prev
   const next = pageContext.next
 
+  let ogImage
+  try {
+    ogImage = heroImage.ogimg.src
+  } catch (error) {
+    ogImage = null
+  }
+
   return (
     <Layout>
       <SEO
@@ -33,7 +40,7 @@ const PostTemplate = ({ data, pageContext }) => {
             : body.childMarkdownRemark.excerpt
         }
         slug={slug}
-        image={heroImage.ogimg.src}
+        image={ogImage}
       />
       <Hero title={title} image={heroImage} height={'50vh'} />
       <Container>

@@ -9,9 +9,15 @@ import SEO from '../components/SEO'
 
 const Posts = ({ data, pageContext }) => {
   const posts = data.allContentfulPost.edges
-  const featuredPost = posts[0].node
   const { humanPageNumber } = pageContext
   const isFirstPage = humanPageNumber === 1
+  let featuredPost
+
+  try {
+    featuredPost = posts[0].node
+  } catch (error) {
+    featuredPost = null
+  }
 
   return (
     <Layout>

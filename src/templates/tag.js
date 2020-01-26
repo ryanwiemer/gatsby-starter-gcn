@@ -27,12 +27,7 @@ const TagTemplate = ({ data, pageContext }) => {
   return (
     <>
       <Layout>
-        <SEO
-          title={title}
-          description={title}
-          slug={slug}
-          image={posts[0].heroImage.ogimg.src}
-        />
+        <SEO title={title} description={title} slug={slug} />
         <Container>
           <PageTitle small>
             {numberOfPosts} Posts Tagged: &ldquo;

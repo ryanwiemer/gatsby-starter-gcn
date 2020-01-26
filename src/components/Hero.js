@@ -1,26 +1,19 @@
 import React from 'react'
 import Img from 'gatsby-image'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 const Wrapper = styled.section`
   position: relative;
-  min-height: 300px;
-`
-const BgImg = styled(Img)`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: -1;
   min-height: 300px;
   height: auto;
   @media (min-width: ${props => props.theme.responsive.small}) {
     height: ${props => props.height || 'auto'};
   }
-  & > img {
-    object-fit: ${props => props.fit || 'cover'} !important;
-    object-position: ${props => props.position || '50% 50%'} !important;
-  }
+`
+const BgImg = styled(Img)`
+  position: absolute;
+  width: 100%;
+  height: 100%;
   &::before {
     content: '';
     background: rgba(0, 0, 0, 0.25);
@@ -36,6 +29,7 @@ const BgImg = styled(Img)`
 `
 
 const Title = styled.h1`
+  z-index: 2;
   font-size: 3em;
   text-transform: capitalize;
   font-weight: 600;
@@ -51,12 +45,8 @@ const Title = styled.h1`
 `
 
 const Hero = props => (
-  <Wrapper>
-    <BgImg
-      height={props.height}
-      fluid={props.image.fluid}
-      backgroundColor={'#eeeeee'}
-    />
+  <Wrapper height={props.height}>
+    <BgImg fluid={props.image.fluid} backgroundColor={'#eeeeee'} />
     <Title>{props.title}</Title>
   </Wrapper>
 )

@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
+import { useSiteMetadata } from '../hooks/use-site-metadata'
 
 const Header = styled.header`
-  background: ${props => props.theme.colors.base};
+  background: ${props => props.theme.colors.primary};
   width: 100%;
   padding: 1.5em 0;
 `
@@ -21,7 +22,7 @@ const Nav = styled.nav`
   li {
     display: inline-block;
     margin-left: 1em;
-    &:first-child {
+    &:first-of-type {
       position: relative;
       margin: 0;
       flex-basis: 100%;
@@ -33,7 +34,7 @@ const Nav = styled.nav`
     color: DarkGray;
     font-weight: 600;
     transition: all 0.2s;
-    border-bottom: 2px solid ${props => props.theme.colors.base};
+    border-bottom: 2px solid ${props => props.theme.colors.text};
     &:hover {
       color: white;
     }
@@ -45,25 +46,18 @@ const activeLinkStyle = {
 }
 
 const Menu = () => {
+  const { menuLinks } = useSiteMetadata()
   return (
     <Header>
       <Nav>
         <ul>
-          <li>
-            <Link to="/" activeStyle={activeLinkStyle}>
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/about/" activeStyle={activeLinkStyle}>
-              About
-            </Link>
-          </li>
-          <li>
-            <Link to="/contact/" activeStyle={activeLinkStyle}>
-              Contact
-            </Link>
-          </li>
+          {menuLinks.map(link => (
+            <li key={link.name}>
+              <Link to={link.slug} activeStyle={activeLinkStyle}>
+                {link.name}
+              </Link>
+            </li>
+          ))}
         </ul>
       </Nav>
     </Header>

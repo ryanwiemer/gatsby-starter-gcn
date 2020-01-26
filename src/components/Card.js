@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 
@@ -25,7 +25,7 @@ const Post = styled.li`
     flex-flow: column;
     height: 100%;
     width: 100%;
-    color: ${props => props.theme.colors.base};
+    color: ${props => props.theme.colors.text};
     text-decoration: none;
     .gatsby-image-wrapper {
       height: 0;
@@ -35,6 +35,11 @@ const Post = styled.li`
       }
     }
   }
+`
+
+const StyledImg = styled(Img)`
+  border-top-left-radius: 1px;
+  border-top-right-radius: 1px;
 `
 
 const Title = styled.h2`
@@ -73,7 +78,7 @@ const Card = ({
   return (
     <Post featured={props.featured}>
       <Link to={`/${slug}/`}>
-        <Img fluid={heroImage.fluid} backgroundColor={'#eeeeee'} />
+        <StyledImg fluid={heroImage.fluid} backgroundColor={'#eeeeee'} />
         <Title>{title}</Title>
         <Date>{publishDate}</Date>
         <ReadingTime>{timeToRead} min read</ReadingTime>

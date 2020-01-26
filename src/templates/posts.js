@@ -3,26 +3,19 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import CardList from '../components/CardList'
 import Card from '../components/Card'
-import Helmet from 'react-helmet'
 import Container from '../components/Container'
 import Pagination from '../components/Pagination'
 import SEO from '../components/SEO'
-import config from '../utils/siteConfig'
 
-const Index = ({ data, pageContext }) => {
+const Posts = ({ data, pageContext }) => {
   const posts = data.allContentfulPost.edges
   const featuredPost = posts[0].node
-  const { currentPage } = pageContext
-  const isFirstPage = currentPage === 1
+  const { humanPageNumber } = pageContext
+  const isFirstPage = humanPageNumber === 1
 
   return (
     <Layout>
-      <SEO />
-      {!isFirstPage && (
-        <Helmet>
-          <title>{`${config.siteTitle} - Page ${currentPage}`}</title>
-        </Helmet>
-      )}
+      <SEO title="Home" />
       <Container>
         {isFirstPage ? (
           <CardList>
@@ -76,4 +69,4 @@ export const query = graphql`
   }
 `
 
-export default Index
+export default Posts

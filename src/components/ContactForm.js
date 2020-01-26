@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 /*
   ⚠️ This is an example of a contact form powered with Netlify form handling.
@@ -19,10 +19,8 @@ const Form = styled.form`
   textarea {
     font-family: inherit;
     font-size: inherit;
-    border: none;
-    outline: none;
     background: ${props => props.theme.colors.tertiary};
-    color: ${props => props.theme.colors.base};
+    color: ${props => props.theme.colors.text};
     border-radius: 2px;
     padding: 1em;
     &::-webkit-input-placeholder {
@@ -39,9 +37,6 @@ const Form = styled.form`
     }
     &:required {
       box-shadow: none;
-    }
-    &:focus {
-      outline: none;
     }
   }
   &::before {
@@ -84,7 +79,7 @@ const Message = styled.textarea`
 `
 
 const Submit = styled.input`
-  background: ${props => props.theme.colors.base} !important;
+  background: ${props => props.theme.colors.text} !important;
   color: white !important;
   cursor: pointer;
   transition: 0.2s;
@@ -121,7 +116,7 @@ const Modal = styled.div`
 `
 
 const Button = styled.div`
-  background: ${props => props.theme.colors.base};
+  background: ${props => props.theme.colors.text};
   font-size: 1em;
   display: inline-block;
   margin: 0 auto;

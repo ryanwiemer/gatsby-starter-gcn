@@ -12,7 +12,7 @@ import SEO from '../components/SEO'
 const PostTemplate = ({ data, pageContext }) => {
   const {
     title,
-    description,
+    metaDescription,
     slug,
     heroImage,
     body,
@@ -27,7 +27,11 @@ const PostTemplate = ({ data, pageContext }) => {
     <Layout>
       <SEO
         title={title}
-        description={description}
+        description={
+          metaDescription
+            ? metaDescription.internal.content
+            : body.childMarkdownRemark.excerpt
+        }
         slug={slug}
         image={heroImage.ogimg.src}
       />

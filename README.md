@@ -115,7 +115,7 @@ export default {
 ### Content and SEO
 
 1.  You can replace the `share.jpg` and `favicon.png` files in the `static/images` directory.
-2.  Meta descriptions are defined in Contentful. If you choose to leave this field blank on new posts a 320 character excerpt of the post/page will be used.
+2.  Meta descriptions are defined in Contentful. If you choose to leave this field blank on new posts a 320 character excerpt of the post/page will be used instead.
 
 ## Deployment
 

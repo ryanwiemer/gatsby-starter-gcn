@@ -37,7 +37,7 @@ const Layout = props => {
   useEffect(() => window.addEventListener('keydown', handleFirstTab), [])
 
   return (
-    <Root>
+    <Root className="siteRoot">
       <div className="siteContent">
         <Skip href="#main" id="skip-navigation">
           Skip to content

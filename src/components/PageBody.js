@@ -5,7 +5,6 @@ require('prismjs/themes/prism.css')
 const Body = styled.div`
   margin: 0 auto;
   max-width: ${props => props.theme.sizes.maxWidthCentered};
-
   h1,
   h2,
   h3 {
@@ -32,7 +31,7 @@ const Body = styled.div`
 
   a {
     transition: 0.2s;
-    color: ${props => props.theme.colors.base};
+    color: ${props => props.theme.colors.text};
     &:hover {
       color: ${props => props.theme.colors.highlight};
     }

@@ -25,7 +25,7 @@ const Post = styled.li`
     flex-flow: column;
     height: 100%;
     width: 100%;
-    color: ${props => props.theme.colors.base};
+    color: ${props => props.theme.colors.text};
     text-decoration: none;
     .gatsby-image-wrapper {
       height: 0;

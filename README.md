@@ -8,15 +8,13 @@ A starter template to build amazing static websites with Gatsby, Contentful and 
 - Netlify integration including a pre-built contact form
 - Minimal responsive design - made to customize or tear apart
 - Pagination logic
-- Styled components
+- Theme UI
 - SEO Friendly Component
-  - JSON-LD Schema
   - OpenGraph sharing support
   - Sitemap Generation
 - Google Analytics
 - Progressive Web app
 - Offline Support
-- RSS Feed
 - [Gatsby Standard module](https://www.npmjs.com/package/eslint-config-gatsby-standard) for linting Javascript with StandardJS
 - Stylelint support for Styled Components to lint the CSS in JS
 
@@ -32,7 +30,7 @@ https://gcn.netlify.com/
 
 ```
 git clone https://github.com/ryanwiemer/gatsby-starter-gcn.git
-npm i
+yarn insall
 ```
 
 Or via the [Gatsby CLI](https://www.npmjs.com/package/gatsby-cli)
@@ -45,7 +43,7 @@ gatsby new gatsby-starter-gcn https://github.com/ryanwiemer/gatsby-starter-gcn.g
 
 1.  [Sign up](https://www.contentful.com/sign-up/) for Contentful and create a new empty space
 
-2.  `npm run setup`
+2.  `yarn run setup`
 
 3.  Enter in the requested info for your Contentful space found here: **app.contentful.com** → **Space Settings** → **API keys**. You will need to provide both a standard API key (first tab) and a management key (second tab).
 
@@ -79,22 +77,26 @@ module.exports = {
 }
 ```
 
-**Note:** If you do not see your changes reflected when developing locally you may need to run `npm run clean` and restart the development server.
+**Note:** If you do not see your changes reflected when developing locally you may need to run `yarn run clean` and restart the development server.
 
-### Theme
+### Theme UI
 
-Edit [`/src/styles/theme.js`](https://github.com/ryanwiemer/gatsby-starter-gcn/blob/master/src/styles/theme.js)
+Edit [`/src/styles/theme.js`](https://github.com/ryanwiemer/gatsby-starter-gcn/blob/master/src/gatsby-plugin-them-ui/index.js)
 
 ```js
-const theme = {
+export default {
   colors: {
     base: '#121212',
     secondary: '#e9e9e9',
     tertiary: '#f3f3f3',
     highlight: '#5b8bf7',
   },
+  fonts: {
+    body:
+      '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+  },
   sizes: {
-    maxWidth: '1200px',
+    maxWidth: '1050px',
     maxWidthCentered: '650px',
   },
   responsive: {
@@ -107,14 +109,13 @@ const theme = {
 
 ### Using Gatsby Standard
 
-1.  Quickly check your code for errors with the `npm test` script
+1.  Quickly check your code for errors with the `yarn test` script
 2.  You can view the [Gatsby Standard README](https://github.com/brandonkal/eslint-config-gatsby-standard) for details on how to integrate this project's included Gatsby Standard, Stylelint, and Prettier modules into your text editor
 
 ### Content and SEO
 
-1.  You can replace the `share.jpg` and `logo-512` files in the `static/logos` directory. After replacing these files ensure that you edit the image size dimensions specified in `/src/utils/siteConfig.js`
+1.  You can replace the `share.jpg` and `favicon.png` files in the `static/images` directory.
 2.  Meta descriptions are defined in Contentful. If you choose to leave this field blank on new posts a 320 character excerpt of the post/page will be used.
-3.  **IMPORTANT:** Be sure to manually enter at least one meta description on a page and post in Contentful or the site will fail to build.
 
 ## Deployment
 
@@ -167,8 +168,5 @@ GOOGLE_ANALYTICS
 
 ## Useful Tips
 
-- If you make edits to your Contentful space while running `gatsby develop` you will need to stop it and rerun the command to see the changes reflected. For example a new post or page will not automatically show up until the website has been rebuilt.
-- The template assumes you have at least **one page**, **one post** and **one tag** in Contentful. If you do not the website will fail to build.
-- The SEO component assumes you have entered at least one meta description in Contentful for a post and one for a page. If you do not the website will fail to build. See the Content and SEO section above.
+- If you make edits to your Contentful space while running `yarn develop` you will need to stop it and rerun the command to see the changes reflected. For example a new post or page will not automatically show up until the website has been rebuilt.
 - **DO NOT** store your Contentful access tokens or space ids anywhere in GitHub. Treat them like passwords.
-- **Yarn Users:** remove the `yarn*` line from the `.gitignore` file to avoid discrepancies in the Netlify deploy.

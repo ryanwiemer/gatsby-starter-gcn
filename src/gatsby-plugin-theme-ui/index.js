@@ -1,9 +1,9 @@
 export default {
   colors: {
-    base: '#121212', // Black
-    secondary: '#e9e9e9', // Medium Gray
-    tertiary: '#f3f3f3', // Light Gray
-    highlight: '#5b8bf7', // Light Blue
+    base: '#121212',
+    secondary: '#e9e9e9',
+    tertiary: '#f3f3f3',
+    highlight: '#5b8bf7',
   },
   fonts: {
     body:

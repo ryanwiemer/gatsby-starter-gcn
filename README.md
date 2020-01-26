@@ -30,7 +30,7 @@ https://gcn.netlify.com/
 
 ```
 git clone https://github.com/ryanwiemer/gatsby-starter-gcn.git
-yarn insall
+yarn install
 ```
 
 Or via the [Gatsby CLI](https://www.npmjs.com/package/gatsby-cli)

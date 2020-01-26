@@ -89,7 +89,8 @@ Edit [`/src/gatsby-plugin-theme-ui/index.js`](https://github.com/ryanwiemer/gats
 ```js
 export default {
   colors: {
-    base: '#121212',
+    background: '#ffffff',
+    text: '#121212',
     secondary: '#e9e9e9',
     tertiary: '#f3f3f3',
     highlight: '#5b8bf7',

@@ -56,7 +56,7 @@ module.exports = async ({ graphql, actions }) => {
     paginate({
       createPage,
       component: path.resolve(`./src/templates/tag.js`),
-      items: tag.node.post,
+      items: tag.node.post || [],
       itemsPerPage: config.siteMetadata.postsPerPage,
       pathPrefix: `tag/${tag.node.slug}`,
       context: {

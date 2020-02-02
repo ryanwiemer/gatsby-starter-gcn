@@ -66,6 +66,9 @@ const Select = styled.select`
   bottom: 0;
   top: 0;
   color: transparent;
+  option {
+    color: black;
+  }
 `
 
 const Pagination = props => {

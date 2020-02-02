@@ -37,8 +37,8 @@ module.exports = {
         slug: '/contact/',
       },
     ],
-    postsPerHomepage: 3,
-    postsPerPage: 2,
+    postsPerHomepage: 7,
+    postsPerPage: 6,
   },
   plugins: [
     `gatsby-plugin-emotion`,

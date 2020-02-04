@@ -64,12 +64,20 @@ const Excerpt = styled.p`
   line-height: 1.6;
 `
 
-const Card = ({ slug, heroImage, title, publishDate, body, ...props }) => {
+const Card = ({
+  slug,
+  heroImage,
+  title,
+  publishDate,
+  body,
+  basePath,
+  ...props
+}) => {
   return (
     <>
       {heroImage && body && (
         <Post featured={props.featured}>
-          <Link to={`/${slug}/`}>
+          <Link to={`${basePath}/${slug}/`}>
             <StyledImg fluid={heroImage.fluid} backgroundColor={'#eeeeee'} />
             <Title>{title}</Title>
             <Date>{publishDate}</Date>

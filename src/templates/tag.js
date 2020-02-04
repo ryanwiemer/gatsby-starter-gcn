@@ -47,7 +47,7 @@ const TagTemplate = ({ data, pageContext }) => {
           </PageTitle>
           <CardList>
             {posts.slice(skip, limit * humanPageNumber).map(post => (
-              <Card {...post} key={post.id} />
+              <Card {...post} key={post.id} basePath={pageContext.basePath} />
             ))}
           </CardList>
         </Container>

@@ -75,8 +75,8 @@ const Pagination = props => {
   function changePage(e) {
     navigate(
       e.target.value
-        ? `${props.context.paginationPrefix}/${e.target.value}`
-        : `${props.context.paginationPrefix}/`
+        ? `${props.context.paginationPath}/${e.target.value}`
+        : `${props.context.paginationPath}/`
     )
   }
 

@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-const SEO = ({ title, description, image, slug }) => {
+const SEO = ({ title, description, image }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -10,9 +10,8 @@ const SEO = ({ title, description, image, slug }) => {
           siteMetadata {
             title
             description
-            siteUrl
             image
-            twitter
+            siteUrl
           }
         }
       }
@@ -20,10 +19,8 @@ const SEO = ({ title, description, image, slug }) => {
   )
 
   const defaultImage = site.siteMetadata.siteUrl + site.siteMetadata.image
-  const defaultUrl = site.siteMetadata.siteUrl
   const metaDescription = description || site.siteMetadata.description
   const metaImage = image || defaultImage
-  const metaUrl = slug ? `${defaultUrl}/${slug}` : defaultUrl
 
   return (
     <Helmet
@@ -41,16 +38,11 @@ const SEO = ({ title, description, image, slug }) => {
 
       {/* OpenGraph tags */}
       <meta property="og:title" content={title} />
-      <meta property="og:url" content={metaUrl} />
       <meta property="og:image" content={metaImage} />
       <meta property="og:description" content={metaDescription} />
 
       {/* Twitter Card tags */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta
-        name="twitter:creator"
-        content={site.siteMetadata.twitter ? site.siteMetadata.twitter : ''}
-      />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:image" content={metaImage} />
       <meta name="twitter:description" content={metaDescription} />

@@ -6,22 +6,29 @@ import Card from '../components/Card'
 import Container from '../components/Container'
 import Pagination from '../components/Pagination'
 import SEO from '../components/SEO'
+// import { startCase } from 'lodash'
 
 const Posts = ({ data, pageContext }) => {
   const posts = data.allContentfulPost.edges
   const { humanPageNumber } = pageContext
   const isFirstPage = humanPageNumber === 1
   let featuredPost
+  let ogImage
 
   try {
     featuredPost = posts[0].node
   } catch (error) {
     featuredPost = null
   }
+  try {
+    ogImage = posts[0].node.heroImage.ogimg.src
+  } catch (error) {
+    ogImage = null
+  }
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title={'Home'} image={ogImage} />
       <Container>
         {isFirstPage ? (
           <CardList>
@@ -60,6 +67,9 @@ export const query = graphql`
             title
             fluid(maxWidth: 1800) {
               ...GatsbyContentfulFluid_withWebp_noBase64
+            }
+            ogimg: resize(width: 1800) {
+              src
             }
           }
           body {

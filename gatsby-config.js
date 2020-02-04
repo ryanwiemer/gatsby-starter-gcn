@@ -21,7 +21,6 @@ module.exports = {
     description:
       'A starter template to build amazing static websites with Gatsby, Contentful and Netlify',
     siteUrl: 'https://gcn.netlify.com',
-    twitter: '',
     image: '/images/share.jpg',
     menuLinks: [
       {

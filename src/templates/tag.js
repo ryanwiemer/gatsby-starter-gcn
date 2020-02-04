@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import orderBy from 'lodash/orderBy'
+import { startCase, orderBy } from 'lodash'
 import SEO from '../components/SEO'
 import moment from 'moment'
 import Layout from '../components/Layout'
@@ -18,16 +18,27 @@ const TagTemplate = ({ data, pageContext }) => {
     ['desc']
   )
 
-  const { title, slug } = data.contentfulTag
+  const { title } = data.contentfulTag
   const numberOfPosts = posts.length
   const skip = pageContext.skip
   const limit = pageContext.limit
   const { humanPageNumber } = pageContext
 
+  let ogImage
+  try {
+    ogImage = posts[0].heroImage.ogimg.src
+  } catch (error) {
+    ogImage = null
+  }
+
   return (
     <>
       <Layout>
-        <SEO title={title} description={title} slug={`tag/${slug}`} />
+        <SEO
+          title={`Tag: ${startCase(title)}`}
+          description={`Posts Tagged: ${startCase(title)}`}
+          image={ogImage}
+        />
         <Container>
           <PageTitle small>
             {numberOfPosts} Posts Tagged: &ldquo;
@@ -65,8 +76,6 @@ export const query = graphql`
           }
           ogimg: resize(width: 1800) {
             src
-            width
-            height
           }
         }
         body {

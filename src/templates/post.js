@@ -13,7 +13,6 @@ const PostTemplate = ({ data, pageContext }) => {
   const {
     title,
     metaDescription,
-    slug,
     heroImage,
     body,
     publishDate,
@@ -39,7 +38,6 @@ const PostTemplate = ({ data, pageContext }) => {
             ? metaDescription.internal.content
             : body.childMarkdownRemark.excerpt
         }
-        slug={slug}
         image={ogImage}
       />
       <Hero title={title} image={heroImage} height={'50vh'} />
@@ -80,8 +78,6 @@ export const query = graphql`
         }
         ogimg: resize(width: 1800) {
           src
-          width
-          height
         }
       }
       body {

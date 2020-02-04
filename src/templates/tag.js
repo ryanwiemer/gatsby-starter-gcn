@@ -22,7 +22,7 @@ const TagTemplate = ({ data, pageContext }) => {
   const numberOfPosts = posts.length
   const skip = pageContext.skip
   const limit = pageContext.limit
-  const { humanPageNumber } = pageContext
+  const { humanPageNumber, basePath } = pageContext
 
   let ogImage
   try {
@@ -47,7 +47,7 @@ const TagTemplate = ({ data, pageContext }) => {
           </PageTitle>
           <CardList>
             {posts.slice(skip, limit * humanPageNumber).map(post => (
-              <Card {...post} key={post.id} basePath={pageContext.basePath} />
+              <Card {...post} key={post.id} basePath={basePath} />
             ))}
           </CardList>
         </Container>

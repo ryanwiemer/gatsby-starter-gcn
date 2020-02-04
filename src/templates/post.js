@@ -21,6 +21,7 @@ const PostTemplate = ({ data, pageContext }) => {
 
   const previous = pageContext.prev
   const next = pageContext.next
+  const { basePath } = pageContext
 
   let ogImage
   try {
@@ -42,18 +43,14 @@ const PostTemplate = ({ data, pageContext }) => {
       />
       <Hero title={title} image={heroImage} height={'50vh'} />
       <Container>
-        {tags && <TagList tags={tags} basePath={pageContext.basePath} />}
+        {tags && <TagList tags={tags} basePath={basePath} />}
         <PostDetails
           date={publishDate}
           timeToRead={body.childMarkdownRemark.timeToRead}
         />
         <PageBody body={body} />
       </Container>
-      <PostLinks
-        previous={previous}
-        next={next}
-        basePath={pageContext.basePath}
-      />
+      <PostLinks previous={previous} next={next} basePath={basePath} />
     </Layout>
   )
 }

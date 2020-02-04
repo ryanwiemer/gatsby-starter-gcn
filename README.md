@@ -59,7 +59,6 @@ Edit siteMeta data in [`/src/gatsby-config.js`](https://github.com/ryanwiemer/ga
     description: // Description of the website
       'A starter template to build amazing static websites with Gatsby, Contentful and Netlify',
     siteUrl: 'https://gcn.netlify.com', // Website URL. Do not include trailing slash
-    twitter: '', // Author's twitter username for SEO
     image: '/images/share.jpg', // Path to default image for SEO
     menuLinks: [ // The links used in the top menu
       {
@@ -75,8 +74,9 @@ Edit siteMeta data in [`/src/gatsby-config.js`](https://github.com/ryanwiemer/ga
         slug: '/contact/',
       },
     ],
-    postsPerHomepage: 7, // Number of posts on the homepage
-    postsPerPage: 6, // Number of posts used on any other pagination
+    postsPerFirstPage: 7, // Number of posts on the first page of the "posts" page
+    postsPerPage: 6, // Number of posts used on all other pagination
+    basePath: '/', // Root URL for all posts and tags. Pages will not use the basePath.
   }
 ```
 

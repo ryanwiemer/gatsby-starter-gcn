@@ -7,7 +7,7 @@ import PageBody from '../components/PageBody'
 import SEO from '../components/SEO'
 
 const PageTemplate = ({ data }) => {
-  const { title, metaDescription, slug, body } = data.contentfulPage
+  const { title, metaDescription, body } = data.contentfulPage
   return (
     <Layout>
       <SEO
@@ -17,7 +17,6 @@ const PageTemplate = ({ data }) => {
             ? metaDescription.internal.content
             : body.childMarkdownRemark.excerpt
         }
-        slug={slug}
       />
       <Container>
         <PageTitle>{title}</PageTitle>

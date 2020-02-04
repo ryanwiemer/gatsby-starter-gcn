@@ -9,7 +9,6 @@ export const useSiteMetadata = () => {
             title
             description
             siteUrl
-            twitter
             image
             menuLinks {
               name

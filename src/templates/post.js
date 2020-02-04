@@ -13,7 +13,6 @@ const PostTemplate = ({ data, pageContext }) => {
   const {
     title,
     metaDescription,
-    slug,
     heroImage,
     body,
     publishDate,
@@ -22,6 +21,7 @@ const PostTemplate = ({ data, pageContext }) => {
 
   const previous = pageContext.prev
   const next = pageContext.next
+  const { basePath } = pageContext
 
   let ogImage
   try {
@@ -39,19 +39,18 @@ const PostTemplate = ({ data, pageContext }) => {
             ? metaDescription.internal.content
             : body.childMarkdownRemark.excerpt
         }
-        slug={slug}
         image={ogImage}
       />
       <Hero title={title} image={heroImage} height={'50vh'} />
       <Container>
-        {tags && <TagList tags={tags} />}
+        {tags && <TagList tags={tags} basePath={basePath} />}
         <PostDetails
           date={publishDate}
           timeToRead={body.childMarkdownRemark.timeToRead}
         />
         <PageBody body={body} />
       </Container>
-      <PostLinks previous={previous} next={next} />
+      <PostLinks previous={previous} next={next} basePath={basePath} />
     </Layout>
   )
 }
@@ -80,8 +79,6 @@ export const query = graphql`
         }
         ogimg: resize(width: 1800) {
           src
-          width
-          height
         }
       }
       body {

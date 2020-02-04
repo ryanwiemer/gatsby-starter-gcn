@@ -59,7 +59,6 @@ Edit siteMeta data in [`/src/gatsby-config.js`](https://github.com/ryanwiemer/ga
     description: // Description of the website
       'A starter template to build amazing static websites with Gatsby, Contentful and Netlify',
     siteUrl: 'https://gcn.netlify.com', // Website URL. Do not include trailing slash
-    twitter: '', // Author's twitter username for SEO
     image: '/images/share.jpg', // Path to default image for SEO
     menuLinks: [ // The links used in the top menu
       {
@@ -75,12 +74,20 @@ Edit siteMeta data in [`/src/gatsby-config.js`](https://github.com/ryanwiemer/ga
         slug: '/contact/',
       },
     ],
-    postsPerHomepage: 7, // Number of posts on the homepage
-    postsPerPage: 6, // Number of posts used on any other pagination
+    postsPerFirstPage: 7, // Number of posts on the first page
+    postsPerPage: 6, // Number of posts used on all other pages
+    /*
+      Root URL for posts and tags
+      For example: 'blog' will result in:
+        - www.example.com/blog/
+        - www.example.com/blog/post-name/
+        - www.example.com/blog/tag/tag-name/
+    */
+    basePath: '/', // Defaults to the homepage
   }
 ```
 
-**Note:** If you do not see your changes reflected when developing locally you may need to run `yarn run clean` and restart the development server.
+**Note:** If you do not see your changes reflected when developing locally you may need to run `yarn clean` followed by restarting the server via `yarn develop`.
 
 ### Theme UI
 

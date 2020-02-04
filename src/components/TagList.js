@@ -32,7 +32,7 @@ const TagList = props => {
     <List>
       {props.tags.map(tag => (
         <Tag key={tag.id}>
-          <Link to={`/tag/${tag.slug}/`}>{tag.title}</Link>
+          <Link to={`${props.basePath}/tag/${tag.slug}/`}>{tag.title}</Link>
         </Tag>
       ))}
     </List>

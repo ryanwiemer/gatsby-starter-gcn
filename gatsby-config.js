@@ -21,7 +21,6 @@ module.exports = {
     description:
       'A starter template to build amazing static websites with Gatsby, Contentful and Netlify',
     siteUrl: 'https://gcn.netlify.com',
-    twitter: '',
     image: '/images/share.jpg',
     menuLinks: [
       {
@@ -37,8 +36,9 @@ module.exports = {
         slug: '/contact/',
       },
     ],
-    postsPerHomepage: 7,
+    postsPerFirstPage: 7,
     postsPerPage: 6,
+    basePath: '/',
   },
   plugins: [
     `gatsby-plugin-emotion`,

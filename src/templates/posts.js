@@ -28,7 +28,7 @@ const Posts = ({ data, pageContext }) => {
 
   return (
     <Layout>
-      <SEO title={'Home'} image={ogImage} />
+      <SEO image={ogImage} />
       <Container>
         {isFirstPage ? (
           <CardList>

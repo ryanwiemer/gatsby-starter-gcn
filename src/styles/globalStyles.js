@@ -207,4 +207,50 @@ export const globalStyles = css`
   body:not(.user-is-tabbing) a:focus {
     outline: none;
   }
+	nav a.active span {
+		visibility: visible;
+	}
+	@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+	@import url('https://fonts.googleapis.com/css?family=Play&display=swap');
+	.logoLinks .phone a{
+		padding: 0;
+		display: inline-block;
+		margin-left: 5px;
+		vertical-align: baseline;
+		border: none;
+	}
+	.logoLinks .phone a:hover{
+		border: none;
+	}
+	.logoLinks .phone {
+		margin-bottom: 5px
+	}
+	.logoLinks .adress span{
+		color: white;
+		padding: 0;
+		display: inline-block;
+		margin-left: 5px;
+		vertical-align: baseline;
+		font-family: "Ubuntu", sans-serif;
+	}
+	nav .logo:hover {
+		border-top: none!important
+	}
+	nav .logo {
+		border-top: none!important;
+		padding-top: 23px!important;
+		padding-left: 0!important;
+		margin-right:15px
+	}
+	.logoLinks {
+		align-self: center;
+		margin-top: -12px;
+		display: inline-block;
+		width: max-content;
+	}
+	.logoBlock {
+    display: flex;
+	}
+
+
 `

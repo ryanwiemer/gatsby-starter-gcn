@@ -1,5 +1,5 @@
 import React from 'react'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import styled from '@emotion/styled'
 
 const Wrapper = styled.section`
@@ -10,7 +10,7 @@ const Wrapper = styled.section`
     height: ${props => props.height || 'auto'};
   }
 `
-const BgImg = styled(Img)`
+const BgImg = styled(GatsbyImage)`
   position: absolute;
   width: 100%;
   height: 100%;
@@ -46,7 +46,7 @@ const Title = styled.h1`
 
 const Hero = props => (
   <Wrapper height={props.height}>
-    <BgImg fluid={props.image.fluid} backgroundColor={'#eeeeee'} />
+    <BgImg image={props.image.gatsbyImageData} alt={props.image.title} />
     <Title>{props.title}</Title>
   </Wrapper>
 )

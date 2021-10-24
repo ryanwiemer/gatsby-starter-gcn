@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 const Post = styled.li`
   position: relative;
@@ -37,7 +37,7 @@ const Post = styled.li`
   }
 `
 
-const StyledImg = styled(Img)`
+const StyledImg = styled(GatsbyImage)`
   border-top-left-radius: 1px;
   border-top-right-radius: 1px;
 `
@@ -70,7 +70,11 @@ const Card = ({ slug, heroImage, title, publishDate, body, ...props }) => {
       {heroImage && body && (
         <Post featured={props.featured}>
           <Link to={`${props.basePath}/${slug}/`}>
-            <StyledImg fluid={heroImage.fluid} backgroundColor={'#eeeeee'} />
+            <StyledImg
+              image={heroImage.gatsbyImageData}
+              alt={heroImage.title}
+              backgroundColor={'#eeeeee'}
+            />
             <Title>{title}</Title>
             <Date>{publishDate}</Date>
             <ReadingTime>

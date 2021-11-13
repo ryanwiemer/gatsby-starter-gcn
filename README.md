@@ -20,7 +20,7 @@ A starter template to build amazing static websites with Gatsby, Contentful and 
 
 ## Demo
 
-https://gcn.netlify.com/
+https://gcn.netlify.app/
 
 ![](screenshots/demo.jpg)
 
@@ -58,7 +58,7 @@ Edit siteMeta data in [`/src/gatsby-config.js`](https://github.com/ryanwiemer/ga
     title: 'GCN', // Title of the website
     description: // Description of the website
       'A starter template to build amazing static websites with Gatsby, Contentful and Netlify',
-    siteUrl: 'https://gcn.netlify.com', // Website URL. Do not include trailing slash
+    siteUrl: 'https://gcn.netlify.app', // Website URL. Do not include trailing slash
     image: '/images/share.jpg', // Path to default image for SEO
     menuLinks: [ // The links used in the top menu
       {
@@ -104,8 +104,7 @@ export default {
     highlight: '#5b8bf7',
   },
   fonts: {
-    body:
-      '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+    body: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
   },
   sizes: {
     maxWidth: '1050px',

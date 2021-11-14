@@ -20,7 +20,7 @@ module.exports = {
     title: 'GCN',
     description:
       'A starter template to build amazing static websites with Gatsby, Contentful and Netlify',
-    siteUrl: 'https://gcn.netlify.com',
+    siteUrl: 'https://gcn.netlify.app',
     image: '/images/share.jpg',
     menuLinks: [
       {
@@ -41,19 +41,21 @@ module.exports = {
     basePath: '/',
   },
   plugins: [
-    `gatsby-plugin-emotion`,
+    'gatsby-plugin-emotion',
     'gatsby-plugin-theme-ui',
+    'gatsby-plugin-lodash',
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-image',
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-prismjs`,
+            resolve: 'gatsby-remark-prismjs',
           },
-          `gatsby-remark-autolink-headers`,
+          'gatsby-remark-autolink-headers',
           {
-            resolve: `gatsby-remark-images-contentful`,
+            resolve: 'gatsby-remark-images-contentful',
             options: {
               maxWidth: 650,
               backgroundColor: 'white',
@@ -63,7 +65,7 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-catch-links`,
+    'gatsby-plugin-catch-links',
     {
       resolve: 'gatsby-source-contentful',
       options:
@@ -74,7 +76,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: process.env.GOOGLE_ANALYTICS,
+        trackingId: process.env.GOOGLE_ANALYTICS || 'UA-XXXXXXXX-X',
         head: true,
       },
     },

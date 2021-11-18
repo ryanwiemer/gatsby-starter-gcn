@@ -14,7 +14,7 @@ const TagTemplate = ({ data, pageContext }) => {
   const posts = orderBy(
     data.contentfulTag.post,
     // eslint-disable-next-line
-    [object => new moment(object.publishDateISO)],
+    [(object) => new moment(object.publishDateISO)],
     ['desc']
   )
 
@@ -26,7 +26,7 @@ const TagTemplate = ({ data, pageContext }) => {
 
   let ogImage
   try {
-    ogImage = posts[0].heroImage.ogimg.src
+    ogImage = posts[0].heroImage.gatsbyImageData.images.fallback.src
   } catch (error) {
     ogImage = null
   }
@@ -46,7 +46,7 @@ const TagTemplate = ({ data, pageContext }) => {
             &rdquo;
           </PageTitle>
           <CardList>
-            {posts.slice(skip, limit * humanPageNumber).map(post => (
+            {posts.slice(skip, limit * humanPageNumber).map((post) => (
               <Card {...post} key={post.id} basePath={basePath} />
             ))}
           </CardList>
@@ -58,7 +58,7 @@ const TagTemplate = ({ data, pageContext }) => {
 }
 
 export const query = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     contentfulTag(slug: { eq: $slug }) {
       title
       id
@@ -72,9 +72,6 @@ export const query = graphql`
         heroImage {
           title
           gatsbyImageData(width: 1800, placeholder: BLURRED)
-          ogimg: resize(width: 1800) {
-            src
-          }
         }
         body {
           childMarkdownRemark {

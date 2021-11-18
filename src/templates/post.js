@@ -10,14 +10,8 @@ import PostDetails from '../components/PostDetails'
 import SEO from '../components/SEO'
 
 const PostTemplate = ({ data, pageContext }) => {
-  const {
-    title,
-    metaDescription,
-    heroImage,
-    body,
-    publishDate,
-    tags,
-  } = data.contentfulPost
+  const { title, metaDescription, heroImage, body, publishDate, tags } =
+    data.contentfulPost
 
   const previous = pageContext.prev
   const next = pageContext.next
@@ -25,7 +19,7 @@ const PostTemplate = ({ data, pageContext }) => {
 
   let ogImage
   try {
-    ogImage = heroImage.ogimg.src
+    ogImage = heroImage.gatsbyImageData.images.fallback.src
   } catch (error) {
     ogImage = null
   }
@@ -56,7 +50,7 @@ const PostTemplate = ({ data, pageContext }) => {
 }
 
 export const query = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     contentfulPost(slug: { eq: $slug }) {
       title
       slug
@@ -75,9 +69,6 @@ export const query = graphql`
       heroImage {
         title
         gatsbyImageData(width: 1800, placeholder: BLURRED)
-        ogimg: resize(width: 1800) {
-          src
-        }
       }
       body {
         childMarkdownRemark {

@@ -18,7 +18,9 @@ module.exports = async ({ graphql, actions }) => {
     createPage({
       path: `${basePath === '/' ? '' : basePath}/${post.node.slug}/`,
       component: path.resolve(`./src/templates/post.js`),
+      ownerNodeId: post.node.id,
       context: {
+        id: post.node.id,
         slug: post.node.slug,
         basePath: basePath === '/' ? '' : basePath,
         prev,
@@ -72,8 +74,10 @@ module.exports = async ({ graphql, actions }) => {
     createPage({
       path: `/${page.node.slug}/`,
       component: path.resolve(`./src/templates/page.js`),
+      ownerNodeId: page.node.id,
       context: {
         slug: page.node.slug,
+        id: page.node.id,
       },
     })
   })

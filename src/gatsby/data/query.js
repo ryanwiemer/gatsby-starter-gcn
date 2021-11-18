@@ -4,6 +4,7 @@ module.exports.data = {
       edges {
         node {
           slug
+          id
           publishDate
         }
       }
@@ -14,6 +15,7 @@ module.exports.data = {
       edges {
         node {
           slug
+          id
         }
       }
     }
@@ -23,6 +25,7 @@ module.exports.data = {
       edges {
         node {
           slug
+          id
           post {
             id
           }

@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import { startCase, orderBy } from 'lodash'
 import SEO from '../components/SEO'
 import moment from 'moment'
-import Layout from '../components/Layout'
 import Card from '../components/Card'
 import CardList from '../components/CardList'
 import PageTitle from '../components/PageTitle'
@@ -33,26 +32,24 @@ const TagTemplate = ({ data, pageContext }) => {
 
   return (
     <>
-      <Layout>
-        <SEO
-          title={`Tag: ${startCase(title)}`}
-          description={`Posts Tagged: ${startCase(title)}`}
-          image={ogImage}
-        />
-        <Container>
-          <PageTitle small>
-            {numberOfPosts} Posts Tagged: &ldquo;
-            {title}
-            &rdquo;
-          </PageTitle>
-          <CardList>
-            {posts.slice(skip, limit * humanPageNumber).map((post) => (
-              <Card {...post} key={post.id} basePath={basePath} />
-            ))}
-          </CardList>
-        </Container>
-        <Pagination context={pageContext} />
-      </Layout>
+      <SEO
+        title={`Tag: ${startCase(title)}`}
+        description={`Posts Tagged: ${startCase(title)}`}
+        image={ogImage}
+      />
+      <Container>
+        <PageTitle small>
+          {numberOfPosts} Posts Tagged: &ldquo;
+          {title}
+          &rdquo;
+        </PageTitle>
+        <CardList>
+          {posts.slice(skip, limit * humanPageNumber).map((post) => (
+            <Card {...post} key={post.id} basePath={basePath} />
+          ))}
+        </CardList>
+      </Container>
+      <Pagination context={pageContext} />
     </>
   )
 }

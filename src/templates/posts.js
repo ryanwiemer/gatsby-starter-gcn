@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
 import CardList from '../components/CardList'
 import Card from '../components/Card'
 import Container from '../components/Container'
@@ -27,7 +26,7 @@ const Posts = ({ data, pageContext }) => {
   }
 
   return (
-    <Layout>
+    <>
       <SEO title={startCase(basePath)} image={ogImage} />
       <Container>
         {isFirstPage ? (
@@ -46,7 +45,7 @@ const Posts = ({ data, pageContext }) => {
         )}
       </Container>
       <Pagination context={pageContext} />
-    </Layout>
+    </>
   )
 }
 

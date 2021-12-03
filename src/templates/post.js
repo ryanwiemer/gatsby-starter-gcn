@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
 import Hero from '../components/Hero'
 import Container from '../components/Container'
 import PageBody from '../components/PageBody'
@@ -25,7 +24,7 @@ const PostTemplate = ({ data, pageContext }) => {
   }
 
   return (
-    <Layout>
+    <>
       <SEO
         title={title}
         description={
@@ -45,7 +44,7 @@ const PostTemplate = ({ data, pageContext }) => {
         <PageBody body={body} />
       </Container>
       <PostLinks previous={previous} next={next} basePath={basePath} />
-    </Layout>
+    </>
   )
 }
 

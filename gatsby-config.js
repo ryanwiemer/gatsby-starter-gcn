@@ -41,11 +41,11 @@ module.exports = {
     basePath: '/',
   },
   plugins: [
-    'gatsby-plugin-emotion',
-    'gatsby-plugin-theme-ui',
     'gatsby-plugin-lodash',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-image',
+    'gatsby-plugin-emotion',
+    'gatsby-plugin-theme-ui',
     {
       resolve: 'gatsby-transformer-remark',
       options: {

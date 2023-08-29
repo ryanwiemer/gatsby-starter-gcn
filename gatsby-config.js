@@ -17,10 +17,10 @@ try {
 
 module.exports = {
   siteMetadata: {
-    title: 'GCN',
+    title: 'Patricia Caplan',
     description:
-      'A starter template to build amazing static websites with Gatsby, Contentful and Netlify',
-    siteUrl: 'https://gcn.netlify.app',
+      'This is my professional website.',
+    siteUrl: 'https://merry-babka-218e96.netlify.app',
     image: '/images/share.jpg',
     menuLinks: [
       {
@@ -32,13 +32,16 @@ module.exports = {
         slug: '/about/',
       },
       {
+        name: 'Calendar',
+        slug: '/calendar/',
+      },
+      {
         name: 'Contact',
         slug: '/contact/',
       },
     ],
-    postsPerFirstPage: 7,
+    postsPerHomepage: 7,
     postsPerPage: 6,
-    basePath: '/',
   },
   plugins: [
     'gatsby-plugin-emotion',
@@ -84,8 +87,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'GCN',
-        short_name: 'GCN',
+        name: 'Patricia Caplan',
+        short_name: 'PC',
         start_url: '/',
         background_color: '#ffffff',
         theme_color: '#ffffff',
